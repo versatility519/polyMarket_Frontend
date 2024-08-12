@@ -1,5 +1,8 @@
 import React from "react";
-import BuySell from "./BuySell";
+import ActivityListItem from "../items/ActivityListItem";
+import TopHolderListItem from "../items/TopHolderListItem";
+import RelatedListItem from "../items/RelatedListItem";
+
 import {
     Tabs,
     TabsHeader,
@@ -7,18 +10,23 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
-const EventInfoCard = () => {
-    const [activeTab, setActiveTab] = React.useState < string > ('buy');
+const EventInfoList = () => {
+    const [activeTab, setActiveTab] = React.useState < string > ('activity');
     const data = [
         {
-            label: "Buy",
-            value: "buy",
-            desc: <BuySell activeTab={"buy"}/>,
+            label: "Activity",
+            value: "activity",
+            desc: <ActivityListItem />
         },
         {
-            label: "Sell",
-            value: "sell",
-            desc: <BuySell activeTab={"sell"} />
+            label: "Top Holders",
+            value: "topholders",
+            desc: <TopHolderListItem />
+        },
+        {
+            label: "Related",
+            value: "relate",
+            desc: <RelatedListItem />,
         },
 
     ];
@@ -37,7 +45,7 @@ const EventInfoCard = () => {
                             key={value}
                             value={value}
                             onClick={() => setActiveTab(value)}
-                            className={activeTab === value ? "border-b border-blue-700 text-gray-900" : ""}
+                            className={activeTab === value ? "border-b border-blue-700 font-semibold text-lg text-gray-900" : "font-semibold text-lg text-gray-500"}
                         >
                             {label}
                         </Tab>
@@ -55,4 +63,4 @@ const EventInfoCard = () => {
     )
 }
 
-export default EventInfoCard;
+export default EventInfoList;

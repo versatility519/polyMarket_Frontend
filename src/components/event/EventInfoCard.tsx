@@ -1,5 +1,5 @@
 import React from "react";
-import BuySell from "./BuySell";
+import BuySell from "../cards/BuySell";
 import {
     Tabs,
     TabsHeader,
@@ -7,7 +7,7 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
-const EventInfoList = () => {
+const EventInfoCard = () => {
     const [activeTab, setActiveTab] = React.useState < string > ('buy');
     const data = [
         {
@@ -55,4 +55,4 @@ const EventInfoList = () => {
     )
 }
 
-export default EventInfoList;
+export default EventInfoCard;

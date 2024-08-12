@@ -9,10 +9,10 @@ export interface BtnProps {
     className?: string,
 }
 
-// export interface YesNoProps {
-//     text?: string,
-//     price: string,
-//     icon?: ReactNode,
-//     onClick?: () => void,
-//     className?: string,
-// }
+export interface YesNoProps {
+    text?: string,
+    price: string,
+    icon?: ReactNode,
+    onClick?: () => void,
+    className?: string,
+}

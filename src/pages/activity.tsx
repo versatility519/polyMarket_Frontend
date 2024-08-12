@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import ActivityItem from "../components/items/ActivityItem";
+import ActivityListItem from "../components/items/ActivityListItem";
 import { useNavigate, } from "react-router-dom";
 import { getUsersData } from "../store/reducers/users";
 import { dispatch, useSelector } from "../store";
@@ -32,9 +32,7 @@ const Acticity = () => {
                 <div className="sm:w-full md:w-full xl:w-[50vw] flex flex-col gap-2 justify-center">
                     <p className="flex items-center px-6 text-3xl font-medium text-black"> {convertTo(pathname)} </p>
 
-                    <ActivityItem avatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" toAvatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" isBet={true} isSold={true} eventName="Will the USA win gold in the Women’s 4x100m Relay?" onClick={() => navigate("/event")} price={111} time={20} username="japensony " />
-
-                    <ActivityItem avatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" toAvatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" isBet={false} isSold={true} eventName="Will the USA win gold in the Women’s 4x100m Relay?" onClick={() => navigate("/event")}  price={111} time={20} username="japensony " />
+                    <ActivityListItem  />
 
                 </div>
             </div>

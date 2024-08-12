@@ -1,6 +1,6 @@
-import { ActivityItemProps } from "../../types/rank"
+import { ActivityListProps } from "../../types/rank"
 
-const ActivityItem: React.FC<ActivityItemProps> = ({ avatar, toAvatar, isBet, isSold, eventName, onClick, price, time, username }) => {
+const ActivityItem: React.FC<ActivityListProps> = ({ avatar, toAvatar, isBet, isSold, eventName, onClick, price, time, username }) => {
     return (
         <div className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
             <div className="flex items-center cursor-pointer" onClick={onClick}>

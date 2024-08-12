@@ -16,6 +16,7 @@ import {
     Percent,
 
 } from "lucide-react";
+import YesNoBtn from "../YesNoBtn";
 export default function BuySell(props) {
     const [orderType, setOrderType] = React.useState < string | null > ('market');
     const changeOrderType = (value: string) => {
@@ -126,8 +127,7 @@ export default function BuySell(props) {
                 </div>
             </div>
             <div className="flex w-full gap-2 py-1 justify-center">
-                <Button style={{ textTransform: "none" }}  onClick={() => { convertColor(); }} className={` w-full text-md font-semibold rounded-md py-3 ${!convertBgColor ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-600'}`} price={20} >Yes</Button>
-                <Button style={{ textTransform: "none" }}  onClick={() => { convertColor() }} className={`w-full  text-md font-semibold  rounded-md py-3 ${convertBgColor ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-600'}`} price={20} >No</Button>
+                <YesNoBtn />
             </div>
 
             {props.activeTab === "buy" ? (

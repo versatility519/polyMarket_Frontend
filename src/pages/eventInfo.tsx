@@ -7,7 +7,8 @@ import {
   TabPanel, Card, Avatar, StarIcon
 } from "@material-tailwind/react";
 import Select from "react-select";
-import EventInfoCard from "../components/cards/EventInfoCard";
+import EventInfoList from "../components/event/EventInfoList";
+import EventInfoCard from "../components/event/EventInfoCard";
 // import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import { customStyles } from "../contents/selectStyle";
@@ -24,11 +25,6 @@ import {
   Link, ChevronUp, ChevronDown,
   ChevronsLeftRight,
   Goal,
-  Shield, Settings,
-  Info,
-  RefreshCcw,
-  Plus,
-  Minus,
 } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
 import { dispatch, useSelector } from "../store";
@@ -89,11 +85,11 @@ const Profile = () => {
                     <Tooltip className="bg-gray-700 text-white px-2 py-1 rounded shadow" content="Embed" >
                       <ChevronsLeftRight className="lg:flex sm:hidden" />
                     </Tooltip>
-                    <Tooltip placement="bottom" className="bg-white text-gray-800   py-1 rounded shadow" content={
+                    <Tooltip placement="bottom" className="bg-white gap-1 text-gray-800   py-1 rounded shadow" content={
                       <div className="w-[8vw]">
                         <Typography className="gap-2 font-medium">
                           Copy Link<hr />
-                          <div>&gt16</div>
+                          <div>&gt 16</div>
                           <div>16-20</div>
                           <div>21-25</div>
                           <div>&gt 25</div>
@@ -108,11 +104,8 @@ const Profile = () => {
 
                 <div className="flex justify-end">
                   <div className="sm:w-full flex text-2xl font-bold">How many named storms during Atlantic Hurricane Season?</div>
-                  <Button
-
-                    value="editProfile"
-                    className="lg:flex sm:hidden items-center font-semibold rounded-lg gap-2 px-4 py-1"
-
+                  <Button style={{textTransform:"none"}} value="editProfile"
+                    className="lg:flex sm:hidden text-black items-center font-semibold rounded-lg gap-2 px-4 py-1"
                   ><Landmark />PloyMarket</Button>
                 </div>
               </div>
@@ -121,36 +114,37 @@ const Profile = () => {
             <div className="p-4">
               <h2 className="text-xl border-b-2 font-bold">Rules</h2>
               <div className="p-4">
-
-                <div className={`${isVisible ? 'line-clamp-1 max-w-3xl' : ' max-w-3xl'}`}>This is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visibl. ehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visible
+                <div className={`${isVisible ? 'max-w-2xl' : 'line-clamp-1  max-w-2xl'}`}>This is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visibl. ehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visible
                 </div>
-
-                {!isVisible &&
+                {isVisible &&
                   <div className=" ">
                     <div className="flex items-center border-2 px-4 py-1 mb-3  rounded-md">
                       <Goal size={32} className="bg-gray-300 p-1 rounded-full" />
-                      <div className="flex flex-col ">
+                      <div className="flex font-semibold flex-col ">
                         <p className="px-4">Resolver</p>
-                        <Button size="sm" className="text-sm border-none text-blue-600" onClick={() => { alert("Go to https://explorer-mainnet.maticvigil.com/address/") }} >
-                          0x2343234234234
-                        </Button>
+                        <p className="px-4">0x11111111111111</p>
+
                       </div>
                     </div>
 
                     <Button style={{ textTransform: "none" }} onClick={toggleVisibility}
-                      className="flex gap-2 border border-black text-black px-2 py-2 rounded-full "
+                      className="flex outline-none gap-2 border border-black text-black px-2 py-2 rounded-full "
                     >Propose resolution</Button>
                   </div>
                 }
               </div>
 
               <Button style={{ textTransform: "none" }} onClick={toggleVisibility}
-                className="flex gap-2 text-black px-2 py-1 rounded bg-grary-400 hover:bg-gray-300 transition duration-200"
+                className="flex gap-2 outline-none text-black px-3 py-2 rounded-full border bg-grary-400 hover:bg-gray-300 transition duration-200"
               >
-                {isVisible ? "View Less" : "View More"}
+                {isVisible ? "Show Less" : "Show More"}
                 {isVisible ? <ChevronUp /> : <ChevronDown />}
               </Button>
             </div>
+
+            
+            <EventInfoList />
+
 
             {/* <Tabs>
               <TabContent label="Comments">
@@ -165,7 +159,7 @@ const Profile = () => {
 
                   <div className="flex items-center gap-2 border-red-800 border-2">
                     <p className="text-gray-400 font-semibold text-base">Sort by</p>
-                    <Select
+                    <Select 
                       className="flex w-36 border-2 border-gray-400 focus-within:border-black rounded-lg "
                       value={selectedOption}
                       styles={customStyles}

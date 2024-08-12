@@ -6,14 +6,18 @@ export interface RankItemProps {
     username: string,
 }
 
-export interface ActivityItemProps {
+export interface ActivityListItemProps {
     avatar: string,
     toAvatar: string,
     isBet: boolean,
-    isSold:boolean,
+    isSold: boolean,
     eventName: string,
     onClick: () => void,
     price: number,
-    time: number,
+    laterTime: number,
+    count?: number,
     username: string,
+    position: number,
+    volume: number,
+    address: string,
 }
