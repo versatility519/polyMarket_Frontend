@@ -4,7 +4,7 @@ import {
   TabsHeader,
   TabsBody,
   Tab,
-  TabPanel,
+  TabPanel, Card, Avatar, StarIcon
 } from "@material-tailwind/react";
 import Select from "react-select";
 import EventInfoCard from "../components/cards/EventInfoCard";
@@ -70,9 +70,9 @@ const Profile = () => {
   return (
     <div className="">
       <Navbar />
-      <div className="flex mx-8 justify-center gap-4">
-        <div className="flex justify-center pt-8">
-          <div className="xl:w-[50vw] lg:w-full md:w-full sm:w-full w-full flex flex-col border-2 py-4">
+      <div className="flex mt-8 px-2  justify-center   gap-4">
+        <div>
+          <div className="lg:px-18 md:px-1 sm:px-8 w-full border-2 py-4">
             <div className="flex items-center gap-8 px-8 text-black-700">
               <img className="w-24 rounded-full" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="" />
 
@@ -109,43 +109,47 @@ const Profile = () => {
                 <div className="flex justify-end">
                   <div className="sm:w-full flex text-2xl font-bold">How many named storms during Atlantic Hurricane Season?</div>
                   <Button
-                    text="PloyMarket"
+
                     value="editProfile"
                     className="lg:flex sm:hidden items-center font-semibold rounded-lg gap-2 px-4 py-1"
-                    icon={<Landmark />}
-                  />
+
+                  ><Landmark />PloyMarket</Button>
                 </div>
               </div>
             </div>
 
             <div className="p-4">
               <h2 className="text-xl border-b-2 font-bold">Rules</h2>
+              <div className="p-4">
 
-              {!isVisible ? (
-                <p className="mt-4">This is the additional content that is revealed when you click "Show More".</p>
-              ) : (
-                <div className="gap-2">
-
-                  <p className="m-4">This is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visibl. ehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visible</p>
-
-                  <div className="flex items-center gap-3 border-2 px-2 py-2 rounded-md">
-                    <Goal className="rounded-full" />
-                    <div className="">
-                      <p>Resolvers</p>
-                      <Button text="0x2343234234234" className="text-blue-600" onClick={() => { alert("Go to https://explorer-mainnet.maticvigil.com/address/") }} />
-                    </div>
-                  </div>
-                  <Button text="Propose resolution" value="propose" onClick={() => { alert("Go to https://oracle.uma.xyz/propose?") }} className="border-2 border-gray-800 rounded-full px-2 py-1 font-semibold my-4" />
+                <div className={`${isVisible ? 'line-clamp-1 max-w-3xl' : ' max-w-3xl'}`}>This is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visibl. ehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visible
                 </div>
-              )}
 
-              <button
-                onClick={toggleVisibility}
+                {!isVisible &&
+                  <div className=" ">
+                    <div className="flex items-center border-2 px-4 py-1 mb-3  rounded-md">
+                      <Goal size={32} className="bg-gray-300 p-1 rounded-full" />
+                      <div className="flex flex-col ">
+                        <p className="px-4">Resolver</p>
+                        <Button size="sm" className="text-sm border-none text-blue-600" onClick={() => { alert("Go to https://explorer-mainnet.maticvigil.com/address/") }} >
+                          0x2343234234234
+                        </Button>
+                      </div>
+                    </div>
+
+                    <Button style={{ textTransform: "none" }} onClick={toggleVisibility}
+                      className="flex gap-2 border border-black text-black px-2 py-2 rounded-full "
+                    >Propose resolution</Button>
+                  </div>
+                }
+              </div>
+
+              <Button style={{ textTransform: "none" }} onClick={toggleVisibility}
                 className="flex gap-2 text-black px-2 py-1 rounded bg-grary-400 hover:bg-gray-300 transition duration-200"
               >
                 {isVisible ? "View Less" : "View More"}
                 {isVisible ? <ChevronUp /> : <ChevronDown />}
-              </button>
+              </Button>
             </div>
 
             {/* <Tabs>
@@ -220,16 +224,8 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* /////////////////////////////////////////////// */}
-        {/* /////////////////////////////////////////////// */}
-        {/* /////////////////////////////////////////////// */}
-        {/* /////////////////////////////////////////////// */}
-        {/* /////////////////////////////////////////////// */}
-        {/* /////////////////////////////////////////////// */}
-        {/* /////////////////////////////////////////////// */}
-
-        <div className="px-2 w-[16vw] pt-8">
-          <div className="flex-col border-2 py-4 rounded-lg">
+        <div>
+          <div className="md:block hidden border-2 py-4 rounded-lg">
             <EventInfoCard />
           </div>
         </div>

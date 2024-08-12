@@ -1,4 +1,4 @@
-const EventCard = ({}) => {
+const EventCard = ( ) => {
     return(
         <div>
 

@@ -7,7 +7,7 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
-const EventInfoCard = () => {
+const EventInfoList = () => {
     const [activeTab, setActiveTab] = React.useState < string > ('buy');
     const data = [
         {
@@ -55,4 +55,4 @@ const EventInfoCard = () => {
     )
 }
 
-export default EventInfoCard;
+export default EventInfoList;
