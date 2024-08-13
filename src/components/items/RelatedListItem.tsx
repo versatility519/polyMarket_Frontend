@@ -30,9 +30,8 @@ const RelatedListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, is
                                 </div>
                             </div>
                             <Typography className="flex gap-4 text-md font-semibold" color="blue-gray" variant="h6">
-                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-full bg-green-50 text-green-800 px-3" price={20} >{yes} ¢</Button>
-                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-full bg-orange-100 text-orange-500 px-3" price={20} >{no}¢</Button>
-
+                            <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-green-100 text-green-800 px-2" price={20} >{yes} ¢</Button>
+                            <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-orange-200 text-orange-600 px-2 " price={20} >{no}¢</Button>
                             </Typography>
                         </div>
                     ))}

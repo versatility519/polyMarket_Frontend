@@ -1,4 +1,5 @@
 import React from "react";
+import CommentListItem from "../items/CommentListItem";
 import ActivityListItem from "../items/ActivityListItem";
 import TopHolderListItem from "../items/TopHolderListItem";
 import RelatedListItem from "../items/RelatedListItem";
@@ -11,17 +12,22 @@ import {
     TabPanel,
 } from "@material-tailwind/react";
 const EventInfoList = () => {
-    const [activeTab, setActiveTab] = React.useState < string > ('activity');
+    const [activeTab, setActiveTab] = React.useState < string > ('comment');
     const data = [
         {
-            label: "Activity",
-            value: "activity",
-            desc: <ActivityListItem />
+            label: "Comments",
+            value: "comment",
+            desc: <CommentListItem />
         },
         {
             label: "Top Holders",
             value: "topholders",
             desc: <TopHolderListItem />
+        },
+        {
+            label: "Activity",
+            value: "activity",
+            desc: <ActivityListItem />
         },
         {
             label: "Related",

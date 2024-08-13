@@ -7,15 +7,17 @@ interface Option {
 }
 
 export const customStyles: StylesConfig<Option> = {
-    
+
     control: (provided) => ({
         ...provided,
-        width: '500px', // Set your desired width
-        height: '46px', // Set your desired height
+        width: '200px', // Set your desired width
+        // height: '12px', // Set your desired height
+        outline: 'none',
+        backgroundColor: 'f0f0f0',
         borderColor: 'transparent', // Remove border
         boxShadow: 'none', // Remove shadow
         '&:hover': {
-            borderColor: 'black', // Keep border transparent on hover
+            // borderColor: 'black', // Keep border transparent on hover
         },
     }),
     menu: (provided) => ({
@@ -31,5 +33,5 @@ export const customStyles: StylesConfig<Option> = {
         ...provided,
         color: 'black', // Change selected value color
     }),
-     
+
 };

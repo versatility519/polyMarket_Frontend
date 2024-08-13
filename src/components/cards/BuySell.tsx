@@ -84,10 +84,10 @@ export default function BuySell(props) {
                                 <Typography color="blue-gray">
                                     <p className="text-md font-medium py-2">Tania Andrew</p>
                                     <div className="flex justify-between border-none gap-2">
-                                        <Button value="market" className={`${orderType === 'market' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`} onClick={() => changeOrderType('market')} price={20} >Market</Button>
-                                        <Button value="limit" className={`${orderType === 'limit' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
+                                        <Button style={{textTransform:'none'}} value="market" className={`${orderType === 'market' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`} onClick={() => changeOrderType('market')} price={20} >Market</Button>
+                                        <Button style={{textTransform:'none'}} value="limit" className={`${orderType === 'limit' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
                                             onClick={() => changeOrderType('limit')} price={20} >Limit </Button>
-                                        <Button value="amm" className={`${orderType === 'amm' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
+                                        <Button style={{textTransform:'none'}}  value="amm" className={`${orderType === 'amm' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
                                             onClick={() => changeOrderType('amm')} price={20} >Amm</Button>
 
                                     </div>
@@ -113,8 +113,8 @@ export default function BuySell(props) {
                                         <Button value="one" className={`${tolerance === 'one' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
                                             onClick={() => changeTolerence('one')} price={20} >1%</Button>
 
-                                        <div className="flex w-[4vw] border rounded-md ">
-                                            <Input size="md" />
+                                        <div className="flex w-[3vw] items-center border px-1 border-black rounded-md ">
+                                            <Input className="outline-none border-none" size="md" />
                                             < Percent />
                                         </div>
 

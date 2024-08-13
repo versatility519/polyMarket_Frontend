@@ -53,17 +53,16 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
                                     <Typography className="text-sm items-center flex gap-1" variant="small" color="gray">
                                         <div className="flex items-center text-base cursor-pointer gap-2" onClick={() => navigate('/profile')}>
                                             {/* <Avatar size="sm" src={avatar} alt="eventAvatar" /> */}
-                                            <img className="w-8 rounded-full" src={toAvatar} alt="" />
+                                            {/* <img className="w-8 rounded-full" src={toAvatar} alt="" /> */}
                                             <p className=" font-semibold hover:underline underline-offset-4">
-                                                <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
-
+                                                <UserProperty toAvatar={toAvatar} username={username} address={address} position={position} volume={volume} />
                                             </p>
                                         </div>
                                         <p className="text-base">{isSold === true ? 'sold' : 'bought'}</p>
 
-                                        <p className={`${isBet === true ? 'text-green-600 font-bold' : 'text-orange-600 font-bold'}`}>
+                                        <p className={`${isBet === true ? 'text-green-600 font-bold items-center' : 'text-orange-600 font-bold items-center'}`}>
                                             {isBet ? 'Yes' : 'No'}</p>
-                                        <p className={`${isBet === true ? 'text-green-600 font-bold' : 'text-orange-600 font-bold'}`}>
+                                        <p className={`${isBet === true ? 'text-green-600 font-bold items-center' : 'text-orange-600 font-bold items-center'}`}>
                                             {count}</p>
                                         <p className=" text-base">at</p>
                                         <p className="font-semibold">{price}¢ (${(price / 110).toPrecision(5)})</p>

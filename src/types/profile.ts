@@ -1,12 +1,14 @@
 export interface ProfileProps {
     avatar: string,
+    address:string,
     eventName: string,
     isBet?: boolean,
     value: number,
     avgPrice: number,
     curPrice: number,
     totalPrice: number,
-    rate: number
+    rate: number,
+
     onClick?: () => void
 }
 

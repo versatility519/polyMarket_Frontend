@@ -9,10 +9,10 @@ import {
   ListItem,
   ListItemPrefix,
 } from "@material-tailwind/react";
- 
+
 export default function TradeSetting() {
   return (
-   <Popover placement="bottom-end">
+    <Popover placement="bottom-end">
       <PopoverHandler>
         <Button>Contact Us</Button>
       </PopoverHandler>

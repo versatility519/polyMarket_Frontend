@@ -1,21 +1,19 @@
 import React from 'react';
-import { Tooltip } from '@material-tailwind/react'
-import { ActivityListProps } from '../../types/rank';
-const UserProperty: React.FC<ActivityListProps> = ({ avatar, username, address, position, volume }) => {
+import { Tooltip, Avatar } from '@material-tailwind/react'
+import { ProfileProps } from '../../types/profile';
+const UserProperty: React.FC<ProfileProps> = ({ avatar, toAvatar, username, address, position, volume }) => {
     return (
-        <Tooltip className="bg-white  text-black" content={
-            <div className="border-2">
-                <div className="flex items-center  border-2 px-4 py-1 mb-3  rounded-md">
-                    {/* <Avatar size="xs" alt="userAvatar" /> */}
-                    <img className="w-8 rounded-full" src={avatar} alt="" />
+        <Tooltip className="bg-white border-2 text-black z-50 rounded-lg" content={
+            <div className=" ">
+                <div className="flex items-center py-1 mb-3 ">
+                    <Avatar src={avatar} />
+                    {/* <img className="w-8 rounded-full" src={avatar} alt="" /> */}
                     <div className="flex flex-col ">
                         <p className="font-bold px-4">{username}</p>
                         <p className="font-bold px-4">{address}</p>
-
                     </div>
                 </div>
-                <div className="w-full flex gap-6 px-3 rounded-md">
-
+                <div className=" flex gap-6  ">
                     <div className="flex flex-col ">
                         <p className="font-medium">${position}</p>
                         <p className="font-medium">Positions</p>
@@ -27,7 +25,20 @@ const UserProperty: React.FC<ActivityListProps> = ({ avatar, username, address, 
                 </div>
             </div>
         }>
-            {username}
+            <div className='flex font-semibold items-center gap-2'>
+                {toAvatar || avatar ? (
+                    <div className='flex items-center gap-3'>
+                        <Avatar
+                            size="md"
+                            src={toAvatar || avatar}
+                            className={`${toAvatar ? 'w-6 rounded-full' : 'rounded'}`}
+                        />
+                        <span>{username}</span>
+                    </div>
+                ) : (
+                    <span>{username}</span>
+                )}
+            </div>
         </Tooltip>
     )
 }

@@ -1,14 +1,11 @@
 import React from "react";
-import { Card, Button, CardBody, Typography, Avatar, Menu, MenuHandler, MenuItem, MenuList, Tooltip } from "@material-tailwind/react";
-import { useNavigate } from "react-router-dom";
-// Define the ActivityList component
-import { customers } from "../database";
+import HolderCard from "../cards/HolderCard";
 
 const TopHolderListItem = () => {
-    const navigate = useNavigate();
     return (
-        <div>
-            
+        <div className="flex w-full justify-between gap-4">
+            <HolderCard yesHolder="Yes Holders" />
+            <HolderCard noHolder="No Holders" />
         </div>
     );
 };
