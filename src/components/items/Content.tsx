@@ -1,3 +1,4 @@
+import { Avatar, Card, CardBody, Typography } from "@material-tailwind/react";
 import { ContentProps } from "../../types/profile";
 
 const Content: React.FC<ContentProps> = ({
@@ -5,24 +6,32 @@ const Content: React.FC<ContentProps> = ({
   isBet,
   eventName,
   value
-  
 }) => {
   return (
-    <div className="flex gap-4">
-      <img src={avatar} alt="avatar" className="w-12 rounded-md" />
-      <div className="flex flex-col">
-        <div className="font-semibold">{eventName}</div>
-        <div className="flex gap-4">
-        { isBet == true ? 
-          <div className="text-green-600 bg-green-200 font-bold px-1 rounded-md">Yes</div>
-             : 
-          <div className="text-red-600 bg-gray-200 font-bold px-1 rounded-md">No</div>
-        } 
-          <div> {value} shares</div>
-        </div>
 
-      </div>
-    </div>
+    <Card color="transparent" shadow={false}>
+      <CardBody
+        color="transparent"
+        floated={false}
+        shadow={false}
+        className=" flex items-center gap-2"
+      >
+        <Avatar src={avatar} alt="avatar" />
+        <div>
+          <Typography className="text-base cursor-pointer font-normal" >
+            {eventName}
+          </Typography>
+          <div className="flex items-center gap-1">
+            {isBet == true ?
+              <p className="text-green-600 bg-green-200 text-sm font-semibold px-0.5 rounded-md">Yes</p>
+              :
+              <p className="text-red-600 bg-gray-200 text-sm font-semibold px-0.5 rounded-md">No</p>
+            }
+            {value} shares
+          </div>
+        </div>
+      </CardBody>
+    </Card >
   );
 };
 export default Content;

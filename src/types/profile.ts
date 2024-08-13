@@ -18,5 +18,5 @@ export interface ContentProps {
     isBet?: boolean,
     betPrice?: number,
     value: number,
-    onClick?: () => void
+    onClick: () => void
 }

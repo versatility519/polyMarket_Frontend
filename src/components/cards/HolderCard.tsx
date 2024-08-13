@@ -11,7 +11,7 @@ const HolderCard = ({ yesHolder, noHolder }) => {
     const [menuNum, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
-        <div className="flex-1 px-2 py-3 border rounded-lg shadow-md">
+        <div className="flex-1 py-3 border rounded-lg shadow-md">
             <div className="flex px-5 justify-between items-center font-semibold">
                 <h2 className="text-lg text-black font-semibold ">{yesHolder || noHolder}</h2>
                 <p className="uppercase cursor-text text-sm text-gray-400">shares</p>
@@ -22,14 +22,13 @@ const HolderCard = ({ yesHolder, noHolder }) => {
                         {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, count }, index) => (
                             <div
                                 key={index}
-                                className="flex items-center justify-between pb-3 pt-3 last:pb-0 cursor-pointer"
+                                className="flex items-center justify-between py-1 last:pb-2 cursor-pointer"
                             >
-
                                 <Typography >
                                     <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
                                 </Typography>
 
-                                <Typography className={`text-right ${yesHolder ? 'text-green-600' : noHolder ? 'text-red-600' : 'text-blue-gray'}`} variant="h6">
+                                <Typography className={`text-right ${yesHolder ? 'text-green-600' : noHolder ? 'text-red-600' : 'text-blue-gray'}`} >
                                     {laterTime}
                                 </Typography>
 

@@ -30,8 +30,7 @@ export interface MyPropertyProps {
     className: string,
     text: string,
     icon: ReactNode,
-    value: string,
-    onClick: () => void,
+    value: number,
 }
 
 export interface SubContentProps {

@@ -1,6 +1,6 @@
 import React from "react";
 import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
-import { Card, Button, CardBody, Typography, Avatar, Menu, MenuHandler, MenuItem, MenuList, Tooltip } from "@material-tailwind/react";
+import { Card, Button, CardBody, Typography, Avatar } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 // Define the ActivityList component
 import { customers } from "../database";
@@ -20,18 +20,18 @@ const RelatedListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, is
                                 <Avatar size="md" src={avatar} alt={eventName} variant="rounded" />
                                 <div>
                                     {eventName &&
-                                        <Typography className="cursor-pointer" onClick={() => navigate('/event')} color="blue-gray" variant="h6">
+                                        <Typography className="cursor-pointer" onClick={() => navigate('/event')}>
                                             {eventName}
                                         </Typography>
                                     }
-                                    <Typography className="text-sm items-center flex gap-1" variant="small" color="gray">
+                                    <Typography className="text-sm items-center flex gap-1">
                                         <p className="font-semibold">$124,937 Bet</p>
                                     </Typography>
                                 </div>
                             </div>
-                            <Typography className="flex gap-4 text-md font-semibold" color="blue-gray" variant="h6">
-                            <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-green-100 text-green-800 px-2" price={20} >{yes} ¢</Button>
-                            <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-orange-200 text-orange-600 px-2 " price={20} >{no}¢</Button>
+                            <Typography className="flex gap-4 text-md font-semibold">
+                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-green-100 text-green-800 px-2" price={20} >{yes} ¢</Button>
+                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-orange-200 text-orange-600 px-2 " price={20} >{no}¢</Button>
                             </Typography>
                         </div>
                     ))}

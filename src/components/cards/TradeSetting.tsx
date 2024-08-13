@@ -20,7 +20,7 @@ export default function TradeSetting() {
         <div className="mb-4 flex items-center gap-4 border-b border-blue-gray-50 pb-4">
           <Avatar src="https://docs.material-tailwind.com/img/team-4.jpg" alt="tania andrew" />
           <div>
-            <Typography variant="h6" color="blue-gray">
+            <Typography
               Tania Andrew
             </Typography>
             <Typography

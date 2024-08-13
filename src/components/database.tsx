@@ -1,3 +1,5 @@
+import { current } from "@reduxjs/toolkit";
+
 // Sample customer data
 export const customers = [
     {
@@ -14,7 +16,10 @@ export const customers = [
         volume: 30,
         address: 0x11111111111111,
         yes: 30,
-        no: 70
+        no: 70,
+        totalPrice:90,
+        avgPrice:90,
+        curPrice:89,
     },
     {
         eventName: "Will the Jaguars win Super Bowl 2025?",
@@ -30,7 +35,10 @@ export const customers = [
         volume: 30,
         address: 0x22222222222,
         yes: 30,
-        no: 70
+        no: 70,
+        totalPrice:90,
+        avgPrice:90,
+        curPrice:89,
     },
     {
         username: "Richard Gran",
@@ -45,7 +53,10 @@ export const customers = [
         volume: 30,
         address: 0x3333333,
         yes: 30,
-        no: 70
+        no: 70,
+        totalPrice:4,
+        avgPrice:90,
+        curPrice:89,
     },
     {
         eventName: "Will the Jaguars win Super Bowl 2025?",
@@ -61,6 +72,9 @@ export const customers = [
         volume: 30,
         address: 0x444444444,
         yes: 30,
-        no: 70
+        no: 70,
+        totalPrice:912,
+        avgPrice:90,
+        curPrice:89,
     },
 ];

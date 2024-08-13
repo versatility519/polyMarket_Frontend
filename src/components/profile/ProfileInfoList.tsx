@@ -1,5 +1,4 @@
 import React from "react";
-import BuySell from "../cards/BuySell";
 import {
     Tabs,
     TabsHeader,
@@ -7,18 +6,20 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
-const EventInfoCard = () => {
-    const [activeTab, setActiveTab] = React.useState < string > ('buy');
+import PositionListItem from "../items/PositionListItem";
+
+export default function ProfileInfoList() {
+    const [activeTab, setActiveTab] = React.useState < string > ('position');
     const data = [
         {
-            label: "Buy",
-            value: "buy",
-            desc: <BuySell activeTab={"buy"} />,
+            label: "Positions",
+            value: "position",
+            desc: <PositionListItem />
         },
         {
-            label: "Sell",
-            value: "sell",
-            desc: <BuySell activeTab={"sell"} />
+            label: "Activity",
+            value: "activity",
+            desc: <PositionListItem />,
         },
 
     ];
@@ -26,9 +27,10 @@ const EventInfoCard = () => {
         <div>
             <Tabs value={activeTab}>
                 <TabsHeader
-                    className="w-full px-96 justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
+                    className="justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
                     indicatorProps={{
-                        className: "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
+                        className:
+                            "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
                     }}
                 >
                     {data.map(({ label, value }) => (
@@ -36,7 +38,7 @@ const EventInfoCard = () => {
                             key={value}
                             value={value}
                             onClick={() => setActiveTab(value)}
-                            className={activeTab === value ? "border-b border-blue-700 text-gray-900" : ""}
+                            className={activeTab === value ? "border-b border-blue-700 font-semibold text-lg text-gray-900" : "font-semibold text-lg text-gray-500"}
                         >
                             {label}
                         </Tab>
@@ -54,4 +56,3 @@ const EventInfoCard = () => {
     )
 }
 
-export default EventInfoCard;

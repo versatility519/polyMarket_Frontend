@@ -25,7 +25,7 @@ const UserProperty: React.FC<ProfileProps> = ({ avatar, toAvatar, username, addr
                 </div>
             </div>
         }>
-            <div className='flex font-semibold items-center gap-2'>
+            <div className='flex font-normal items-center gap-2'>
                 {toAvatar || avatar ? (
                     <div className='flex items-center gap-3'>
                         <Avatar
@@ -35,6 +35,8 @@ const UserProperty: React.FC<ProfileProps> = ({ avatar, toAvatar, username, addr
                         />
                         <span>{username}</span>
                     </div>
+                ) : toAvatar ? (
+                    <span>{username}</span>
                 ) : (
                     <span>{username}</span>
                 )}

@@ -13,8 +13,8 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
     return (
         <Card className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
             <CardBody>
-                <div className="mb-4 flex items-center justify-between">
-                    <Typography variant="h5" color="blue-gray">
+                <div className="flex border-b-2 pb-2 items-center justify-between">
+                    <Typography className="text-black font-medium">
                         Customers Activity
                     </Typography>
                     <Typography
@@ -40,20 +40,18 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
                     {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, count }, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-between pb-3 pt-3 last:pb-0"
+                            className="flex items-center justify-between py-1 last:pb-2"
                         >
                             <div className="flex items-center gap-x-3">
                                 <Avatar size="md" src={avatar} alt={eventName} variant="rounded" />
                                 <div>
                                     {eventName &&
-                                        <Typography className="cursor-pointer" onClick={() => navigate('/event')} color="blue-gray" variant="h6">
+                                        <Typography className="font-semibold cursor-pointer" onClick={() => navigate('/event')}>
                                             {eventName}
                                         </Typography>
                                     }
-                                    <Typography className="text-sm items-center flex gap-1" variant="small" color="gray">
+                                    <Typography className="text-sm items-center flex gap-1">
                                         <div className="flex items-center text-base cursor-pointer gap-2" onClick={() => navigate('/profile')}>
-                                            {/* <Avatar size="sm" src={avatar} alt="eventAvatar" /> */}
-                                            {/* <img className="w-8 rounded-full" src={toAvatar} alt="" /> */}
                                             <p className=" font-semibold hover:underline underline-offset-4">
                                                 <UserProperty toAvatar={toAvatar} username={username} address={address} position={position} volume={volume} />
                                             </p>
@@ -65,11 +63,11 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
                                         <p className={`${isBet === true ? 'text-green-600 font-bold items-center' : 'text-orange-600 font-bold items-center'}`}>
                                             {count}</p>
                                         <p className=" text-base">at</p>
-                                        <p className="font-semibold">{price}¢ (${(price / 110).toPrecision(5)})</p>
+                                        <p className="font-">{price}¢ (${(price / 110).toPrecision(5)})</p>
                                     </Typography>
                                 </div>
                             </div>
-                            <Typography color="blue-gray" variant="h6">
+                            <Typography>
                                 {laterTime} ago
                             </Typography>
                         </div>
