@@ -57,7 +57,7 @@ const PositionListItem: React.FC<ProfileProps> = ({
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {avgPrice}$
+                    {avgPrice} $
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -66,7 +66,7 @@ const PositionListItem: React.FC<ProfileProps> = ({
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {curPrice}$
+                    {curPrice} $
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -77,8 +77,10 @@ const PositionListItem: React.FC<ProfileProps> = ({
                         <div className="text-nowrap font-normal text-green-600">{rate} (686.59%)</div>
                       </Typography>
                     </div>
-                    <Tooltip content="Share">
-                      <Upload size={20} />
+                    <Tooltip content="Share" aria-label="Share">
+                      <span>
+                        <Upload size={20} aria-hidden="true" />
+                      </span>
                     </Tooltip>
                   </div>
                 </td>

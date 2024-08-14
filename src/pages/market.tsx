@@ -1,9 +1,10 @@
 import React from "react";
 import Select from 'react-select'
-import Button from "../components/Button";
+import { Button } from "@material-tailwind/react";
+import { ListFilter, Star, TrendingUp, List, Search, ChevronUp, ChevronDown } from "lucide-react";
+// import Button from "../components/Button";
 import TopEventCard from "../components/cards/TopEventCard";
 import TopNavbar from "../components/TopNavbar";
-import { ListFilter, Star, TrendingUp, List, Search, ChevronUp, ChevronDown } from "lucide-react";
 import { MarketsIcon } from "../components/icons";
 import { content } from "../contents/landing";
 import { customStyles } from "../contents/selectStyle";
@@ -19,10 +20,14 @@ const Main = () => {
     const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
     const [selectedOption, setSelectedOption] = React.useState < Option | null > (categoryItem[0]);
 
+    const [selectedButton, setSelectedButton] = React.useState < string | null > ('top');
+    const handleButtonClick = (value: string) => {
+        setSelectedButton(value);
+    };
     // handle onChange event of the dropdown
-    const handleChange = e => {
-        setSelectedOption(e);
-    }
+    // const handleChange = () => {
+    //     setSelectedOption(selectedOption);
+    // }
 
     React.useEffect(() => {
         dispatch(getUsersData())
@@ -48,7 +53,6 @@ const Main = () => {
                     <Search color="black" />
                     <input type="text" className="w-full py-1 outline-none" placeholder="Search by markets" />
                 </div>
-
                 <Select
                     className="border-2 lg:order-3 lg:w-[16vw] sm:w-full sm:order-4 order-4 justify-between flex items-center rounded-lg"
                     value={selectedOption}
@@ -56,7 +60,7 @@ const Main = () => {
                     options={categoryItem}
                     onMenuOpen={() => setIsDropdownOpen(true)}
                     onMenuClose={() => setIsDropdownOpen(false)}
-                    onChange={handleChange}
+                    onChange={(selectedOption) => setSelectedOption(selectedOption)} // Update state with selected option
                     components={{
                         DropdownIndicator: () => (
                             <div className="flex items-center">
@@ -65,20 +69,17 @@ const Main = () => {
                         ),
                     }}
                     getOptionLabel={(option) => (
-                        <div className="flex font-semibold  border-none gap-3 items-center">
-                            <option.icon className="flex bg-gray-200 p-1 rounded-md" />
+                        <div className="flex sm:w-full font-semibold border-none gap-3 items-center">
+                            {option.icon && <option.icon className="flex bg-gray-200 p-1 rounded-md" />} {/* Ensure icon exists */}
                             <span className="flex text-nowrap">{option.text}</span>
                         </div>
                     )}
                 />
-                {/* 
-                    {selectedOption && <div style={{ marginTop: 20, lineHeight: '25px' }}>
-                        <b>Selected Option:</b> {selectedOption.text}
-                    </div>} */}
-
-                <div className="lg:order-4 lg:flex sm:hidden hidden">
-                    <Button value="gridView" className="flex rounded-l-lg border p-3 items-center justify-center ml-3 cursor-pointer hover:bg-gray-300 focus:bg-gray-400" onClick={() => { setListView(false) }} icon={<MarketsIcon color="gray" size={24} />} />
-                    <Button value="listView" className="flex rounded-r-lg border p-2 items-center justify-center cursor-pointer hover:bg-gray-300 focus:bg-gray-400" onClick={() => { setListView(false) }} icon={<List color="gray" size={30} />} />
+                {/* <b>Selected Option:</b> {selectedOption.text} */}
+                
+                <div className="lg:order-4 lg:flex sm:hidden hidden border rounded-md">
+                    <Button value="gridView" className="flex text-gray-500   p-4 outline-none items-center justify-center cursor-pointer hover:bg-gray-300 focus:bg-gray-400" onClick={() => { setListView(false) }}><MarketsIcon /></Button>
+                    <Button value="listView" className="flex text-gray-500   p-3 outline-none items-center justify-center cursor-pointer hover:bg-gray-300 focus:bg-gray-400" onClick={() => { setListView(false) }} ><List /></Button>
                 </div>
                 <div className="lg:order-5 sm:order-2 order-2 p-2 border-2 justify-center items-center gap-2 rounded-md flex cursor-pointer hover:bg-slate-100" onClick={() => { }}>
                     <Star onClick={() => { setListView(false) }} color="gray" size={28} />
@@ -86,11 +87,19 @@ const Main = () => {
             </div>
             {/* Filters */}
             <div className="flex overflow-x-scroll scrollbar-hide gap-2 px-4 py-3">
-                <Button text="Top" value="top" className="flex text-md items-center text-xl gap-4 px-2 py-1 rounded-md bg-gray-200 border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700" icon={<TrendingUp />} onClick={() => { }} />
+                <Button style={{ fontFamily: "initial", fontSize: "14px", textTransform: "none", color: "black" }} value="top"
+
+                    className={`${selectedButton === 'top' ? 'bg-blue-600  focus:text-white' : 'bg-gray-300'} flex text-md outline-none  items-center text-xl gap-2 p-1 rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
+                    onClick={() => handleButtonClick('top')}>
+                    <TrendingUp />Top
+                </Button>
                 {
-                    content.filterBtns.all.map((item, index) => <Button key={index} text={item.text} value={item.value} onClick={() => { }} className="flex px-2 py-1 rounded-md bg-gray-300 border-2 border-gray-300 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700" icon />)
+                    content.filterBtns.all.map((item, index) =>
+                        <Button style={{ fontFamily: "initial", fontSize: "14px", textTransform: "none", }} key={index} value={item.value} onClick={() => handleButtonClick(`${item.value}`)}
+                            className={`${selectedButton === `${item.value}` ? 'bg-blue-600  focus:text-white' : 'bg-gray-300 text-black'} outline-none flex items-center px-2 py-1 rounded-md  border-2 border-gray-300 hover:border-blue-600 text-nowrap `}>{item.text}</Button>)
                 }
             </div>
+            {selectedButton}
             {/* Events */}
             {
                 listView === true
@@ -98,7 +107,7 @@ const Main = () => {
                     : <div className="flex justify-center text-red-600">false</div>
             }
             <Footer />
-        </div>
+        </div >
     )
 }
 

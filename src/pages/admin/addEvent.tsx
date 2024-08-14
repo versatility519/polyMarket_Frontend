@@ -1,6 +1,6 @@
 import React from 'react'
+import { Button } from '@material-tailwind/react'
 import { CloudUpload } from 'lucide-react'
-import Button from '../../components/Button'
 import useNotification from '../../hooks/useNotification'
 import { useNavigate } from 'react-router-dom'
 
@@ -148,8 +148,8 @@ const AddEvent = () => {
             <hr />
 
             <div className='flex justify-end p-3 gap-6 pt-6'>
-                <Button text='Cancel' value='eventCancel' className='flex px-3 py-2 bg-gray-300 text-black items-center hover:bg-blue-300 rounded-md' onClick={() => navigate('/admin', { replace: true })} />
-                <Button text='Apply' value='eventSave' className='flex px-5 py-2 bg-blue-700 text-white items-center hover:bg-blue-300 rounded-md' onClick={() => handleApplyEvent()} />
+                <Button value='eventCancel' className='flex px-3 py-2 bg-gray-300 text-black items-center hover:bg-blue-300 rounded-md' onClick={() => navigate('/admin', { replace: true })}>Cancel</Button>
+                <Button value='eventSave' className='flex px-5 py-2 bg-blue-700 text-white items-center hover:bg-blue-300 rounded-md' onClick={() => handleApplyEvent()} >Apply</Button>
             </div>
         </div >
     )

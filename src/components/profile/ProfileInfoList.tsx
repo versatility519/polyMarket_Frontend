@@ -6,7 +6,7 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
-import PositionListItem from "../items/PositionListItem";
+import PositionListItem from "../items/PositionListItem"
 import AcitiveListItem from "../items/ProfileAcitiveListItem";
 
 export default function ProfileInfoList() {

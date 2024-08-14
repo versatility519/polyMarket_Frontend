@@ -1,15 +1,14 @@
 import React from "react";
-import { Button, Switch, Menu, MenuHandler, MenuList, Typography } from '@material-tailwind/react';
+import { Button, Badge, Switch, Menu, MenuHandler, MenuList, Typography, Avatar } from '@material-tailwind/react';
 
 import { content } from "../contents/landing";
-// import Button from "./Button";
 import { SearchIcon } from "./icons";
 import SignInModal from "./SignInModal";
 import { dispatch, useSelector } from "../store";
 import { getUserData } from "../store/reducers/userInfo";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { Activity, AlignJustify, ChevronDown, ChevronUp, Flag, Grid3X3, Trophy } from "lucide-react";
+import { Activity, Bell, AlignJustify, Flag, Trophy, User } from "lucide-react";
 import MarketNavbar from "./MarketNavbar";
 
 const TopNavbar = () => {
@@ -95,14 +94,14 @@ const TopNavbar = () => {
               allowHover={true}
             >
               <MenuHandler>
-                <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                  <p className="justify-center flex">
+                <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300">
+                  <p onClick={() => { navigate('/markets') }} className="justify-center flex">
                     <Trophy className="text-center" size={20} />
                   </p>
                   <p>Markets</p>
                 </Button>
               </MenuHandler>
-              <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
+              <MenuList className="z-10 hidden max-w-screen-xl rounded-xl lg:block">
                 <MarketNavbar />
               </MenuList>
             </Menu>
@@ -128,97 +127,72 @@ const TopNavbar = () => {
           </div>
 
           {isLoggedIn ?
-            <div className="flex w-full gap-3">
-              <div className="text-center text-sm">
-                <p className="text-green-500">$0.00</p>
-                <p>Portfolio</p>
-              </div>
-              <div className="text-center text-sm">
-                <p className="text-green-500">$0.00</p>
+            <div className="flex gap-2">
+              <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                <p className="text-green-500 text-sm">$0.00</p>
+                <p className="flex">Portfolio</p>
+              </Button>
+
+              <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-3 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                <p className="text-green-500 text-sm">$0.00</p>
                 <p>Cash</p>
-              </div>
-              <div ref={ref}>
-                <Menu
-                  open={isMenuOpen}
-                  handler={setIsMenuOpen}
-                  offset={{ mainAxis: 20 }}
-                  placement="bottom"
-                  allowHover={true}
-                >
-                  <MenuHandler>
-                    <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                      <p className="justify-center flex">
-                        <Trophy className="text-center" size={20} />
-                      </p>
-                      <p>Markets</p>
-                    </Button>
-                  </MenuHandler>
-                  <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
-                    <MarketNavbar />
-                  </MenuList>
-                </Menu>
-                <div className="flex items-center" onClick={() => {
-                  setOpen(((prev) => !prev));
-                }} >
-                  <img src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="avatar" className="w-7 rounded-full" />
-                  {open ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                </div>
-                {open &&
-                  <div className="bg-white absolute top-16 right-[1vw] rounded-md border-2 border-gray-200 shadow-md">
-                    <div className="flex items-center gap-2 px-6 py-3">
-                      <img src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="avatar" className="w-8 rounded-full" />
-                      <p className="font-bold">{firstName}{lastName}</p>
-                    </div>
-                    <hr />
-                    <div className="flex flex-col gap-2 px-1 py-3 text-start">
-                      {userrole === "admin"
-                        ? <div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer" onClick={() => navigate("/admin")}>
-                            Admin Page
-                          </div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer" onClick={() => navigate("/admin/addevent")}>Add Event</div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer" onClick={() => navigate("/admin/profile")}>My Profile</div>
-                        </div>
-                        :
-                        <div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer" onClick={() => navigate("/")}>Main</div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer" onClick={() => navigate("/profile")}>Profile</div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer">Learn</div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer">Documentation</div>
-                          <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer">Dark Mode
-                            <input type="checkbox" checked={isChecked} onChange={toggleStyle} />
-                            {isChecked ? (
-                              <p style={{ color: 'blue' }}>
-                                On
-                              </p>
-                            ) : (
-                              <p style={{ color: 'red' }}>
-                                Off
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      }
-                      <div className="hover:bg-gray-200 w-full px-2 rounded-md cursor-pointer">Settings</div>
-                    </div>
-                    <hr />
-                    <div className="flex flex-col gap-2 px-1 py-3 text-start">
-                      <div className="hover:bg-gray-200 w-full p-2 rounded-md cursor-pointer" onClick={() => handleLogout()}>Logout</div>
+              </Button>
+
+              <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none p-3 rounded-md items-center bg-blue-700 hover:text-black  hover:bg-gray-300" onClick={() => { alert('/leaderboard') }}>
+                <p>Deposit</p>
+              </Button>
+ 
+              <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                <Bell />
+              </Button>
+              <Menu
+                open={isMenuOpen}
+                handler={setIsMenuOpen}
+                offset={{ mainAxis: 20 }}
+                placement="bottom"
+                allowHover={true}
+              >
+                <MenuHandler>
+                  <Button style={{ textTransform: "none" }} className="flex outline-none border-2 border-gray-300 p-2 rounded-md  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                    <User />{firstName}
+                  </Button>
+                </MenuHandler>
+                <MenuList className="-w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none">
+                  {userrole === "admin" ? (
+                    <>
+                      <Button onClick={() => navigate("/admin/user")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">User Management</Button>
+                      <Button onClick={() => navigate("/admin/addevent")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Event Management</Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button onClick={() => navigate("/")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Main</Button>
+                      <Button onClick={() => navigate("/setting")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Setting</Button>
+                      <Button onClick={() => navigate("/profile")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Profile</Button>
+                    </>
+                  )}
+                  <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
+                  <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
+                  <div className="flex items-center">
+                    <Switch
+                      containerProps={{ className: "mr-2" }}
+                    />
+                    <div>
+                      <Typography color="blue-gray" className="font-medium text-nowrap text-sm">
+                        Dark Mode
+                      </Typography>
                     </div>
                   </div>
-                }
-              </div>
-            </div>
+                  <Button onClick={() => handleLogout()} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Logout</Button>
+                </MenuList>
+              </Menu>
+            </div >
             :
-
             <div className="flex gap-2">
-
               <div className="flex gap-1">
                 <Button onClick={handleInClick} style={{ textTransform: "none", color: "blue" }} className="w-full text-md flex gap-3 px-2 items-center outline-none  bg-gray-50 text-nowrap">Log In</Button>
                 <Button onClick={handleUpClick} style={{ textTransform: "none", color: "white" }} className="w-full text-md flex gap-3 px-2 items-center outline-none bg-blue-700 text-nowrap">Sign Up</Button>
               </div>
 
-              {/* <div ref={ref}> */}
               <Menu
                 open={isMenuOpen}
                 handler={setIsMenuOpen}
@@ -249,7 +223,6 @@ const TopNavbar = () => {
                       <Typography color="blue-gray" className="font-medium text-nowrap text-sm">
                         Dark Mode
                       </Typography>
-
                     </div>
                   </div>
                 </MenuList>
@@ -258,12 +231,12 @@ const TopNavbar = () => {
             </div>
           }
 
-        </div>
+        </div >
       </div >
       {/* Navigates */}
       < div className="flex overflow-x-scroll scrollbar-hide" >
         {
-          content.menuBtns.map((item, index) => <Button key={index} text={item.text} value={item.value} onClick={() => { }} className="flex px-2 pb-2 border-b-2 text-md border-white hover:border-b-gray-500 focus:border-b-black rounded-sm" icon />)
+          content.menuBtns.map((item, index) => <Button style={{ fontFamily: "initial", fontSize: "14px", textTransform: "none", color: "black", size: "sm" }} key={index} text={item.text} value={item.value} onClick={() => { }} className="flex border-b-2 p-1 px-3 border-white hover:border-b-gray-500 focus:border-b-black rounded-md font-bold text-lg text-black" >{item.text}</Button>)
         }
       </div >
       <hr />

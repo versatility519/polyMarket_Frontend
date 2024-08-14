@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Ensure you have the correct import for useNavigate
-import { content } from "../contents/landing"; // Import your content
-import Button from "./Button"; // Import your Button component
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { content } from "../contents/landing";
+import { Button } from "@material-tailwind/react";
 
 const Footer = () => {
     const navigate = useNavigate();
-    const [isHidden, setIsHidden] = useState(false);
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [isHidden, setIsHidden] = React.useState(false);
+    const [prevScrollPos, setPrevScrollPos] = React.useState(0);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const handleScroll = () => {
             const currentScrollPos = window.scrollY;
             setIsHidden(prevScrollPos > currentScrollPos && currentScrollPos > 0);
@@ -25,12 +25,10 @@ const Footer = () => {
                 {content.footerBtns.map((item, index) => (
                     <Button
                         key={index}
-                        text={item.text}
                         value={item.value}
-                        icon={<item.icon />}
                         onClick={() => navigate(`/${item.link}`)}
                         className="flex flex-col items-center text-gray-600 hover:text-black hover:bg-gray-300 rounded-sm"
-                    />
+                    >  <item.icon />{item.text}</Button>
                 ))}
             </div>
         </div>

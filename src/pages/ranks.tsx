@@ -1,8 +1,8 @@
 import React from "react";
-import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@material-tailwind/react";
 import TopNavbar from "../components/TopNavbar";
 import RankItem from "../components/items/RankItem";
-import { useNavigate } from "react-router-dom";
 import {
   ChartNoAxesColumnIncreasing,
   Banknote,
@@ -40,33 +40,33 @@ const Leaderboard = () => {
       <div className="flex justify-center pt-8">
         <div className="sm:w-full flex md:w-full xl:w-[70vw] flex-col gap-5">
           <p className="flex items-center text-4xl font-medium text-black justify-center">
-            {convertTo(pathname)}{" "}
+            {convertTo(pathname)}
           </p>
           <div className="flex justify-center gap-2">
             <Button
-              text="Day"
+              style={{ textTransform: "none" }}
               value="day"
               className={`${activeButton === 'day' ? 'bg-black text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-full`}
               onClick={() => handleButtonClick('day')}
-            />
+            >Day</Button>
             <Button
-              text="Week"
+              style={{ textTransform: "none" }}
               value="week"
               className={`${activeButton === 'week' ? 'bg-black text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-full`}
               onClick={() => handleButtonClick('week')}
-            />
+            >Week</Button>
             <Button
-              text="Month"
+              style={{ textTransform: "none" }}
               value="month"
               className={`${activeButton === 'month' ? 'bg-black text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-full`}
               onClick={() => handleButtonClick('month')}
-            />
+            >Month</Button>
             <Button
-              text="All"
+              style={{ textTransform: "none" }}
               value="all"
               className={`${activeButton === 'all' ? 'bg-black text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-full`}
               onClick={() => handleButtonClick('all')}
-            />
+            >All</Button>
           </div>
           <div className="flex justify-center gap-2">
             <Clock3Icon />

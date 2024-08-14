@@ -1,6 +1,5 @@
 import React from "react";
-import { Avatar } from "@material-tailwind/react";
-import Button from "../components/Button";
+import { Button, Avatar } from "@material-tailwind/react";
 import ProfileInfoList from "../components/profile/ProfileInfoList";
 import MyProperty from "../components/cards/MyProperty";
 import TopNavbar from "../components/TopNavbar";
@@ -39,18 +38,16 @@ const Profile = () => {
             </div>
             <div className=" ">
               <Button
-                text="Edit Profile"
+                style={{ textTransform: 'none' }}
                 value="editProfile"
-                className="flex items-center font-semibold border-2 rounded-lg border-gray-400 gap-2 px-2 py-1"
+                size="lg"
+                className="flex items-center border-2 rounded-full border-gray-400 gap-2 p-2 text-black"
                 onClick={() => navigate("/setting")}
-                icon={<Edit2 />}
-              />
+              ><Edit2 />Edit Profile</Button>
               <Button
-                text="PloyMarket"
                 value="editProfile"
-                className="flex items-center font-semibold rounded-lg gap-2 px-4 py-1"
-                icon={<Landmark />}
-              />
+                className="flex items-center border-2 rounded-full border-gray-400 gap-2 p-1 text-black"
+              ><Landmark />PloyMarket</Button>
             </div>
           </div>
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 pt-8 items-center gap-8">
@@ -61,7 +58,7 @@ const Profile = () => {
           </div>
           {/* <div className="flex w-full"> */}
 
-            <ProfileInfoList />
+          <ProfileInfoList />
           {/* </div> */}
 
         </div>
