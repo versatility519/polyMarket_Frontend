@@ -6,7 +6,7 @@ import {
 import { Check } from "lucide-react";
 import EventInfoList from "../components/event/EventInfoList";
 import EventInfoCard from "../components/event/EventInfoCard";
-import Navbar from "../components/Navbar";
+import TopNavbar from "../components/TopNavbar";
 
 import { useNavigate } from "react-router-dom";
 import {
@@ -34,10 +34,10 @@ const Profile = () => {
 
   return (
     <div className="">
-      <Navbar />
+      <TopNavbar />
       <div className="flex justify-center">
-        <div className="flex xl:px-[18vw] lg:px-[10vw] gap-4">
-          <div className="border-2 px-2 py-4">
+        <div className="flex lg:px-[20vw] md:px-[12vw] sm:px-[4vw] gap-4">
+          <div className="px-2 py-4">
             <div className="flex  border-2 items-center gap-4 py-1  text-black-700">
               <Avatar className=" rounded-full" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
               <div className="w-full">

@@ -7,6 +7,7 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
+import YesNoBtn from "../YesNoBtn";
 const EventInfoCard = () => {
     const [activeTab, setActiveTab] = React.useState < string > ('buy');
     const data = [
@@ -26,7 +27,7 @@ const EventInfoCard = () => {
         <div>
             <Tabs value={activeTab}>
                 <TabsHeader
-                    className="w-full px-96 justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
+                    className="w-32 px-96   rounded-none border-b border-gray-300 bg-transparent p-0"
                     indicatorProps={{
                         className: "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
                     }}

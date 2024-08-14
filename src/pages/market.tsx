@@ -2,7 +2,7 @@ import React from "react";
 import Select from 'react-select'
 import Button from "../components/Button";
 import TopEventCard from "../components/cards/TopEventCard";
-import Navbar from "../components/Navbar";
+import TopNavbar from "../components/TopNavbar";
 import { ListFilter, Star, TrendingUp, List, Search, ChevronUp, ChevronDown } from "lucide-react";
 import { MarketsIcon } from "../components/icons";
 import { content } from "../contents/landing";
@@ -30,7 +30,7 @@ const Main = () => {
     }, [])
     return (
         <div className=" ">
-            <Navbar />
+            <TopNavbar />
             <div className="lg:flex flex-row overflow-x-scroll scrollbar-hide gap-5 justify-center px-6 my-10">
                 <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="bg-gradient-to-r from-blue-600 to-blue-200" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
                 <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="bg-gradient-to-r from-red-600 to-red-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />

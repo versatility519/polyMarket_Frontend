@@ -40,7 +40,7 @@ const EventInfoList = () => {
         <div>
             <Tabs value={activeTab}>
                 <TabsHeader
-                    className="justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
+                    className="w-80 text-nowrap justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
                     indicatorProps={{
                         className:
                             "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",

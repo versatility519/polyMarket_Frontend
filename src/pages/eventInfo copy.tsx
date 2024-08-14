@@ -2,7 +2,7 @@ import React from "react";
 import { Tooltip, Typography, Button } from "@material-tailwind/react";
 import Select from "react-select";
 // import Button from "../components/Button";
-import Navbar from "../components/Navbar";
+import TopNavbar from "../components/TopNavbar";
 import { customStyles } from "../contents/selectStyle";
 import { sortItem } from "../contents/selectItem";
 
@@ -61,7 +61,7 @@ const Profile = () => {
   }, []);
   return (
     <div className="">
-      <Navbar />
+      <TopNavbar />
       <div className="flex mx-8 justify-center gap-4">
         <div className="flex justify-center pt-8">
           <div className="xl:w-[50vw] lg:w-full md:w-full sm:w-full w-full flex flex-col border-2 py-4">

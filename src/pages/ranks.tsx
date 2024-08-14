@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../components/Button";
-import Navbar from "../components/Navbar";
+import TopNavbar from "../components/TopNavbar";
 import RankItem from "../components/items/RankItem";
 import { useNavigate } from "react-router-dom";
 import {
@@ -36,7 +36,7 @@ const Leaderboard = () => {
   }, []);
   return (
     <div className="">
-      <Navbar />
+      <TopNavbar />
       <div className="flex justify-center pt-8">
         <div className="sm:w-full flex md:w-full xl:w-[70vw] flex-col gap-5">
           <p className="flex items-center text-4xl font-medium text-black justify-center">

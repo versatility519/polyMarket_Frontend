@@ -1,5 +1,3 @@
-import { current } from "@reduxjs/toolkit";
-
 // Sample customer data
 export const customers = [
     {

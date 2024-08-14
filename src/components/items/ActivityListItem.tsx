@@ -6,16 +6,26 @@ import UserProperty from "../cards/UserProperty";
 // Sample customer data
 import { customers } from "../database";
 
+const url = new URL(window.location.href);
+const pathname = url.pathname.replace(/^\/+/, '');
+
+// Convert the pathname
+const convertTo = (pathname: string) => {
+    if (!pathname) return pathname;
+    const firstLetter = pathname.charAt(0).toUpperCase();
+    const restOfString = pathname.slice(1).toLowerCase();
+    return firstLetter + restOfString;
+};
 // Define the ActivityItem component
 const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, isBet, isSold, eventName, address, onClick, count, price, time, username }) => {
     const [menuNum, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
-        <Card className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
+        <Card className="md:px-2 sm:px-4 lg:px-6 gap-4 ">
             <CardBody>
                 <div className="flex border-b-2 pb-2 items-center justify-between">
                     <Typography className="text-black font-medium">
-                        Customers Activity
+                        <p className="flex items-center px-6 py-4 text-3xl font-medium text-black"> {convertTo(pathname)} </p>
                     </Typography>
                     <Typography
                         variant="small"
@@ -40,7 +50,7 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
                     {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, count }, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-between py-1 last:pb-2"
+                            className="flex items-center justify-between py-2 last:pb-2"
                         >
                             <div className="flex items-center gap-x-3">
                                 <Avatar size="md" src={avatar} alt={eventName} variant="rounded" />

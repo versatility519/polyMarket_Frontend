@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import TopNavbar from "../components/TopNavbar";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import { CameraIcon, Megaphone, Save, UserCog } from "lucide-react";
@@ -117,7 +117,7 @@ const Setting = () => {
   };
   return (
     <div className=" ">
-      <Navbar />
+      <TopNavbar />
       <div className="flex justify-center">
         <div className="flex sm:w-full sm:px-4 md:w-full lg:w-full xl:w-[56vw] w-full py-8 border-2 border-red-600">
           <div className="">

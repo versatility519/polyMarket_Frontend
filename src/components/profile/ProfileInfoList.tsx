@@ -7,6 +7,7 @@ import {
     TabPanel,
 } from "@material-tailwind/react";
 import PositionListItem from "../items/PositionListItem";
+import AcitiveListItem from "../items/ProfileAcitiveListItem";
 
 export default function ProfileInfoList() {
     const [activeTab, setActiveTab] = React.useState < string > ('position');
@@ -19,7 +20,7 @@ export default function ProfileInfoList() {
         {
             label: "Activity",
             value: "activity",
-            desc: <PositionListItem />,
+            desc: <AcitiveListItem />,
         },
 
     ];
@@ -27,7 +28,7 @@ export default function ProfileInfoList() {
         <div>
             <Tabs value={activeTab}>
                 <TabsHeader
-                    className="justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
+                    className="w-24 justify-start rounded-none border-b border-gray-300 bg-transparent p-0"
                     indicatorProps={{
                         className:
                             "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
@@ -38,7 +39,7 @@ export default function ProfileInfoList() {
                             key={value}
                             value={value}
                             onClick={() => setActiveTab(value)}
-                            className={activeTab === value ? "border-b border-blue-700 font-semibold text-lg text-gray-900" : "font-semibold text-lg text-gray-500"}
+                            className={activeTab === value ? "border-b-2 border-black font-semibold text-lg text-gray-900" : "font-semibold text-lg text-gray-500"}
                         >
                             {label}
                         </Tab>

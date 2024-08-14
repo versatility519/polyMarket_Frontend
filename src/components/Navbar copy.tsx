@@ -6,8 +6,8 @@ import SignInModal from "./SignInModal";
 import { dispatch, useSelector } from "../store";
 import { getUserData } from "../store/reducers/userInfo";
 import useAuth from "../hooks/useAuth";
-import { AlignJustify, ChevronDown, ChevronUp, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { AlignJustify, ChevronDown, ChevronUp, Star } from "lucide-react";
 
 const Navbar = () => {
 	// Variables
@@ -71,9 +71,6 @@ const Navbar = () => {
 				<SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
 				<SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
-				<div className="md:flex gap-5 tems-center border border-gray-700 rounded-lg">
-					<Star />
-				</div>
 				<div className="lg:visible lg:flex lg:w-full sm:hidden hidden gap-5 px-5 py-1 items-center border border-gray-700 rounded-lg">
 					<SearchIcon color="black" />
 					<input type="text" className="w-full outline-none" placeholder="Search markets" />

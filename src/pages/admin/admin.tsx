@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { CirclePlus, Pencil, Trash2, Boxes, RotateCw } from 'lucide-react'
-import Navbar from "../../components/Navbar";
+import TopNavbar from "../../components/TopNavbar";
 import Button from "../../components/Button";
 
 const Admin = () => {
@@ -16,7 +16,7 @@ const Admin = () => {
     }
     return (
         <div className=' '>
-            <Navbar />
+            <TopNavbar />
             <hr />
             <div className="flex justify-between px-4 py-3">
                 <div className="flex w-[50vw] px-2 items-center border border-gray-700 rounded-lg">
