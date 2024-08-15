@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
 import { dispatch, useSelector } from "../store";
-import RankListItem from "../components/items/RankListItem";
 
 const Leaderboard = () => {
   const navigate = useNavigate();
@@ -73,11 +72,50 @@ const Leaderboard = () => {
             <Clock3Icon />
             <p className="text-gray-400">Resets in 21d 17h 12s</p>
           </div>
-  
-          <div className="px-40">
-            <RankListItem />
-          </div>
 
+          {/* <div className="grid sm:grid-cols-2 md:grid-cols-4 md:px-12 pt-8 items-center gap-8"> */}
+          <div className="flex justify-between px-6 gap-4">
+            {/* Volume Side */}
+            <div className="md:px-2 sm:px-4 lg:px-6 flex flex-col w-full font-bold border-x-2 border-gray-200">
+              <div className="  pb-4 gap-2 items-center ">
+                <div className="flex gap-2">
+
+                  <ChartNoAxesColumnIncreasing color="blue" strokeWidth={2} size={28} />
+                  <p className="text-2xl">Volume</p>
+                </div>
+                <RankItem
+                  rank={1}
+                  avatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0="
+                  onClick={() => { }}
+                  price={200000}
+                  username={firstName}
+                />
+              </div>
+            </div>
+
+            {/* profit Side */}
+            <div className="md:px-2 sm:px-4 lg:px-6 flex flex-col w-full font-bold border-x-2 border-gray-200">
+              <div className="flex items-center pb-4 gap-4">
+                <Banknote color="red" strokeWidth={2} size={32} />
+                <p className="text-2xl">Position</p>
+              </div>
+              <RankItem
+                rank={1}
+                avatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0="
+                onClick={() => { }}
+                price={200000}
+                username="stefan"
+              />
+              <RankItem
+                rank={1}
+                avatar="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0="
+                onClick={() => { }}
+                price={200000}
+                username="stefan"
+              />
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

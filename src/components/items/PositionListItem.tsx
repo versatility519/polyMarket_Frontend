@@ -1,6 +1,6 @@
 import React from "react";
 import Content from "./Content";
-import { Card, Tooltip, Typography } from "@material-tailwind/react";
+import { Card, Tooltip, Typography, Button } from "@material-tailwind/react";
 import { Upload } from "lucide-react";
 import { ProfileProps } from "../../types/profile";
 import { customers } from "../database";
@@ -77,11 +77,13 @@ const PositionListItem: React.FC<ProfileProps> = ({
                         <div className="text-nowrap font-normal text-green-600">{rate} (686.59%)</div>
                       </Typography>
                     </div>
-                    <Tooltip content="Share" aria-label="Share">
-                      <span>
-                        <Upload size={20} aria-hidden="true" />
-                      </span>
+
+                    <Tooltip content="Share">
+                      <Button variant="text" onClick={() => alert('Share button clicked!')}>
+                        <Upload size={20} />
+                      </Button>
                     </Tooltip>
+                    
                   </div>
                 </td>
               </tr>

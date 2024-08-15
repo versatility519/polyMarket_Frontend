@@ -254,12 +254,12 @@ export default function Admin() {
                                                     <td className={classes}>
                                                             <Tooltip content="Edit Event">
                                                                 <Button variant="text" onClick={() => { alert('ddd') }} >
-                                                                    <PencilIcon className="  h-4 w-4" />
+                                                                    <PencilIcon className="h-4 w-4" />
                                                                 </Button>
                                                             </Tooltip>
                                                             <Tooltip content="Delete Event">
                                                                 <Button variant="text" onClick={handleDeleteEvent} >
-                                                                    <Trash2 className="  h-4 w-4" />
+                                                                    <Trash2 className="h-4 w-4" />
                                                                 </Button>
                                                             </Tooltip>
 

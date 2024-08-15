@@ -11,13 +11,13 @@ const HolderCard = ({ yesHolder, noHolder }) => {
     const [menuNum, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
-        <div className="flex-1 py-3 border rounded-lg shadow-md">
-            <div className="flex px-5 justify-between items-center font-semibold">
+        <div className=" flex-1 py-3 rounded-lg  ">
+            <div className="w-full flex px-8 justify-between items-center font-semibold">
                 <h2 className="text-lg text-black font-semibold ">{yesHolder || noHolder}</h2>
                 <p className="uppercase cursor-text text-sm text-gray-400">shares</p>
             </div>
-            <Card className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
-                <CardBody>
+            <Card className="w-full flex gap-4 border-b-2 border-gray-100 ">
+                <CardBody >
                     <div className="divide-y divide-gray-200">
                         {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, count }, index) => (
                             <div

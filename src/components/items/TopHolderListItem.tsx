@@ -3,7 +3,7 @@ import HolderCard from "../cards/HolderCard";
 
 const TopHolderListItem = () => {
     return (
-        <div className="flex w-full justify-between gap-4">
+        <div className="flex" >
             <HolderCard yesHolder="Yes Holders" />
             <HolderCard noHolder="No Holders" />
         </div>
