@@ -1,13 +1,5 @@
 import React from "react";
 import { MyPropertyProps } from "../../types";
-import {
-    Landmark,
-    Edit2,
-    Activity,
-    TrendingUp,
-    ChartNoAxesColumnIncreasing,
-    CheckCheck,
-} from "lucide-react";
 const MyProperty: React.FC<MyPropertyProps> = ({ className, text, icon, value }) => {
     return (
         <div className="flex md:w-full border-2 px-6 py-4 justify-between rounded-xl">
@@ -23,5 +15,4 @@ const MyProperty: React.FC<MyPropertyProps> = ({ className, text, icon, value })
         </div>
     )
 }
-
 export default MyProperty;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip, Avatar } from '@material-tailwind/react'
-import { ProfileProps } from '../../types/profile';
-const UserProperty: React.FC<ProfileProps> = ({ avatar, toAvatar, username, address, position, volume }) => {
+import { UserPropertyProps } from '../../types/profile';
+const UserProperty: React.FC<UserPropertyProps> = ({ avatar, toAvatar, username, address, position, volume }) => {
     return (
         <Tooltip className="bg-white border-2 text-black z-50 rounded-lg" content={
             <div className=" ">

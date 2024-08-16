@@ -1,20 +1,11 @@
 import React from "react";
 import Content from "./Content";
-import { Card, Tooltip, Typography } from "@material-tailwind/react";
+import { Card, Typography } from "@material-tailwind/react";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { activityItem } from "../../contents/profileItem";
 import { ProfileProps } from "../../types/profile";
 import { customers } from "../database";
-const ProfileAcitiveListItem: React.FC<ProfileProps> = ({
-  eventName,
-  isBet,
-  value,
-  avgPrice,
-  curPrice,
-  totalPrice,
-  rate,
-}) => {
-
+const ProfileAcitiveListItem: React.FC<ProfileProps> = () => {
   return (
     <Card className=" flex w-full ">
       <table className="w-full min-w-max table-auto text-left">
@@ -35,7 +26,7 @@ const ProfileAcitiveListItem: React.FC<ProfileProps> = ({
             ))}
           </tr></thead>
         <tbody>
-          {customers.map(({ avatar, eventName, isBet, value, avgPrice, totalPrice}, index) => {
+          {customers.map(({ avatar, eventName, isBet, avgPrice, totalPrice }, index) => {
             const isLast = index === customers.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
@@ -56,7 +47,7 @@ const ProfileAcitiveListItem: React.FC<ProfileProps> = ({
                     color="blue-gray"
                     className="font-normal"
                   >
-                    <Content avatar={avatar} eventName={eventName} isBet={isBet} value={value} />
+                    <Content avatar={avatar} eventName={eventName} isBet={isBet} value={20}  />
                   </Typography>
                 </td>
                 <td className={classes}>

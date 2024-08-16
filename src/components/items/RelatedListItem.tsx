@@ -2,11 +2,15 @@ import React from "react";
 import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
 import { Card, Button, CardBody, Typography, Avatar } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-// Define the ActivityList component
 import { customers } from "../database";
+// Define the ActivityList component
 
-const RelatedListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, isBet, isSold, eventName, address, onClick, count, price, time, username }) => {
+const RelatedListItem: React.FC<ActivityListItemProps> = () => {
     const navigate = useNavigate();
+    const [convertBgColor, setConvertBgColor] = React.useState < boolean > (false);
+    const convertColor = () => {
+        setConvertBgColor(!convertBgColor);
+    }
     return (
         <Card className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
             <CardBody>
@@ -30,8 +34,8 @@ const RelatedListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, is
                                 </div>
                             </div>
                             <Typography className="flex gap-4 text-md font-semibold">
-                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-green-100 text-green-800 px-2" price={20} >{yes} ¢</Button>
-                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-orange-200 text-orange-600 px-2 " price={20} >{no}¢</Button>
+                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-green-100 text-green-800 px-2"  >{yes} ¢</Button>
+                                <Button style={{ textTransform: "none" }} onClick={() => { convertColor(); }} className=" rounded-lg bg-orange-200 text-orange-600 px-2 "  >{no}¢</Button>
                             </Typography>
                         </div>
                     ))}

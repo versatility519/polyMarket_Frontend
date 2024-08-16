@@ -7,8 +7,7 @@ const initialState: userStateProps = {
     error: null,
     user: {
         id: 0,
-        firstName: '',
-        lastName: '',
+        username: '', 
         email: '',
     },
     isLoggedIn: false

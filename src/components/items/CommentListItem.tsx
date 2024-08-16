@@ -3,7 +3,7 @@ import React from 'react';
 import Select from "react-select";
 import { useNavigate } from 'react-router-dom';
 
-import { Input, Card, CardBody, Avatar, Typography, Button, Option } from '@material-tailwind/react';
+import { Input, Card, CardBody, Avatar, Typography, Button } from '@material-tailwind/react';
 import { ChevronUp, ChevronDown, Shield, Ellipsis, Heart } from 'lucide-react';
 import { sortItem } from "../../contents/selectItem";
 import { customStyles } from "../../contents/selectStyle";
@@ -13,7 +13,7 @@ import UserProperty from '../cards/UserProperty';
 
 const CommentListItem = () => {
     const [selectValue, setSelectValue] = React.useState < string > ('');
-    const [selectedOption, setSelectedOption] = React.useState < Option | null > (sortItem[0]);
+    const [selectedOption, setSelectedOption] = React.useState(sortItem[0]);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
 
     const navigate = useNavigate();
@@ -88,7 +88,7 @@ const CommentListItem = () => {
                                 <div className=" ">
                                     <div className="flex py-1 justify-between">
                                         <Typography className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/profile')}>
-                                            <UserProperty username={username} address={address} position={position} volume={volume} />
+                                            <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
                                             <p className="text-gray-600 text-sm">2mo ago</p>
                                         </Typography>
 

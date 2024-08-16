@@ -36,12 +36,12 @@ export const getAllEvents = () => {
     }
 }
 
-export const addEvent = () => {
+export const addEvent = ( ) => {
     return async () => {
         try {
             console.log("====>>>>")
             const response = await instance.post("/events/add")
-            dispatch(events.actions.addEventData(response.data.data.events))
+            dispatch(events.actions.addEventData(response.data.data.eventData))
         } catch (error) {
             dispatch(events.actions.hasError(error))
         }

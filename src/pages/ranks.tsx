@@ -1,22 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 import TopNavbar from "../components/TopNavbar";
-import RankItem from "../components/items/RankItem";
-import {
-  ChartNoAxesColumnIncreasing,
-  Banknote,
-  Clock3Icon,
-} from "lucide-react";
+import { Clock3Icon } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
-import { dispatch, useSelector } from "../store";
+import { dispatch } from "../store";
 import RankListItem from "../components/items/RankListItem";
 
 const Leaderboard = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   //
   // Getting Data
-  const firstName = useSelector((state) => state.userInfo.user.firstName);
+  // const username = useSelector((state) => state.userInfo.user.username);
 
   const url = new URL(window.location.href);
   const pathname = url.pathname.replace(/^\/+/, "");
@@ -73,14 +68,14 @@ const Leaderboard = () => {
             <Clock3Icon />
             <p className="text-gray-400">Resets in 21d 17h 12s</p>
           </div>
-  
-          <div className="px-40">
+
+          <div className="flex px-40">
             <RankListItem />
           </div>
 
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

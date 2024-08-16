@@ -23,7 +23,7 @@ const TopNavbar = () => {
   const [upOpen, setUpOpen] = React.useState(false);
 
   // Getting Data
-  const firstName = useSelector((state) => state.userInfo.user.firstName)
+  const username = useSelector((state) => state.userInfo.user.username)
   const userrole = useSelector((state) => state.userInfo.user.role)
 
   // Use hooks
@@ -68,11 +68,11 @@ const TopNavbar = () => {
               allowHover={true}
             >
               <MenuHandler>
-                <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300">
+                <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center bg-white text-gray-400 hover:text-black  hover:bg-gray-300">
                   <p onClick={() => { navigate('/') }} className="justify-center flex">
                     <Trophy className="text-center" size={20} />
                   </p>
-                  <p>Markets</p>
+                  <p className="text-sm font-bold">Markets</p>
                 </Button>
               </MenuHandler>
               <MenuList className="z-10 hidden max-w-screen-xl rounded-xl lg:block">
@@ -84,19 +84,19 @@ const TopNavbar = () => {
               <p className="justify-center flex">
                 <Flag className="text-center" size={20} />
               </p>
-              <p>Election</p>
+              <p className="text-sm font-bold">Election</p>
             </Button>
             <Button style={{ textTransform: "none" }} className="shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/activity') }}>
               <p className="justify-center flex">
                 <Activity className="text-center" size={18} />
               </p>
-              <p>Activity</p>
+              <p className="text-sm font-bold">Activity</p>
             </Button>
             <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
               <p className="justify-center flex">
                 <Trophy className="text-center" size={20} />
               </p>
-              <p>Ranks</p>
+              <p className="text-sm font-bold">Ranks</p>
             </Button>
           </div>
           <div className="w-full">
@@ -106,18 +106,18 @@ const TopNavbar = () => {
                 <div className="flex ">
                   <Button style={{ textTransform: "none" }} className="outline-none  w-full shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
-                    <p className="w-full">Portfolio</p>
+                    <p className="text-sm font-bold">Portfolio</p>
                   </Button>
                 </div>
                 <div className="flex ">
                   <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-3 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
-                    <p>Cash</p>
+                    <p className="text-sm font-bold">Cash</p>
                   </Button>
                 </div>
                 <div className="flex ">
                   <Button style={{ textTransform: "none" }} className="outline-none px-2 w-full shadow-none  rounded-md items-center bg-blue-700 hover:text-black  hover:bg-gray-300" onClick={() => { }}>
-                    <p>Deposit</p>
+                    <p className="">Deposit</p>
                   </Button>
                 </div>
                 <div className="flex ">
@@ -135,7 +135,7 @@ const TopNavbar = () => {
                 >
                   <MenuHandler>
                     <Button style={{ textTransform: "none" }} className="flex outline-none border-2 border-gray-300 p-2 rounded-md  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                      <User />{firstName}
+                      <User />{username}
                     </Button>
                   </MenuHandler>
                   <MenuList className="-w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none">
@@ -218,7 +218,7 @@ const TopNavbar = () => {
       {/* Navigates */}
       < div className="flex overflow-x-scroll scrollbar-hide" >
         {
-          content.menuBtns.map((item, index) => <Button style={{ fontFamily: "initial", fontSize: "14px", textTransform: "none", color: "black", size: "sm" }} key={index} text={item.text} value={item.value} onClick={() => { }} className="flex border-b-2 p-1 px-3 border-white hover:border-b-gray-500 focus:border-b-black rounded-md font-bold text-lg text-black" >{item.text}</Button>)
+          content.menuBtns.map((item, index) => <Button style={{ fontFamily: "initial", fontSize: "14px", textTransform: "none", color: "black" }} key={index} value={item.value} onClick={() => { }} className="flex border-b-2 p-1 px-3 border-white hover:border-b-gray-500 focus:border-b-black rounded-md font-bold text-lg text-black text-nowrap" >{item.text}</Button>)
         }
       </div >
       <hr />

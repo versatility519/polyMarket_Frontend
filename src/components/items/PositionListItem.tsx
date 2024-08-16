@@ -4,15 +4,7 @@ import { Card, Tooltip, Typography, Button } from "@material-tailwind/react";
 import { Upload } from "lucide-react";
 import { ProfileProps } from "../../types/profile";
 import { customers } from "../database";
-const PositionListItem: React.FC<ProfileProps> = ({
-  eventName,
-  isBet,
-  value,
-  avgPrice,
-  curPrice,
-  totalPrice,
-  rate,
-}) => {
+const PositionListItem: React.FC<ProfileProps> = () => {
 
   const TABLE_HEAD = ["market", "avg", "current", "value"];
 
@@ -36,7 +28,7 @@ const PositionListItem: React.FC<ProfileProps> = ({
             ))}
           </tr></thead>
         <tbody>
-          {customers.map(({ avatar, eventName, isBet, value, avgPrice, curPrice, totalPrice, rate }, index) => {
+          {customers.map(({ avatar, eventName, isBet, avgPrice, curPrice, totalPrice, rate }, index) => {
             const isLast = index === customers.length - 1;
             const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
@@ -48,7 +40,7 @@ const PositionListItem: React.FC<ProfileProps> = ({
                     color="blue-gray"
                     className="font-normal"
                   >
-                    <Content avatar={avatar} eventName={eventName} isBet={isBet} value={value} />
+                    <Content avatar={avatar} eventName={eventName} isBet={isBet} value={33} />
                   </Typography>
                 </td>
                 <td className={classes}>
@@ -83,7 +75,7 @@ const PositionListItem: React.FC<ProfileProps> = ({
                         <Upload size={20} />
                       </Button>
                     </Tooltip>
-                    
+
                   </div>
                 </td>
               </tr>

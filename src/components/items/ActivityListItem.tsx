@@ -1,6 +1,6 @@
 import React from "react";
 import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
-import { Card, Button, CardBody, Typography, Avatar, Menu, MenuHandler, MenuItem, MenuList, Tooltip } from "@material-tailwind/react";
+import { Card, Button, CardBody, Typography, Avatar, Menu, MenuHandler, MenuItem, MenuList } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import UserProperty from "../cards/UserProperty";
 // Sample customer data
@@ -17,7 +17,7 @@ const convertTo = (pathname: string) => {
     return firstLetter + restOfString;
 };
 // Define the ActivityItem component
-const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, isBet, isSold, eventName, address, onClick, count, price, time, username }) => {
+const ActivityListItem: React.FC<ActivityListItemProps> = () => {
     const [menuNum, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
@@ -47,10 +47,10 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
                     </Typography>
                 </div>
                 <div className="divide-y divide-gray-200">
-                    {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, count }, index) => (
+                    {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
                         <div
                             key={index}
-                            className="flex items-center justify-between py-2 last:pb-2"
+                            className="flex items-center justify-between py-3 last:pb-2"
                         >
                             <div className="flex items-center gap-x-3">
                                 <Avatar size="md" src={avatar} alt={eventName} variant="rounded" />
@@ -63,7 +63,7 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ avatar, toAvatar, i
                                     <Typography className="text-sm items-center flex gap-1">
                                         <div className="flex items-center text-base cursor-pointer gap-2" onClick={() => navigate('/profile')}>
                                             <p className=" font-semibold hover:underline underline-offset-4">
-                                                <UserProperty toAvatar={toAvatar} username={username} address={address} position={position} volume={volume} />
+                                                <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
                                             </p>
                                         </div>
                                         <p className="text-base">{isSold === true ? 'sold' : 'bought'}</p>

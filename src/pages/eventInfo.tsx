@@ -1,25 +1,13 @@
 import React from "react";
-import {
-  Tooltip, Typography, Button,
-  Card, CardHeader, CardBody, Avatar
-} from "@material-tailwind/react";
+import { Tooltip, Typography, Button, Card, CardHeader, CardBody, Avatar } from "@material-tailwind/react";
 import { Check } from "lucide-react";
 import EventInfoList from "../components/event/EventInfoList";
 import EventInfoCard from "../components/event/EventInfoCard";
 import TopNavbar from "../components/TopNavbar";
 
-import { useNavigate } from "react-router-dom";
-import {
-  Landmark,
-  Trophy,
-  Clock4,
-  Star,
-  Link, ChevronUp, ChevronDown,
-  ChevronsLeftRight,
-  Goal,
-} from "lucide-react";
+import { Landmark, Trophy, Clock4, Star, Link, ChevronUp, ChevronDown, ChevronsLeftRight, Goal, } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
-import { dispatch, useSelector } from "../store";
+import { dispatch } from "../store";
 import YesNoBtn from "../components/YesNoBtn";
 
 const Profile = () => {
@@ -98,7 +86,6 @@ const Profile = () => {
                           className=" border-b text-start"
                         >
                           <Typography
-                            variant="large"
                             color="black"
                             className="text-lg font-normal indent-4  "
                           >
@@ -179,7 +166,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="block sm:hidden visible fixed z-50 w-full bottom-1">
-                <YesNoBtn />
+            <YesNoBtn />
           </div>
         </div >
       </div >

@@ -1,23 +1,11 @@
-import React, { useEffect } from "react";
-import {
-    Button, Tooltip, Typography
-    , Popover,
-    PopoverHandler,
-    PopoverContent,
-    Input,
-
-} from "@material-tailwind/react";
-// import TradeSetting from "./TradeSetting";
-import {
-    Info,
-    RefreshCcw,
-    Plus,
-    Minus, Settings,
-    Percent,
-
-} from "lucide-react";
+import React, { ChangeEvent } from "react";
+import { Button, Tooltip, Typography, Popover, PopoverHandler, PopoverContent, Input } from "@material-tailwind/react";
+import { Info, RefreshCcw, Plus, Minus, Settings, Percent } from "lucide-react";
 import YesNoBtn from "../YesNoBtn";
-export default function BuySell(props) {
+interface BuySellProps {
+    activeTab: string;
+}
+const BuySell: React.FC<BuySellProps> = ({ activeTab }) => {
     const [orderType, setOrderType] = React.useState < string | null > ('market');
     const changeOrderType = (value: string) => {
         setOrderType(value);
@@ -29,12 +17,12 @@ export default function BuySell(props) {
 
     const [number, setNumber] = React.useState < number > (0);
     const [popOver, setPopOver] = React.useState < boolean > (false);
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
         if (inputValue === '' || /^[0-9]*$/.test(inputValue)) {
             setNumber(inputValue === '' ? 0 : parseInt(inputValue, 10));
         }
-    }
+    };
 
     return (
         <div className="gap-4">
@@ -71,7 +59,7 @@ export default function BuySell(props) {
                         <Tooltip content="Trade settings">
                             <Settings className="cursor-pointer" onClick={() => { setPopOver(true) }} size={20} />
                         </Tooltip>
-                        : <Popover placement="bottom-right" className="z-50">
+                        : <Popover placement="right" className="z-50">
                             <PopoverHandler>
                                 <Settings className="cursor-pointer" onClick={() => { setPopOver(false) }} size={20} />
                             </PopoverHandler>
@@ -79,11 +67,11 @@ export default function BuySell(props) {
                                 <Typography>
                                     <p className="text-md font-medium py-2">Tania Andrew</p>
                                     <div className="flex justify-between border-none gap-2">
-                                        <Button style={{ textTransform: 'none' }} value="market" className={`${orderType === 'market' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`} onClick={() => changeOrderType('market')} price={20}>Market</Button>
+                                        <Button style={{ textTransform: 'none' }} value="market" className={`${orderType === 'market' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`} onClick={() => changeOrderType('market')} >Market</Button>
                                         <Button style={{ textTransform: 'none' }} value="limit" className={`${orderType === 'limit' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
-                                            onClick={() => changeOrderType('limit')} price={20}>Limit </Button>
+                                            onClick={() => changeOrderType('limit')} >Limit </Button>
                                         <Button style={{ textTransform: 'none' }} value="amm" className={`${orderType === 'amm' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
-                                            onClick={() => changeOrderType('amm')} price={20}>Amm</Button>
+                                            onClick={() => changeOrderType('amm')} >Amm</Button>
 
                                     </div>
                                 </Typography>
@@ -102,11 +90,11 @@ export default function BuySell(props) {
                                     </p>
                                     <div className="flex justify-between gap-2">
                                         <Button value="zeroOne" className={`${tolerance === 'zeroOne' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
-                                            onClick={() => changeTolerence('zeroOne')} price={20}>0.1%</Button>
+                                            onClick={() => changeTolerence('zeroOne')} >0.1%</Button>
                                         <Button value="five" className={`${tolerance === 'five' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
-                                            onClick={() => changeTolerence('five')} price={20}>0.5%</Button>
+                                            onClick={() => changeTolerence('five')} >0.5%</Button>
                                         <Button value="one" className={`${tolerance === 'one' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
-                                            onClick={() => changeTolerence('one')} price={20}>1%</Button>
+                                            onClick={() => changeTolerence('one')}  >1%</Button>
 
                                         <div className="flex w-[3vw] items-center border px-1 border-black rounded-md ">
                                             <Input className="outline-none border-none" size="md" />
@@ -125,7 +113,7 @@ export default function BuySell(props) {
                 <YesNoBtn />
             </div>
 
-            {props.activeTab === "buy" ? (
+            {activeTab === "buy" ? (
                 <div>
                     < div className=" flex flex-col py-1 gap-2 ">
                         <p>Amount</p>
@@ -194,3 +182,4 @@ export default function BuySell(props) {
         </div>
     )
 }
+export default BuySell;

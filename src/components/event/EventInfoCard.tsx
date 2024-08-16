@@ -7,7 +7,6 @@ import {
     Tab,
     TabPanel,
 } from "@material-tailwind/react";
-import YesNoBtn from "../YesNoBtn";
 const EventInfoCard = () => {
     const [activeTab, setActiveTab] = React.useState < string > ('buy');
     const data = [

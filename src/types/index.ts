@@ -6,7 +6,7 @@ export type KeyedObject = {
 export interface TabProps {
     title: string;
     content: string;
-  }
+}
 
 export interface IconProps {
     className?: string;
@@ -52,8 +52,7 @@ export interface UserProfileProps {
     id?: number,
     email?: string,
     avatar?: string,
-    firstName: string,
-    lastName: string,
+    username: string,
     password?: string,
     role?: string,
 }
@@ -75,7 +74,9 @@ export type JWTContextType = {
     user?: UserProfileProps | null | undefined;
     logout: () => void;
     login: (email: string, password: string) => Promise<void>;
-    register: (email: string, password: string, firstName: string, lastName: string) => Promise<void>;
+    register: (email: string, password: string, username: string,) => Promise<void>;
+
+    // addEvent: ();
     resetPassword: (email: string) => Promise<void>;
     updateProfile: VoidFunction;
 };
@@ -84,4 +85,3 @@ export type JWTContextType = {
 export interface NotificationContextValue {
     showNotification: (msg: string, type: "success" | "error" | "info" | "warning") => void;
 }
- 

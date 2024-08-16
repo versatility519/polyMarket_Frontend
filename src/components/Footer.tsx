@@ -24,11 +24,15 @@ const Footer = () => {
             <div className="flex justify-between">
                 {content.footerBtns.map((item, index) => (
                     <Button
+                        style={{ textTransform: 'none' }}
                         key={index}
                         value={item.value}
                         onClick={() => navigate(`/${item.link}`)}
-                        className="flex flex-col items-center text-gray-600 hover:text-black hover:bg-gray-300 rounded-sm"
-                    >  <item.icon />{item.text}</Button>
+                        className="flex flex-col shadow-none p-1 outline-none items-center text-gray-600 hover:text-black hover:bg-gray-300 rounded-sm"
+                    >
+                        <item.icon size={18} />
+                        <p className="text-sm">{item.text}</p>
+                    </Button>
                 ))}
             </div>
         </div>

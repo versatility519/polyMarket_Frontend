@@ -2,7 +2,6 @@ import React from "react";
 import { Typography, Switch, Button, Textarea, Input } from "@material-tailwind/react";
 import TopNavbar from "../components/TopNavbar";
 // import Button from "../components/Button";
-import { useNavigate } from "react-router-dom";
 import { CameraIcon, Megaphone, Save, UserCog } from "lucide-react";
 
 import { getUsersData } from "../store/reducers/users";
@@ -11,7 +10,6 @@ import { dispatch, useSelector } from "../store";
 const Setting = () => {
   // Getting Data
   const email = useSelector((state) => state.userInfo.user.email)
-  const lastName = useSelector((state) => state.userInfo.user.lastName);
 
   const [isProfile, setIsProfile] = React.useState < boolean > (true);
 
@@ -35,9 +33,11 @@ const Setting = () => {
             alt=""
           />
           <Button style={{ color: 'black', textTransform: 'none' }}
-            value="saveChange" type="file"
+            value="saveChange"  
             onClick={() => { }}
-            className="flex font-semibold items-center gap-1 px-2 py-1 text-white bg-gray-400 rounded-full"><CameraIcon size={18} />Upload</Button>
+            className="flex font-semibold items-center gap-1 px-2 py-1 text-white bg-gray-200 rounded-full">
+            <CameraIcon size={18} />Upload
+          </Button>
         </div>
         <label className="   py-2 text-base font-semibold text-gray-900 ">
           <p>Email</p>
@@ -52,7 +52,7 @@ const Setting = () => {
         <label className="flex py-2 text-base font-semibold text-gray-900 ">
           Bio
         </label>
-        <Textarea placeholder="Bio" className="rounded-lg  p-4 focus:border-black  text-base" />
+        <Textarea size="md" placeholder="Bio" className="rounded-lg  p-4 focus:border-black  text-base" />
 
         <div className="flex pl-8 pt-4">
           <Button

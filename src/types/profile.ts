@@ -1,6 +1,7 @@
+
 export interface ProfileProps {
     avatar: string,
-    address:string,
+    address: string,
     eventName: string,
     isBet?: boolean,
     value: number,
@@ -8,15 +9,21 @@ export interface ProfileProps {
     curPrice: number,
     totalPrice: number,
     rate: number,
-
     onClick?: () => void
+}
+export interface UserPropertyProps {
+    avatar:string,
+    username:string,
+    address:number,
+    position:number,
+    volume:number
 }
 
 export interface ContentProps {
     avatar: string,
-    eventName: string,
+    eventName: string | undefined,
     isBet?: boolean,
     betPrice?: number,
     value: number,
-    onClick: () => void
+    onClick?: () => void
 }

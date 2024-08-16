@@ -18,7 +18,7 @@ const Main = () => {
     const [listView, setListView] = React.useState < boolean > (false);
 
     const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
-    const [selectedOption, setSelectedOption] = React.useState < Option | null > (categoryItem[0]);
+    const [selectedOption, setSelectedOption] = React.useState(categoryItem[0]);
 
     const [selectedButton, setSelectedButton] = React.useState < string | null > ('top');
     const handleButtonClick = (value: string) => {
@@ -36,11 +36,12 @@ const Main = () => {
     return (
         <div className=" ">
             <TopNavbar />
-            <div className="lg:flex flex-row overflow-x-scroll scrollbar-hide gap-5 justify-center px-6 my-10">
-                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="bg-gradient-to-r from-blue-600 to-blue-200" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
-                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="bg-gradient-to-r from-red-600 to-red-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
-                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="bg-gradient-to-r from-indigo-600 to-indigo-300" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
-                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+            {/* <div className="flex lg:grid-rows-1 md:gir sm:flex  sm:overflow-x-scroll overflow-x-scroll  scrollbar-hide gap-5 justify-center px-6 my-10"> */}
+            <div className=" flex  overflow-x-scroll gap-3 px-4">
+                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2  bg-gradient-to-r from-blue-600 to-blue-200" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-red-600 to-red-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-indigo-600 to-indigo-300" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
             </div>
             {/* SubBar */}
             <div className="lg:flex sm:grid-cols-2 grid-cols-2 grid lg:items-center px-4 gap-2">
@@ -56,7 +57,7 @@ const Main = () => {
                 <Select
                     className="border-2 lg:order-3 lg:w-[16vw] sm:w-full sm:order-4 order-4 justify-between flex items-center rounded-lg"
                     value={selectedOption}
-                    styles={customStyles}
+                    style={customStyles}
                     options={categoryItem}
                     onMenuOpen={() => setIsDropdownOpen(true)}
                     onMenuClose={() => setIsDropdownOpen(false)}
@@ -75,8 +76,10 @@ const Main = () => {
                         </div>
                     )}
                 />
-                {/* <b>Selected Option:</b> {selectedOption.text} */}
+
                 
+                {/* <b>Selected Option:</b> {selectedOption.text} */}
+
                 <div className="lg:order-4 lg:flex sm:hidden hidden border rounded-md">
                     <Button value="gridView" className="flex text-gray-500   p-4 outline-none items-center justify-center cursor-pointer hover:bg-gray-300 focus:bg-gray-400" onClick={() => { setListView(false) }}><MarketsIcon /></Button>
                     <Button value="listView" className="flex text-gray-500   p-3 outline-none items-center justify-center cursor-pointer hover:bg-gray-300 focus:bg-gray-400" onClick={() => { setListView(false) }} ><List /></Button>

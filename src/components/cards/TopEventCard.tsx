@@ -8,7 +8,7 @@ const TopEventCard: React.FC<TopEventCardProps> = ({ text, btn_text, img_url, on
                 <p className="text-lg font-bold">{text}</p>
                 <button onClick={onClick} className="text-sm px-3 py-1 bg-gray-500 hover:bg-gray-400 rounded-full">{btn_text}</button>
             </div>
-            <img src={img_url} alt="" className="lg:w-24 sm:w-20 w-20 border-2 rounded-lg border-white" />
+            <img src={img_url} alt="" className="lg:w-24 sm:w-20 w-20 border-2 flex rounded-lg border-white" />
         </div>
     )
 }

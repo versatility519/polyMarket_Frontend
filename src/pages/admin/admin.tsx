@@ -2,19 +2,7 @@ import React from "react";
 import TopNavbar from "../../components/TopNavbar";
 import { UserPlusIcon, ArrowLeftIcon, ArrowRightIcon, ChevronsUpDownIcon, PencilIcon, Trash2 } from "lucide-react";
 import {
-    Card,
-    CardHeader,
-    Typography,
-    Button,
-    CardBody,
-    Chip,
-    CardFooter,
-    Tabs,
-    TabsHeader,
-    Tab,
-    Avatar,
-    IconButton,
-    Tooltip,
+    Card, CardHeader, Typography, Button, CardBody, Chip, CardFooter, Tabs, TabsHeader, Tab, Avatar, Tooltip,
 } from "@material-tailwind/react";
 import { SearchIcon } from "lucide-react";
 import { useNavigate } from "react-router";
@@ -96,13 +84,13 @@ export default function Admin() {
         }
     };
 
-    const getItemProps = (index: number) =>
-    ({
-        variant: pagination === index ? "filled" : "text",
-        color: "gray",
-        onClick: () => setPagination(index),
-        className: "rounded-full",
-    });
+    // const getItemProps = (index: number) =>
+    // ({
+    //     variant: pagination === index ? "filled" : "text",
+    //     color: "gray",
+    //     onClick: () => setPagination(index),
+    //     className: "rounded-full",
+    // });
 
     const next = () => {
         if (pagination === 5) return;
@@ -252,16 +240,16 @@ export default function Admin() {
                                                         </Typography>
                                                     </td>
                                                     <td className={classes}>
-                                                            <Tooltip content="Edit Event">
-                                                                <Button variant="text" onClick={() => { alert('ddd') }} >
-                                                                    <PencilIcon className="h-4 w-4" />
-                                                                </Button>
-                                                            </Tooltip>
-                                                            <Tooltip content="Delete Event">
-                                                                <Button variant="text" onClick={handleDeleteEvent} >
-                                                                    <Trash2 className="h-4 w-4" />
-                                                                </Button>
-                                                            </Tooltip>
+                                                        <Tooltip content="Edit Event">
+                                                            <Button variant="text" onClick={() => { alert('ddd') }} >
+                                                                <PencilIcon className="h-4 w-4" />
+                                                            </Button>
+                                                        </Tooltip>
+                                                        <Tooltip content="Delete Event">
+                                                            <Button variant="text" onClick={handleDeleteEvent} >
+                                                                <Trash2 className="h-4 w-4" />
+                                                            </Button>
+                                                        </Tooltip>
 
                                                     </td>
 
@@ -283,11 +271,7 @@ export default function Admin() {
                                 <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
                             </Button>
                             <div className="flex items-center gap-2">
-                                <IconButton {...getItemProps(1)}>1</IconButton>
-                                <IconButton {...getItemProps(2)}>2</IconButton>
-                                <IconButton {...getItemProps(3)}>3</IconButton>
-                                <IconButton {...getItemProps(4)}>4</IconButton>
-                                <IconButton {...getItemProps(5)}>5</IconButton>
+                                ---1234--
                             </div>
                             <Button
                                 variant="text"

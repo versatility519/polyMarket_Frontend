@@ -18,6 +18,7 @@ export const customers = [
         totalPrice:90,
         avgPrice:90,
         curPrice:89,
+        rate:400
     },
     {
         eventName: "Will the Jaguars win Super Bowl 2025?",
@@ -37,6 +38,7 @@ export const customers = [
         totalPrice:90,
         avgPrice:90,
         curPrice:89,
+        rate:30
     },
     {
         username: "Richard Gran",
@@ -55,6 +57,7 @@ export const customers = [
         totalPrice:4,
         avgPrice:90,
         curPrice:89,
+        rate:30
     },
     {
         eventName: "Will the Jaguars win Super Bowl 2025?",
@@ -74,5 +77,6 @@ export const customers = [
         totalPrice:912,
         avgPrice:90,
         curPrice:89,
+        rate:30
     },
 ];

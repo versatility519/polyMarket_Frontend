@@ -18,7 +18,7 @@ import { dispatch, useSelector } from "../store";
 const Profile = () => {
   const navigate = useNavigate();
   // Getting Data
-  const firstName = useSelector((state) => state.userInfo.user.firstName);
+  const username = useSelector((state) => state.userInfo.user.username);
 
   React.useEffect(() => {
     dispatch(getUsersData());
@@ -32,7 +32,7 @@ const Profile = () => {
             <div className="flex gap-4">
               <Avatar className="rounded-full" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="" />
               <div className="  ">
-                <div className="text-2xl font-bold">{firstName}</div>
+                <div className="text-2xl font-bold">{username}</div>
                 <div className="text-sm">Joined Aug 2024</div>
               </div>
             </div>
