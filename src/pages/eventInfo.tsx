@@ -5,10 +5,11 @@ import EventInfoList from "../components/event/EventInfoList";
 import EventInfoCard from "../components/event/EventInfoCard";
 import TopNavbar from "../components/TopNavbar";
 
-import { Landmark, Trophy, Clock4, Star, Link, ChevronUp, ChevronDown, ChevronsLeftRight, Goal, } from "lucide-react";
+import { Trophy, Clock4, Star, Link, ChevronUp, ChevronDown, ChevronsLeftRight, Goal, } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
 import { dispatch } from "../store";
 import YesNoBtn from "../components/YesNoBtn";
+import Logo from "../components/Logo";
 
 const Profile = () => {
   const [isVisible, setIsVisible] = React.useState < boolean > (false);
@@ -24,12 +25,12 @@ const Profile = () => {
     <div className="">
       <TopNavbar />
       <div className="flex justify-center">
-        <div className="flex lg:px-[20vw] md:px-[12vw] sm:px-[4vw] gap-4">
+        <div className="flex xl:px-[20vw] lg:w-full sm:px-[4vw] gap-4">
           <div className="px-2 py-4">
-            <div className="flex  border-2 items-center gap-4 py-1  text-black-700">
-              <Avatar className=" rounded-full" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
-              <div className="w-full">
-                <div className="flex w-full justify-between gap-2">
+            <div className="flex  border-2 items-center gap-4 px-2 py-1  text-black-700">
+              <Avatar size="md" className=" rounded-md" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
+              <div className="w-full ">
+                <div className="flex w-full justify-between gap-3">
                   <div className="flex">
                     <Tooltip placement="bottom" className="bg-white border border-gray-300" content={
                       <Card className="bg-white w-[16rem] ">
@@ -117,16 +118,20 @@ const Profile = () => {
                 </div>
 
                 <div className="flex w-full justify-between">
-                  <div className="sm:w-full   text-2xl font-bold">How many named storms during Atlantic Hurricane Season?</div>
-                  <Button style={{ textTransform: "none" }} value="editProfile"
-                    className="lg:flex sm:hidden text-black items-center font-semibold rounded-lg gap-2 px-4 py-1"><Landmark />PloyMarket</Button>
+                  <div className="sm:w-full text-2xl font-bold">How many named storms during Atlantic Hurricane Season?</div>
+
+                  <div className=" md:px-16 opacity-30">
+                    <Logo />
+                  </div>
+                  {/* <Button style={{ textTransform: "none" }} value="editProfile"
+                    className="lg:flex sm:hidden text-black items-center font-semibold rounded-lg gap-2 px-4 py-1"><Landmark />PloyMarket</Button> */}
                 </div>
               </div>
             </div>
 
 
             <div className="py-4">
-              <h2 className="px-2 text-xl border-b-2 font-bold">Rules</h2>
+              <h2 className="px-2 text-lg border-b-2 font-medium">Rules</h2>
               <div className="p-4">
                 <Typography className={`${!isVisible ? 'line-clamp-1' : ''} indent-3 font-normal`}>
                   This is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visibl. ehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visiblehis is the initial content that is always visible.This is the initial content that is always visible
@@ -150,7 +155,7 @@ const Profile = () => {
               </div>
 
               <Button style={{ textTransform: "none" }} onClick={toggleVisibility}
-                className="flex text-md gap-2 outline-none text-gray-500 px-4 rounded-full border bg-grary-400 hover:bg-gray-300 transition duration-200"
+                className="flex text-sm gap-2 items-center px-1 outline-none text-gray-500 p-1 rounded-full  shadow-none bg-grary-400 hover:bg-gray-300 transition duration-200"
               >
                 {isVisible ? "Show Less" : "Show More"}
                 {isVisible ? <ChevronUp /> : <ChevronDown />}

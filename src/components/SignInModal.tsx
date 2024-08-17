@@ -73,7 +73,6 @@ const SignInModal = ({ isOpen, onClose, title }: ModalProps) => {
             >
                 <div className="flex flex-col gap-2 ">
                     <p className="text-center text-2xl font-bold">{title}</p>
-
                     <div className="cursor-pointer flex flex-row   bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg w-[100%] h-[80px]" onClick={() => googleSignIn()}>
                         <div className="flex items-center justify-center ml-2 my-auto w-[50px] h-[50px] bg-white rounded-lg">
                             <GoogleIcon />
@@ -106,9 +105,7 @@ const SignInModal = ({ isOpen, onClose, title }: ModalProps) => {
                     <Button style={{ textTransform: 'none' }} className="text-black w-full border justify-start">
                         MetaMask
                     </Button>
-                    <Button style={{ textTransform: 'none' }} className="text-black w-full border justify-start">
-                        Coinbase Wallet
-                    </Button>
+                
                     <Button style={{ textTransform: 'none' }} className="text-black w-full border justify-start">
                         WalletConnect
                     </Button>

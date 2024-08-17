@@ -126,20 +126,20 @@ export const JWTProvider = ({ children }: { children: React.ReactElement }) => {
 
     // const resetPassword = async (email: string) => { };
 
-    const updateProfile = async (email: string, password: string, username: string) => {
-        const response = await instance.post('/auth/register', {
-            email,
-            password,
-            username,
-        });
-        alert(response)
-    };
+    // const updateProfile = async (email: string, password: string, username: string) => {
+    //     const response = await instance.post('/auth/register', {
+    //         email,
+    //         password,
+    //         username,
+    //     });
+    //     alert(response)
+    // };
 
     //   if (state.isInitialized !== undefined && !state.isInitialized) {
     //     return <Loader />;
     //   }
 
-    return <JWTContext.Provider value={{ ...state, login, logout, register, }}>{children}</JWTContext.Provider>;
+    return <JWTContext.Provider value={{ ...state, login, logout, register }}>{children}</JWTContext.Provider>;
 }
 
 export default JWTContext;

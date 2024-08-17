@@ -1,42 +1,54 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { content } from "../contents/landing";
-import { Button } from "@material-tailwind/react";
+import Logo from "./Logo";
 
 const Footer = () => {
-    const navigate = useNavigate();
-    const [isHidden, setIsHidden] = React.useState(false);
-    const [prevScrollPos, setPrevScrollPos] = React.useState(0);
-
-    React.useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollPos = window.scrollY;
-            setIsHidden(prevScrollPos > currentScrollPos && currentScrollPos > 0);
-            setPrevScrollPos(currentScrollPos);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [prevScrollPos]);
-
     return (
-        <div className={`fixed bottom-0 left-0 lg:hidden sm:w-full w-full border-2 bg-gray-100 text-white px-12 py-3 rounded-md transition-transform duration-300 ${isHidden ? 'transform translate-y-full' : ''}`}>
-            <div className="flex justify-between">
-                {content.footerBtns.map((item, index) => (
-                    <Button
-                        style={{ textTransform: 'none' }}
-                        key={index}
-                        value={item.value}
-                        onClick={() => navigate(`/${item.link}`)}
-                        className="flex flex-col shadow-none p-1 outline-none items-center text-gray-600 hover:text-black hover:bg-gray-300 rounded-sm"
-                    >
-                        <item.icon size={18} />
-                        <p className="text-sm">{item.text}</p>
-                    </Button>
-                ))}
+        <div className=" flex w-full flex-col  bg-fuchsia-900 text-white border-red-400">
+            <div className=" md:flex flex-none mt-10 px-4 py-5 justify-between text-1xl h-[400px]"  >
+                <div className=" ">
+                    <Logo />
+                    <h1>The world's largest prediction market.</h1>
+                </div>
+
+                <div className="flex ">
+                    <div className="flex flex-col text-1xl gap-2 ">
+                        <p className="text-2xl font-bold">Markets</p>
+                        <p>Politics </p>
+                        <p>Crypto </p>
+                        <p>Sports </p>
+                        <p>Middle East </p>
+                        <p>Pop Culture </p>
+                        <p>Business </p>
+                        <p>Science </p>
+                        <p>All </p>
+                    </div>
+                    <div className="flex flex-col text-1xl gap-2 ml-20">
+                        <p className="text-2xl font-bold">Resources</p>
+                        <p>Contact </p>
+                        <p>Learn </p>
+                        <p>Developers </p>
+                        <p>Blog </p>
+
+                    </div>
+                    <div className="flex flex-col text-1xl gap-2 ml-20">
+                        <p className="text-2xl font-bold">Join the community</p>
+                        <div className="flex">
+                            All Icon
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className=" flex items-center justify-between px-4">
+                <div className="">
+                    <h1>Adventure One QSS Inc. © 2024</h1>
+                </div>
+                <div className="flex gap-4">
+                    <p>Privacy Policy</p>
+                    <p>Terms of Service</p>
+                </div>
             </div>
         </div>
     );
-};
+}
 
 export default Footer;

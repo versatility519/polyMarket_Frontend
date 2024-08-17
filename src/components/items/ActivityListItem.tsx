@@ -1,23 +1,12 @@
 import React from "react";
-import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
+// import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
 import { Card, Button, CardBody, Typography, Avatar, Menu, MenuHandler, MenuItem, MenuList } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import UserProperty from "../cards/UserProperty";
 // Sample customer data
 import { customers } from "../database";
 
-const url = new URL(window.location.href);
-const pathname = url.pathname.replace(/^\/+/, '');
-
-// Convert the pathname
-const convertTo = (pathname: string) => {
-    if (!pathname) return pathname;
-    const firstLetter = pathname.charAt(0).toUpperCase();
-    const restOfString = pathname.slice(1).toLowerCase();
-    return firstLetter + restOfString;
-};
-// Define the ActivityItem component
-const ActivityListItem: React.FC<ActivityListItemProps> = () => {
+const ActivityListItem: React.FC = () => {
     const [menuNum, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
@@ -25,7 +14,7 @@ const ActivityListItem: React.FC<ActivityListItemProps> = () => {
             <CardBody>
                 <div className="flex border-b-2 pb-2 items-center justify-between">
                     <Typography className="text-black font-medium">
-                        <p className="flex items-center px-6 py-4 text-3xl font-medium text-black"> {convertTo(pathname)} </p>
+                        <p className="flex items-center px-6 py-4 text-3xl font-medium text-black"> Activity</p>
                     </Typography>
                     <Typography
                         variant="small"
@@ -47,7 +36,7 @@ const ActivityListItem: React.FC<ActivityListItemProps> = () => {
                     </Typography>
                 </div>
                 <div className="divide-y divide-gray-200">
-                    {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
+                    {customers.map(({ eventName, username, laterTime, avatar, position, address, volume, isBet, isSold, price, count }, index) => (
                         <div
                             key={index}
                             className="flex items-center justify-between py-3 last:pb-2"

@@ -1,13 +1,10 @@
 import React from 'react'
-// import Datepicker from "react-tailwindcss-datepicker";
-
 import { Typography, Textarea, Button, Input } from '@material-tailwind/react'
 import { CloudUpload, } from 'lucide-react'
 import TopNavbar from '../../components/TopNavbar'
 import useNotification from '../../hooks/useNotification'
 import { useNavigate } from 'react-router-dom'
 
-// import { addEvent } from '../../store/reducers/events'
 const AddEvent = () => {
     const navigate = useNavigate()
 
@@ -70,7 +67,7 @@ const AddEvent = () => {
                         className="flex w-full py-2 h-full rounded-md shadow-sm ring-1  ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"
                     />
 
-
+                 
                     <label className='flex pb-1 text-lg font-semibold text-gray-900 '>
                         Avatar
                     </label>

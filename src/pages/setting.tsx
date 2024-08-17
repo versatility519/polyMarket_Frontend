@@ -93,20 +93,20 @@ const Setting = () => {
     <div className=" ">
       <TopNavbar />
       <div className="flex justify-center">
-        <div className="flex sm:w-full sm:px-4 md:w-full lg:w-full xl:w-[56vw] w-full py-8 border-2 border-red-600">
-          <div className="">
+        <div className="flex sm:w-full sm:px-4 md:w-full lg:w-full xl:w-[48vw] w-full py-8">
+          <div className=" text-lg">
             <Button
               style={{ color: 'black', textTransform: 'none' }}
               value="profile"
               onClick={() => setIsProfile(true)}
-              className="flex w-full text-2xl items-center font-semibold gap-4 px-4 py-2 focus:bg-gray-400 rounded-lg"><UserCog />Profile</Button>
+              className="flex w-full text-xl items-center font-semibold shadow-none hover:bg-gray-300 gap-4 px-4 py-2 focus:bg-gray-400 rounded-lg"><UserCog />Profile</Button>
             <Button
               style={{ color: 'black', textTransform: 'none' }}
               value="profile"
               onClick={() => {
                 setIsProfile(false);
               }}
-              className="flex w-full text-2xl font-semibold items-center gap-4 px-4 py-2 focus:bg-gray-400 rounded-lg"><Megaphone />Notifications</Button>
+              className="flex w-full text-xl font-semibold items-center shadow-none gap-4 px-4 py-2 focus:bg-gray-400 rounded-lg"><Megaphone />Notifications</Button>
           </div>
           <div className=" flex sm:w-full sm:px-8">
             {isProfile ? <ProfileSetting /> : <SetNotification />}

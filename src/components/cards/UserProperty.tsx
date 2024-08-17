@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tooltip, Avatar } from '@material-tailwind/react'
 import { UserPropertyProps } from '../../types/profile';
-const UserProperty: React.FC<UserPropertyProps> = ({ avatar, toAvatar, username, address, position, volume }) => {
+const UserProperty: React.FC<UserPropertyProps> = ({ avatar, username, address, position, volume }) => {
     return (
         <Tooltip className="bg-white border-2 text-black z-50 rounded-lg" content={
             <div className=" ">
@@ -26,17 +26,15 @@ const UserProperty: React.FC<UserPropertyProps> = ({ avatar, toAvatar, username,
             </div>
         }>
             <div className='flex font-normal items-center gap-2'>
-                {toAvatar || avatar ? (
+                {avatar ? (
                     <div className='flex items-center gap-3'>
                         <Avatar
-                            size="md"
-                            src={toAvatar || avatar}
-                            className={`${toAvatar ? 'w-6 rounded-full' : 'rounded'}`}
+                            
+                            src={avatar}
+                            className={`${avatar ? 'rounded-full' : 'rounded'} w-8 h-8`}
                         />
                         <span>{username}</span>
                     </div>
-                ) : toAvatar ? (
-                    <span>{username}</span>
                 ) : (
                     <span>{username}</span>
                 )}

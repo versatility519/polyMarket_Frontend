@@ -5,7 +5,6 @@ import MyProperty from "../components/cards/MyProperty";
 import TopNavbar from "../components/TopNavbar";
 import { useNavigate } from "react-router-dom";
 import {
-  Landmark,
   Edit2,
   Activity,
   TrendingUp,
@@ -14,11 +13,13 @@ import {
 } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
 import { dispatch, useSelector } from "../store";
+import Logo from "../components/Logo";
 
 const Profile = () => {
   const navigate = useNavigate();
   // Getting Data
   const username = useSelector((state) => state.userInfo.user.username);
+  const address = useSelector((state) => state.userInfo.user.username);
 
   React.useEffect(() => {
     dispatch(getUsersData());
@@ -26,28 +27,29 @@ const Profile = () => {
   return (
     <div className="">
       <TopNavbar />
-      <div className="flex justify-center py-4">
+      <div className="flex justify-center px-4 py-4">
         <div className="flex w-[60rem] flex-col gap-4 ">
           <div className="flex px-4 py-4 justify-between items-center text-black-700 border-2" >
             <div className="flex gap-4">
               <Avatar className="rounded-full" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="" />
               <div className="  ">
-                <div className="text-2xl font-bold">{username}</div>
-                <div className="text-sm">Joined Aug 2024</div>
+                <div className="text-4xl pb-4 font-bold">{username}</div>
+                <div className="flex gap-6">
+                  <div className="bg-gray-300 px-2 rounded-md">{address}</div>
+                  <div className="text-sm text-gray-400">Joined Aug 2024</div>
+                </div>
               </div>
             </div>
-            <div className=" ">
+            <div className="">
               <Button
                 style={{ textTransform: 'none' }}
                 value="editProfile"
-                size="lg"
-                className="flex items-center border-2 rounded-full border-gray-400 gap-2 p-2 text-black"
+                className="flex items-center border rounded-md border-gray-400 gap-2 px-3 py-2 text-black"
                 onClick={() => navigate("/setting")}
               ><Edit2 />Edit Profile</Button>
-              <Button
-                value="editProfile"
-                className="flex items-center border-2 rounded-full border-gray-400 gap-2 p-1 text-black"
-              ><Landmark />PloyMarket</Button>
+              <div className="opacity-60">
+                <Logo />
+              </div>
             </div>
           </div>
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 pt-8 items-center gap-8">

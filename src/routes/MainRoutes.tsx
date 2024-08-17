@@ -1,3 +1,4 @@
+import App from "../pages/app"
 import Market from "../pages/market";
 import Profile from "../pages/profile"
 import AuthGuard from "../contexts/AuthGurad";
@@ -6,12 +7,17 @@ import Activity from "../pages/activity"
 import Leaderboard from "../pages/ranks"
 import EventInfo from '../pages/eventInfo'
 import Election from "../pages/election";
+import WatchList from "../pages/watchlist";
 
 const MainRoutes = {
     path: "/",
     children: [
         {
             path: "/",
+            element: <App />
+        },
+        {
+            path: "/markets",
             element: <Market />
         },
         {
@@ -41,6 +47,10 @@ const MainRoutes = {
         {
             path: "/election",
             element: <Election />
+        },
+        {
+            path: "/watchList",
+            element: <WatchList />
         },
 
     ]

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Switch, Menu, MenuHandler, MenuList, Typography } from '@material-tailwind/react';
-import { Activity, Bell, AlignJustify, Flag, Trophy, User } from "lucide-react";
-
+import { Activity, Bell, AlignJustify, Flag, Trophy, } from "lucide-react";
+import { MarketsIcon } from "../components/icons";
 import { content } from "../contents/landing";
 import { SearchIcon } from "./icons";
 import SignInModal from "./SignInModal";
@@ -10,6 +10,7 @@ import { getUserData } from "../store/reducers/userInfo";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import MarketNavbar from "./MarketNavbar";
+import Logo from "./Logo";
 
 const TopNavbar = () => {
 
@@ -24,13 +25,12 @@ const TopNavbar = () => {
 
   // Getting Data
   const username = useSelector((state) => state.userInfo.user.username)
+  const email = useSelector((state) => state.userInfo.user.email)
   const userrole = useSelector((state) => state.userInfo.user.role)
 
   // Use hooks
   const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate()
-
-
 
   // Open SignInModal, Logout
   const handleInClick = () => {
@@ -50,16 +50,23 @@ const TopNavbar = () => {
 
   return (
     <div className="">
-      <div className="flex justify-between  gap-4 items-center px-5 py-2">
+      <div className="flex justify-between  gap-3 items-center px-2 py-2">
         <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
         <SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
-        <div className="lg:visible lg:flex lg:w-full sm:hidden hidden gap-5 px-5 py-1 items-center border border-gray-700 rounded-lg">
-          <SearchIcon color="black" />
-          <input type="text" className="w-full outline-none" placeholder="Search markets" />
+        <div className="flex gap-10 w-full justify-between items-center ">
+          <div className="cursor-pointer" onClick={() => navigate('/')}>
+            <Logo color="text-fuchsia-900" />
+          </div>
+
+          <div className="lg:visible lg:flex lg:w-full md:w-96 sm:hidden hidden px-4 py-2 gap-2 items-center hover:border-black border border-gray-700 rounded-lg">
+            <SearchIcon color="black" size={18} />
+            <input type="text" className="w-full outline-none" placeholder="Search markets" />
+          </div>
         </div>
-        <div className="flex items-center">
-          <div className="lg:visible lg:flex sm:hidden hidden">
+
+        <div className="flex items-center gap-2">
+          <div className="lg:visible lg:flex sm:hidden items-center hidden gap-2">
             <Menu
               open={isMarketOpen}
               handler={setIsMarketOpen}
@@ -68,11 +75,11 @@ const TopNavbar = () => {
               allowHover={true}
             >
               <MenuHandler>
-                <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center bg-white text-gray-400 hover:text-black  hover:bg-gray-300">
-                  <p onClick={() => { navigate('/') }} className="justify-center flex">
-                    <Trophy className="text-center" size={20} />
+                <Button style={{ textTransform: "none" }} className="shadow-none px-2 py-1 rounded-md items-center bg-white text-gray-400 hover:text-black  hover:bg-gray-300">
+                  <p onClick={() => { navigate('/markets') }} className="justify-center flex">
+                    <MarketsIcon className="text-center" size={20} />
                   </p>
-                  <p className="text-sm font-bold">Markets</p>
+                  <p className="text-sm font-medium">Markets</p>
                 </Button>
               </MenuHandler>
               <MenuList className="z-10 hidden max-w-screen-xl rounded-xl lg:block">
@@ -84,44 +91,44 @@ const TopNavbar = () => {
               <p className="justify-center flex">
                 <Flag className="text-center" size={20} />
               </p>
-              <p className="text-sm font-bold">Election</p>
+              <p className="text-sm font-medium">Election</p>
             </Button>
             <Button style={{ textTransform: "none" }} className="shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/activity') }}>
               <p className="justify-center flex">
                 <Activity className="text-center" size={18} />
               </p>
-              <p className="text-sm font-bold">Activity</p>
+              <p className="text-sm font-medium">Activity</p>
             </Button>
-            <Button style={{ textTransform: "none" }} className="shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+            <Button style={{ textTransform: "none" }} className="shadow-none px-2 py-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
               <p className="justify-center flex">
                 <Trophy className="text-center" size={20} />
               </p>
-              <p className="text-sm font-bold">Ranks</p>
+              <p className="text-sm font-medium">Ranks</p>
             </Button>
           </div>
-          <div className="w-full">
 
+          <div className="w-full px-5">
             {isLoggedIn ?
-              <div className="flex gap-1 ">
-                <div className="flex ">
+              <div className="flex items-center gap-2 ">
+                <div className="md:flex hidden ">
                   <Button style={{ textTransform: "none" }} className="outline-none  w-full shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
-                    <p className="text-sm font-bold">Portfolio</p>
+                    <p className="text-sm font-medium">Portfolio</p>
                   </Button>
                 </div>
-                <div className="flex ">
-                  <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-3 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                <div className="md:flex hidden ">
+                  <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-4 py-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
-                    <p className="text-sm font-bold">Cash</p>
+                    <p className="text-sm font-medium">Cash</p>
                   </Button>
                 </div>
-                <div className="flex ">
-                  <Button style={{ textTransform: "none" }} className="outline-none px-2 w-full shadow-none  rounded-md items-center bg-blue-700 hover:text-black  hover:bg-gray-300" onClick={() => { }}>
+                <div className="md:flex hidden ">
+                  <Button style={{ textTransform: "none" }} className="outline-none p-2 w-full shadow-none  rounded-md items-center bg-blue-700 hover:text-black  hover:bg-gray-300" onClick={() => { }}>
                     <p className="">Deposit</p>
                   </Button>
                 </div>
-                <div className="flex ">
-                  <Button style={{ textTransform: "none" }} className="shadow-none w-full p-2 rounded-md items-center text-gray-400 hover:text-black hover:bg-gray-300 " onClick={() => { navigate('/leaderboard') }}>
+                <div className="flex md:border-r-2 border-gray-400 px-2">
+                  <Button style={{ textTransform: "none" }} className="shadow-none w-full p-2 rounded-md items-center text-gray-400 hover:text-black hover:bg-gray-300 " onClick={() => { }}>
                     <Bell />
                   </Button>
                 </div>
@@ -134,25 +141,34 @@ const TopNavbar = () => {
                   allowHover={true}
                 >
                   <MenuHandler>
-                    <Button style={{ textTransform: "none" }} className="flex outline-none border-2 border-gray-300 p-2 rounded-md  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                      <User />{username}
+                    <Button style={{ textTransform: "none" }} className="w-14 hidden md:flex outline-none   border-gray-300 p-2 rounded-full  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                      <img className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
                     </Button>
                   </MenuHandler>
                   <MenuList className="-w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none">
                     {userrole === "admin" ? (
                       <>
-                        <Button onClick={() => navigate("/admin")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">User Management</Button>
-                        <Button onClick={() => navigate("/admin/addevent")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Event Management</Button>
+                        <Button onClick={() => navigate("/admin")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">User Management</Button>
+                        <Button onClick={() => navigate("/admin/addevent")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Event Management</Button>
                       </>
                     ) : (
                       <>
-                        <Button onClick={() => navigate("/")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Main</Button>
-                        <Button onClick={() => navigate("/setting")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Setting</Button>
-                        <Button onClick={() => navigate("/profile")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Profile</Button>
+                        <div className="flex w-full gap-3 py-3">
+                          <img className=" w-10 rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
+                          <div className=" ">
+                            <p className="" onClick={() => { navigate('/profile') }}>{username}</p>
+                            <p className="">{email}</p>
+                          </div>
+                        </div>
+                        <hr />
+                        <Button onClick={() => navigate("/profile")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Profile</Button>
+                        <Button onClick={() => navigate("/setting")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Setting</Button>
+                        <Button onClick={() => navigate("/watchlist")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Watchlist</Button>
+                        <Button onClick={() => navigate("/election")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Elections</Button>
                       </>
                     )}
-                    <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
-                    <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
+                    <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
+                    <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
                     <div className="flex items-center">
                       <Switch
                         containerProps={{ className: "mr-2" }}
@@ -163,62 +179,70 @@ const TopNavbar = () => {
                         </Typography>
                       </div>
                     </div>
-                    <Button onClick={() => handleLogout()} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Logout</Button>
+                    <Button onClick={() => handleLogout()} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Logout</Button>
                   </MenuList>
                 </Menu>
               </div >
               :
-              <div className="flex gap-2">
-                <div className="flex gap-1">
-                  <Button onClick={handleInClick} style={{ textTransform: "none", color: "blue" }} className="w-full text-md flex gap-3 px-2 items-center outline-none  bg-gray-50 text-nowrap">Log In</Button>
-                  <Button onClick={handleUpClick} style={{ textTransform: "none", color: "white" }} className="w-full text-md flex gap-3 px-2 items-center outline-none bg-blue-700 text-nowrap">Sign Up</Button>
+              <div className="flex gap-2 items-center">
+                <div className="  ">
+                  <Button onClick={handleInClick} style={{ textTransform: "none", color: "blue" }} className="w-full font-medium hover:bg-gray-200 flex tems-center shadow-none outline-none px-4 py-2  bg-gray-50 text-nowrap">Log In</Button>
+                </div>
+                <div className=" ">
+                  <Button onClick={handleUpClick} style={{ textTransform: "none", color: "white" }} className="w-full font-medium px-4 py-2 items-centers shadow-none outline-none bg-blue-700 text-nowrap">Sign Up</Button>
                 </div>
 
-                <Menu
-                  open={isMenuOpen}
-                  handler={setIsMenuOpen}
-                  offset={{ mainAxis: 20 }}
-                  placement="bottom"
-                  allowHover={true}
-                >
-                  <MenuHandler>
-                    <Button style={{ textTransform: "none" }} className=" outline-none border-2 border-gray-300 shadow-none p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                      <AlignJustify />
-                    </Button>
-                  </MenuHandler>
-                  <MenuList className="-w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none">
-                    <Button onClick={handleInClick} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Log In</Button>
-                    <Button onClick={handleUpClick} style={{ textTransform: "none" }} className="w-full text-sm flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Sign Up</Button>
-                    <hr />
+                <div className="w-full md:flex hidden ">
+                  <Menu
+                    open={isMenuOpen}
+                    handler={setIsMenuOpen}
+                    // offset={{ mainAxis: 20 }}
+                    placement="bottom"
+                    allowHover={true}
+                  >
+                    <MenuHandler>
+                      <Button style={{ textTransform: "none" }} className=" outline-none  shadow-none px-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                        <AlignJustify />
+                      </Button>
+                    </MenuHandler>
+                    <MenuList className="z-50 -w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none pr-8">
+                      <Button onClick={handleInClick} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Log In</Button>
+                      <Button onClick={handleUpClick} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Sign Up</Button>
+                      <hr />
 
-                    <Button onClick={() => navigate("/elections")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Election</Button>
-                    <Button onClick={() => navigate("/rewards")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Rewards</Button>
-                    <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
-                    <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full text-md flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
+                      <Button onClick={() => navigate("/elections")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Election</Button>
+                      <Button onClick={() => navigate("/rewards")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Rewards</Button>
+                      <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
+                      <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
 
-                    <div className="flex items-center">
-                      <Switch className="outline-none"
-                        containerProps={{ className: "mr-2" }}
-                      />
-                      <div>
-                        <Typography color="blue-gray" className="font-medium text-nowrap text-sm">
-                          Dark Mode
-                        </Typography>
+                      <div className="flex items-center">
+                        <Switch className="outline-none"
+                          containerProps={{ className: "mr-2" }}
+                        />
+                        <div>
+                          <Typography color="blue-gray" className="font-medium text-nowrap text-sm">
+                            Dark Mode
+                          </Typography>
+                        </div>
                       </div>
-                    </div>
-                  </MenuList>
-                </Menu>
+                    </MenuList>
+                  </Menu>
 
+                </div>
               </div>
             }
-
           </div >
         </div >
+
       </div >
       {/* Navigates */}
-      < div className="flex overflow-x-scroll scrollbar-hide" >
+      < div style={{ scrollbarWidth: 'none' }} className="flex gap-2 px-2 overflow-x-scroll " >
         {
-          content.menuBtns.map((item, index) => <Button style={{ fontFamily: "initial", fontSize: "14px", textTransform: "none", color: "black" }} key={index} value={item.value} onClick={() => { }} className="flex border-b-2 p-1 px-3 border-white hover:border-b-gray-500 focus:border-b-black rounded-md font-bold text-lg text-black text-nowrap" >{item.text}</Button>)
+          content.menuBtns.map((item, index) =>
+            <div className=" ">
+              <Button style={{ fontSize: "15px", textTransform: "none" }} key={index} value={item.value} onClick={() => { }} className="  border-b-2 shadow-none rounded-none font-medium p-2 outline-none border-white hover:border-b-gray-500 focus:border-b-black  text-black text-nowrap" >{item.text}</Button>
+            </div>
+          )
         }
       </div >
       <hr />

@@ -10,10 +10,10 @@ import { customStyles } from "../../contents/selectStyle";
 
 import { customers } from "../database";
 import UserProperty from '../cards/UserProperty';
-
+ 
 const CommentListItem = () => {
     const [selectValue, setSelectValue] = React.useState < string > ('');
-    const [selectedOption, setSelectedOption] = React.useState(sortItem[0]);
+    const [selectedOption, setSelectedOption] = React.useState < Option | null > (sortItem[0]);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
 
     const navigate = useNavigate();

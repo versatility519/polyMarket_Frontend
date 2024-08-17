@@ -1,11 +1,11 @@
 import React from "react";
-import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
+// import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
 import { Card, Button, CardBody, Typography, Avatar } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { customers } from "../database";
 // Define the ActivityList component
 
-const RelatedListItem: React.FC<ActivityListItemProps> = () => {
+const RelatedListItem: React.FC = () => {
     const navigate = useNavigate();
     const [convertBgColor, setConvertBgColor] = React.useState < boolean > (false);
     const convertColor = () => {

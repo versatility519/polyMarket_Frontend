@@ -73,7 +73,7 @@ const TABLE_ROWS = [
 ];
 
 export default function Admin() {
-    const navigator = useNavigate();
+    const navigate = useNavigate();
     const [pagination, setPagination] = React.useState < number > (1);
 
     const handleDeleteEvent = () => {
@@ -125,7 +125,7 @@ export default function Admin() {
                                     <Button variant="outlined" size="sm">
                                         view all
                                     </Button>
-                                    <Button onClick={() => { navigator('addevent') }} className="flex bg-gray-400 items-center gap-3" size="sm">
+                                    <Button onClick={() => { navigate('addevent') }} className="flex bg-gray-400 items-center gap-3" size="sm">
                                         <UserPlusIcon strokeWidth={2} className="h-4 w-4" /> Add event
                                     </Button>
                                 </div>

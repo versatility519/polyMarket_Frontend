@@ -1,7 +1,7 @@
 // Sample customer data
 export const customers = [
     {
-        eventName: "Will the Jaguars win Super Bowl 2025?",
+        eventName: "Confirmed case of monkeypox in US by Aug 31?",
         username: "Stefan",
         price: 420,
         laterTime: 52,
@@ -21,7 +21,7 @@ export const customers = [
         rate:400
     },
     {
-        eventName: "Will the Jaguars win Super Bowl 2025?",
+        eventName: "Monkeypox lab leak confirmed by US in 2024?",
         username: "Alexa Liras",
         laterTime: 52,
         price: 340,
@@ -41,6 +41,7 @@ export const customers = [
         rate:30
     },
     {
+        eventName: "Georgia Presidential Election Winner",
         username: "Richard Gran",
         laterTime: 52,
         price: 520,

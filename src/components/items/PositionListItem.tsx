@@ -2,9 +2,10 @@ import React from "react";
 import Content from "./Content";
 import { Card, Tooltip, Typography, Button } from "@material-tailwind/react";
 import { Upload } from "lucide-react";
-import { ProfileProps } from "../../types/profile";
 import { customers } from "../database";
-const PositionListItem: React.FC<ProfileProps> = () => {
+
+// import { ProfileProps } from "../../types/profile";
+const PositionListItem: React.FC = () => {
 
   const TABLE_HEAD = ["market", "avg", "current", "value"];
 

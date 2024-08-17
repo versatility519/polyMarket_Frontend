@@ -59,7 +59,7 @@ const BuySell: React.FC<BuySellProps> = ({ activeTab }) => {
                         <Tooltip content="Trade settings">
                             <Settings className="cursor-pointer" onClick={() => { setPopOver(true) }} size={20} />
                         </Tooltip>
-                        : <Popover placement="right" className="z-50">
+                        : <Popover>
                             <PopoverHandler>
                                 <Settings className="cursor-pointer" onClick={() => { setPopOver(false) }} size={20} />
                             </PopoverHandler>

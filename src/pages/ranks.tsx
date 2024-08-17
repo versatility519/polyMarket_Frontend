@@ -8,24 +8,13 @@ import { dispatch } from "../store";
 import RankListItem from "../components/items/RankListItem";
 
 const Leaderboard = () => {
-  // const navigate = useNavigate();
-  //
-  // Getting Data
-  // const username = useSelector((state) => state.userInfo.user.username);
 
-  const url = new URL(window.location.href);
-  const pathname = url.pathname.replace(/^\/+/, "");
 
   const [activeButton, setActiveButton] = React.useState < string | null > ('month');
   const handleButtonClick = (value: string) => {
     setActiveButton(value);
   };
-  const convertTo = (pathname: string) => {
-    if (!pathname) return pathname;
-    const firstLetter = pathname.charAt(0).toUpperCase();
-    const restOfString = pathname.slice(1).toLowerCase();
-    return firstLetter + restOfString;
-  };
+
 
   React.useEffect(() => {
     dispatch(getUsersData());
@@ -34,10 +23,8 @@ const Leaderboard = () => {
     <div className="">
       <TopNavbar />
       <div className="flex justify-center pt-8">
-        <div className="sm:w-full flex md:w-full xl:w-[70vw] flex-col gap-5">
-          <p className="flex items-center text-4xl font-medium text-black justify-center">
-            {convertTo(pathname)}
-          </p>
+        <div className="sm:w-full flex md:px-24 sm:px-8 xl:w-[70vw] flex-col gap-5">
+          <p className="flex items-center text-4xl font-medium text-black justify-center">Leaderboard</p>
           <div className="flex justify-center gap-2">
             <Button
               style={{ textTransform: "none" }}
@@ -69,7 +56,7 @@ const Leaderboard = () => {
             <p className="text-gray-400">Resets in 21d 17h 12s</p>
           </div>
 
-          <div className="flex px-40">
+          <div className="flex  ">
             <RankListItem />
           </div>
 

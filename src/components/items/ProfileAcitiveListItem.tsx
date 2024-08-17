@@ -3,9 +3,10 @@ import Content from "./Content";
 import { Card, Typography } from "@material-tailwind/react";
 import { SquareArrowOutUpRight } from "lucide-react";
 import { activityItem } from "../../contents/profileItem";
-import { ProfileProps } from "../../types/profile";
 import { customers } from "../database";
-const ProfileAcitiveListItem: React.FC<ProfileProps> = () => {
+
+// import { ProfileProps } from "../../types/profile";
+const ProfileAcitiveListItem: React.FC = () => {
   return (
     <Card className=" flex w-full ">
       <table className="w-full min-w-max table-auto text-left">
@@ -47,7 +48,7 @@ const ProfileAcitiveListItem: React.FC<ProfileProps> = () => {
                     color="blue-gray"
                     className="font-normal"
                   >
-                    <Content avatar={avatar} eventName={eventName} isBet={isBet} value={20}  />
+                    <Content avatar={avatar} eventName={eventName} isBet={isBet} value={20} />
                   </Typography>
                 </td>
                 <td className={classes}>
