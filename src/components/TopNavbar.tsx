@@ -50,7 +50,7 @@ const TopNavbar = () => {
 
   return (
     <div className="">
-      <div className="flex justify-between  gap-3 items-center px-2 py-2">
+      <div className="flex justify-between gap-2 items-center px-2 py-2">
         <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
         <SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
@@ -65,8 +65,8 @@ const TopNavbar = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="lg:visible lg:flex sm:hidden items-center hidden gap-2">
+        <div className="flex items-center">
+          <div className="lg:visible lg:flex sm:hidden items-center hidden  ">
             <Menu
               open={isMarketOpen}
               handler={setIsMarketOpen}
@@ -109,7 +109,7 @@ const TopNavbar = () => {
 
           <div className="w-full px-5">
             {isLoggedIn ?
-              <div className="flex items-center gap-2 ">
+              <div className="flex items-center  ">
                 <div className="md:flex hidden ">
                   <Button style={{ textTransform: "none" }} className="outline-none  w-full shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
@@ -184,12 +184,12 @@ const TopNavbar = () => {
                 </Menu>
               </div >
               :
-              <div className="flex gap-2 items-center">
+              <div className="flex gap-1 items-center">
                 <div className="  ">
-                  <Button onClick={handleInClick} style={{ textTransform: "none", color: "blue" }} className="w-full font-medium hover:bg-gray-200 flex tems-center shadow-none outline-none px-4 py-2  bg-gray-50 text-nowrap">Log In</Button>
+                  <Button onClick={handleInClick} style={{ textTransform: "none", color: "blue" }} className="w-full font-medium hover:bg-gray-200 flex tems-center shadow-none outline-none px-4 py-2 text-base  bg-gray-50 text-nowrap">Log In</Button>
                 </div>
                 <div className=" ">
-                  <Button onClick={handleUpClick} style={{ textTransform: "none", color: "white" }} className="w-full font-medium px-4 py-2 items-centers shadow-none outline-none bg-blue-700 text-nowrap">Sign Up</Button>
+                  <Button onClick={handleUpClick} style={{ textTransform: "none", color: "white" }} className="w-full font-medium px-4 py-2 items-centers shadow-none outline-none text-base bg-blue-700 text-nowrap">Sign Up</Button>
                 </div>
 
                 <div className="w-full md:flex hidden ">

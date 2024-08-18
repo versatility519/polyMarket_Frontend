@@ -48,9 +48,9 @@ const App = () => {
                 <div style={{ scrollbarWidth: 'none' }} className="flex overflow-x-scroll w-full gap-2 px-4 py-3">
                     <div className=" ">
                         <Button style={{ fontSize: "14px", textTransform: "none", }} value="top"
-                            className={`${selectedButton === 'top' ? 'bg-blue-600 text-white' : 'bg-gray-200 border-gray-200 text-black'} text-white flex font-medium px-1 py-2 outline-none text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
+                            className={`${selectedButton === 'top' ? 'bg-blue-600 text-white': 'bg-gray-200 border-gray-200 text-black'} text-white flex font-medium px-2 py-1 outline-none text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
                             onClick={() => handleButtonClick('top')}>
-                            <TrendingUp />Top
+                            <TrendingUp size={24} />Top
                         </Button>
                     </div>
                     {
@@ -62,7 +62,7 @@ const App = () => {
                         )
                     }
                 </div>
-                <div className="grid xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-1  px-4 gap-2 ">
+                <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1  px-4 gap-2 ">
                     {event.eventList
                         // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
                         .map((key, index) => (

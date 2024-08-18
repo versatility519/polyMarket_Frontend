@@ -24,7 +24,7 @@ const HolderCard: React.FC<HolderCard> = ({first, second, icon}) => {
                             <div
                                 key={index}
                                 className="flex items-center justify-between py-2 last:pb-1 cursor-pointer"
-                                onClick={() => navigate(`/customer/${index}`)}
+                                onClick={() => navigate(`/profile?${index}`)}
                             >
                                 <Typography>
                                     <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />

@@ -59,7 +59,7 @@ const Setting = () => {
             style={{ textTransform: 'none' }}
             value="saveChange"
             onClick={() => { alert('save') }}
-            className="flex font-semibold items-center gap-2 px-2 py-2 bg-blue-500   hover:bg-gray-400 rounded-lg"
+            className="flex font-semibold items-center gap-2 px-2 py-2 bg-blue-500 cursor-pointer  hover:bg-gray-400 rounded-lg"
           ><Save size={20} />Save Change</Button>
         </div>
       </div>

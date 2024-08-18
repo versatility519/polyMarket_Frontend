@@ -77,8 +77,8 @@ export type JWTContextType = {
     register: (email: string, password: string, username: string,) => Promise<void>;
  
     // addEvent: ();
-    resetPassword: (email: string) => Promise<void>;
-    updateProfile: VoidFunction;
+    resetPassword?: (email: string) => Promise<void>;
+    updateProfile?: VoidFunction;
 };
 
 //   Notification context

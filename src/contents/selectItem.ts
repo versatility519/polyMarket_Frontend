@@ -1,5 +1,4 @@
-import { TrendingUp, Droplet, ChartNoAxesColumn, Plus, Hourglass, Check, Swords, Rss, ThumbsUp, UserRound } from 'lucide-react';
-import React from 'react';
+import { TrendingUp, Droplet, ChartNoAxesColumn, Plus, Hourglass, Check, Swords } from 'lucide-react';
 
 export const categoryItem = [
     {
@@ -38,25 +37,21 @@ export const categoryItem = [
         icon: Swords
     },
 ]
-interface Option {
-    value: string;
-    text: string;
-    icon: React.ElementType;
-}
-export const sortItem: Option[] = [
+// interface Option {
+//     value: string;
+//     text: string;
+// }
+export const sortItem = [
     {
         text: "Newest",
         value: "newest",
-        icon: Rss
     },
     {
         text: "Likes",
         value: "likes",
-        icon: ThumbsUp
     },
     {
         text: "Holders",
         value: "holders",
-        icon: UserRound
     },
 ]

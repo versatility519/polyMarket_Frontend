@@ -7,7 +7,7 @@ import { LOGIN, LOGOUT } from "../store/reducers/action";
 import authReducer from '../store/reducers/auth';
 
 import instance from "../utils/axios";
-import { AuthProps, JWTContextType, KeyedObject } from "../types";
+import { AuthProps, JWTContextType } from "../types";
 import { createContext, useEffect, useReducer } from 'react';
 
 
@@ -19,16 +19,22 @@ const initialState: AuthProps = {
     isInitialized: false,
     user: null
 };
-
-const verifyToken: (st: string) => boolean = (token) => {
-    if (!token) {
-        return false
-    }
-    const decoded: KeyedObject = jwtDecode(token);
-
-    return decoded.exp > Date.now() / 1000;
+interface DecodedToken {
+    exp: number;
 }
 
+const verifyToken = (token: string): boolean => {
+    if (!token) {
+        return false;
+    }
+    try {
+        const decoded = jwtDecode < DecodedToken > (token);
+        return decoded.exp > Date.now() / 1000;
+    } catch (error) {
+        console.error("Invalid token", error);
+        return false;
+    }
+};
 
 const setSession = (token?: string | null) => {
     if (token) {

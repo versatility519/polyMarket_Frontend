@@ -1,20 +1,21 @@
 // ActivityListItem.tsx
 import React from 'react';
-import Select from "react-select";
+// import Select from "react-select";
 import { useNavigate } from 'react-router-dom';
 
 import { Input, Card, CardBody, Avatar, Typography, Button } from '@material-tailwind/react';
-import { ChevronUp, ChevronDown, Shield, Ellipsis, Heart } from 'lucide-react';
-import { sortItem } from "../../contents/selectItem";
-import { customStyles } from "../../contents/selectStyle";
+import { Shield, Ellipsis, Heart } from 'lucide-react';
+// import { ChevronUp, ChevronDown, Shield, Ellipsis, Heart } from 'lucide-react';
+// import { sortItem } from "../../contents/selectItem";
+// import { customStyles } from "../../contents/selectStyle";
 
 import { customers } from "../database";
 import UserProperty from '../cards/UserProperty';
- 
+
 const CommentListItem = () => {
     const [selectValue, setSelectValue] = React.useState < string > ('');
-    const [selectedOption, setSelectedOption] = React.useState < Option | null > (sortItem[0]);
-    const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
+    // const [selectedOption, setSelectedOption] = React.useState < Option | null > (sortItem[0]);
+    // const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
 
     const navigate = useNavigate();
     return (
@@ -50,7 +51,7 @@ const CommentListItem = () => {
 
             <div className="flex items-center gap-2 ">
                 <p className="text-gray-700 text-lg font-medium">Sort by</p>
-                <Select
+                {/* <Select
                     className="flex w-36 border px-1 bg-gray-200 border-gray-400 focus-within:border-gray-600 rounded-full "
                     value={selectedOption}
                     styles={customStyles}
@@ -71,7 +72,7 @@ const CommentListItem = () => {
                             <span className="text-md text-nowrap">{option.text}</span>
                         </div>
                     )}
-                />
+                /> */}
             </div>
 
             <Card className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
@@ -96,10 +97,7 @@ const CommentListItem = () => {
                                     </div>
 
                                     <Typography className="text-gray-700 indent-3"> {/* Set text color to blue */}
-                                        Material Tailwind is an easy to use components library for Tailwind CSS
-                                        and Material Design. It provides a simple way to customize your
-                                        components; you can change the colors, fonts, breakpoints, and everything
-                                        you need.
+                                        This market will resolve to "Yes" if the data for the Global Land-Ocean Temperature Index for August 2024 shows an increase greater than that of any prior August when it is released. Otherwise, this market will resolve to "No".
                                     </Typography>
 
                                     <div className='flex gap-2 pt-1 '>

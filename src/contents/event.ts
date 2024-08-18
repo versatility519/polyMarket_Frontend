@@ -77,49 +77,49 @@ export const event = {
 	nested1 : [
 		{
 			range : "<16",
-			percent : "35%",
+			percent : "35",
 		},
 		{
 			range : "16<30",
-			percent : "32%",
+			percent : "32",
 		},
 		{
 			range : "30<50",
-			percent : "55%",
+			percent : "55",
 		},
 		{
 			range : "<50",
-			percent : "75%",
+			percent : "75",
 		},
 	],
 	nested2 : [
 		{
 			range : "USA",
-			percent : "35%",
+			percent : "35",
 		},
 		{
 			range : "Canada",
-			percent : "4%",
+			percent : "4",
 		},
 		{
 			range : "France",
-			percent : "7%",
+			percent : "7",
 		},
 		{
 			range : "Germany",
-			percent : "15%",
+			percent : "15",
 		},
 		{
 			range : "China",
-			percent : "2%",
+			percent : "2",
 		},
 		{
 			range : "Italy",
-			percent : "26%",
+			percent : "26",
 		},
 		{
 			range : "Brazil",
-			percent : "35%",
+			percent : "35",
 		},
 	],
 

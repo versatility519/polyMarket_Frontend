@@ -45,7 +45,7 @@ const Markets = () => {
             <div>
 
                 <div style={{ scrollbarWidth: 'none' }} className="my-4 md:flex-row flex flex-col md:overflow-y-scroll overflow-x-scroll md:gap-5 justify-center px-6 ">
-                {/* <div style={{ scrollbarWidth: 'none' }} className="  grid-cols-4 md:grid-cols-3 px-6 overflow-x-scroll my-4 "> */}
+                    {/* <div style={{ scrollbarWidth: 'none' }} className="  grid-cols-4 md:grid-cols-3 px-6 overflow-x-scroll my-4 "> */}
                     {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
                     <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-blue-600 to-blue-200" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
                     <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-red-600 to-red-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
@@ -71,7 +71,7 @@ const Markets = () => {
                             options={categoryItem}
                             onMenuOpen={() => setIsDropdownOpen(true)}
                             onMenuClose={() => setIsDropdownOpen(false)}
-                            // onChange={(selectedOption) => setSelectedOption(selectedOption)} // Update state with selected option
+                            onChange={(selectedOption) => setSelectedOption(selectedOption)} // Update state with selected option
                             components={{
                                 DropdownIndicator: () => (
                                     <div className="  w-full items-center">
@@ -100,26 +100,25 @@ const Markets = () => {
                 </div>
                 {/* Filters */}
                 <div style={{ scrollbarWidth: 'none' }} className="flex overflow-x-scroll w-full gap-2 px-4 py-3">
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-2">
                         <Button style={{ fontSize: "14px", textTransform: "none", }} value="top"
-                            className={`${selectedButton === 'top' ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 border-gray-200 text-black'}  flex font-medium px-1 py-2 outline-none text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
-                            onClick={() => handleButtonClick}>
-                            <TrendingUp />Top
+                            className={`${selectedButton === 'top' ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 border-gray-200 text-black'}  flex font-medium px-2 p-1 outline-none text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
+                            onClick={ handleButtonClick}>
+                            <TrendingUp size={24} />Top
                         </Button>
                     </div>
                     {
                         content.filterBtns.all.map((item, index) =>
                             <div className="">
-                                <Button style={{ fontSize: "14px", textTransform: "none", }} key={index} value={item.value} onClick={() => handleButtonClick}
+                                <Button style={{ fontSize: "14px", textTransform: "none", }} key={index} value={item.value} onClick={  handleButtonClick}
                                     className={`${selectedButton === `${item.value}` ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 text-black'}   font-medium p-2 outline-none text-nowrap  justify-center items-center text-center  rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}>{item.text}</Button>
                             </div>
                         )
                     }
                 </div>
-
                 {/* Events */}
+                
                 <div className="grid xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-1  px-4 gap-2 ">
-
                     {/* <div className="mt-4 gap-2 grid lg:grid-cols-6 sm:grid-cols-2 px-2 "> */}
                     {event.eventList
                         .filter((key) => key.content.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
@@ -139,8 +138,8 @@ const Markets = () => {
 
                 {
                     listView === true
-                        ? <div className="flex justify-center text-green-500">true</div>
-                        : <div className="flex justify-center py-8 text-red-600">No event</div>
+                        ? <div className="flex justify-center text-green-500"> </div>
+                        : <div className="flex justify-center py-8 text-red-600"> </div>
                 }
                 <MobileFooter />
             </div >

@@ -117,13 +117,13 @@ const BuySell: React.FC<BuySellProps> = ({ activeTab }) => {
                 <div>
                     < div className=" flex flex-col py-1 gap-2 ">
                         <p>Amount</p>
-                        <div className="flex gap-2 justify-between px-4 py-2 rounded-md border">
+                        <div className="flex gap-2 items-center justify-between px-4 py-2 rounded-md border">
                             <Tooltip className="z-50" content="-$10">
-                                <Button className="z-50 p-1 text-black bg-gray-300 rounded-md" onClick={() => { setNumber(prevNumber => Math.max(prevNumber - 10, 0)) }}><Minus /></Button>
+                                <Minus className="items-center w-8 h-6 text-black bg-gray-300 rounded-md" onClick={() => { setNumber(prevNumber => Math.max(prevNumber - 10, 0)) }} />
                             </Tooltip>
                             <input className="w-full text-center" type="text" value={`$${number}`} onChange={handleInputChange} />
                             <Tooltip className="z-10" content="+$10">
-                                <Button className="items-center p-1  text-black bg-gray-300 rounded-md" onClick={() => { setNumber(prevNumber => Math.max(prevNumber + 10, 0)) }}><Plus /></Button>
+                                <Plus className="items-center w-8 h-6 text-black bg-gray-300 rounded-md" onClick={() => { setNumber(prevNumber => Math.max(prevNumber + 10, 0)) }} />
                             </Tooltip>
                         </div>
                         <Button style={{ textTransform: "none" }} onClick={() => { }} className="w-full bg-blue-600  text-white px-4 py-2 text-lg font-semibold rounded-md ">Log In</Button>
