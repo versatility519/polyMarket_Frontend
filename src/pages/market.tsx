@@ -47,10 +47,10 @@ const Markets = () => {
                 <div style={{ scrollbarWidth: 'none' }} className="my-4 md:flex-row flex flex-col md:overflow-y-scroll overflow-x-scroll md:gap-5 justify-center px-6 ">
                     {/* <div style={{ scrollbarWidth: 'none' }} className="  grid-cols-4 md:grid-cols-3 px-6 overflow-x-scroll my-4 "> */}
                     {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
-                    <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-blue-600 to-blue-200" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
-                    <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-red-600 to-red-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
-                    <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-indigo-600 to-indigo-300" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
-                    <TopEventCard text="Science Beta" btn_text="Bet now" onClick={() => { }} className="px-2 bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                    <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="w-full flex px-2 bg-gradient-to-r from-indigo-600 to-indigo-300" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                    <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="w-full flex px-2 bg-gradient-to-r from-red-600 to-red-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                    <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="w-full px-2 flex bg-gradient-to-r from-blue-600 to-blue-200" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
+                    <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="w-full flex px-2 bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" />
                 </div>
                 {/* SubBar */}
                 <div className="lg:flex sm:grid-cols-2 grid-cols-2 grid lg:items-center px-4 gap-2">
@@ -103,23 +103,23 @@ const Markets = () => {
                     <div className="flex items-center gap-2">
                         <Button style={{ fontSize: "14px", textTransform: "none", }} value="top"
                             className={`${selectedButton === 'top' ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 border-gray-200 text-black'}  flex font-medium px-2 p-1 outline-none text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
-                            onClick={ handleButtonClick}>
+                            onClick={handleButtonClick}>
                             <TrendingUp size={24} />Top
                         </Button>
                     </div>
                     {
                         content.filterBtns.all.map((item, index) =>
                             <div className="">
-                                <Button style={{ fontSize: "14px", textTransform: "none", }} key={index} value={item.value} onClick={  handleButtonClick}
+                                <Button style={{ fontSize: "14px", textTransform: "none", }} key={index} value={item.value} onClick={handleButtonClick}
                                     className={`${selectedButton === `${item.value}` ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 text-black'}   font-medium p-2 outline-none text-nowrap  justify-center items-center text-center  rounded-md border-2 border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}>{item.text}</Button>
                             </div>
                         )
                     }
                 </div>
                 {/* Events */}
-                
-                <div className="grid xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-1  px-4 gap-2 ">
-                    {/* <div className="mt-4 gap-2 grid lg:grid-cols-6 sm:grid-cols-2 px-2 "> */}
+
+                {/* <div className="flex flex-wrap px-4 gap-2 "> */}
+                    <div className="mt-4 gap-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 px-2 ">
                     {event.eventList
                         .filter((key) => key.content.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
                         // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton

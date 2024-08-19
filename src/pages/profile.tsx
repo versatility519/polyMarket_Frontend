@@ -14,6 +14,7 @@ import {
 import { getUsersData } from "../store/reducers/users";
 import { dispatch, useSelector } from "../store";
 import Logo from "../components/Logo";
+import MobileFooter from "../components/MobileFooter";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Profile = () => {
       <TopNavbar />
       <div className="flex justify-center px-4 py-4">
         <div className="flex w-[60rem] flex-col gap-4 ">
-          <div className="flex px-4 py-4 justify-between items-center text-black-700 border-2" >
+          <div className="flex px-4 py-4 justify-between items-center text-black-700 " >
             <div className="flex gap-4">
               <Avatar className="rounded-full" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="" />
               <div className="  ">
@@ -64,6 +65,7 @@ const Profile = () => {
           {/* </div> */}
 
         </div>
+        <MobileFooter />
       </div>
     </div>
   );

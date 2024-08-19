@@ -45,7 +45,7 @@ const MainRoutes = {
             element: <EventInfo />
         },
         {
-            path: "/election",
+            path: "/elections",
             element: <Election />
         },
         {

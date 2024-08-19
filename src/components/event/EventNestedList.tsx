@@ -22,7 +22,8 @@ const EventNestedList: React.FC<CardProps> = ({ range, percentage }) => {
                             className={`w-full border-none text-nowrap items-center px-2 py-1 text-xs bg-green-300 text-green-600`}>
                             {isYesHovered ? `${percentage}%` : 'Yes'}
                         </Button>
-                        <Button style={{ textTransform: 'none' }}
+                        <Button
+                            style={{ textTransform: 'none' }}
                             onMouseEnter={() => setIsNoHovered(true)}
                             onMouseLeave={() => setIsNoHovered(false)}
                             className={`w-full border-none text-nowrap items-center px-2 py-1 bg-red-300 text-red-600`}>

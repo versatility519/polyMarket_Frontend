@@ -1,4 +1,3 @@
-import { AlignJustify, Grid3X3, House, Radio, Search } from "lucide-react"
 import { ActivityIcon, FlagIcon, MarketsIcon, RankIcon } from "../components/icons"
 
 export const content = {
@@ -28,38 +27,7 @@ export const content = {
             link: 'leaderboard'
         }
     ],
-    footerBtns: [
-        {
-            text: "Home",
-            value: "home",
-            icon: House,
-            link: ''
-        },
-        {
-            text: "Market",
-            value: "market",
-            icon: Grid3X3,
-            link: 'markets'
-        },
-        {
-            text: "Search",
-            value: "search",
-            icon: Search,
-            link: 'search'
-        },
-        {
-            text: "Activity",
-            value: "activity",
-            icon: Radio,
-            link: 'activity'
-        },
-        {
-            text: "More",
-            value: "more",
-            icon: AlignJustify,
-            link: 'more'
-        }
-    ],
+  
     menuBtns: [
         {
             text: "All",

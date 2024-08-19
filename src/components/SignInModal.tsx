@@ -92,7 +92,8 @@ const SignInModal = ({ isOpen, onClose, title }: ModalProps) => {
                                 <input type="text" className="w-full pl-3 border border-gray-300 rounded-lg bg-white py-2" placeholder="Email Name" onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
                             </div>
                             <input type="password" className="pl-3 border border-gray-300 rounded-lg bg-white py-2" placeholder="Password" onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
-                        </div> :
+                        </div>
+                        :
                         <div>
                             <div className="flex gap-2 flex-row justify-between">
                                 <input type="text" className="w-full pl-3 border border-gray-300 rounded-lg bg-white py-2" placeholder="Email Name" onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
@@ -105,7 +106,7 @@ const SignInModal = ({ isOpen, onClose, title }: ModalProps) => {
                     <Button style={{ textTransform: 'none' }} className="text-black w-full border justify-start">
                         MetaMask
                     </Button>
-                
+
                     <Button style={{ textTransform: 'none' }} className="text-black w-full border justify-start">
                         WalletConnect
                     </Button>

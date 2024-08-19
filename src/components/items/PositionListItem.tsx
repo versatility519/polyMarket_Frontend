@@ -17,7 +17,7 @@ const PositionListItem: React.FC = () => {
             {TABLE_HEAD.map((head) => (
               <th
                 key={head}
-                className="border-b border-blue-gray-100 bg-blue-gray-50 p-3"
+                className="border-b border-blue-gray-100 bg-blue-gray-50 py-3"
               >
                 <Typography
                   color="blue-gray"
@@ -31,7 +31,7 @@ const PositionListItem: React.FC = () => {
         <tbody>
           {customers.map(({ avatar, eventName, isBet, avgPrice, curPrice, totalPrice, rate }, index) => {
             const isLast = index === customers.length - 1;
-            const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+            const classes = isLast ? "py-4" : "py-4 justify-between border-blue-gray-50";
 
             return (
               <tr key={index}>

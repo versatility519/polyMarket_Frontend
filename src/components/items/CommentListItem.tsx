@@ -3,7 +3,7 @@ import React from 'react';
 // import Select from "react-select";
 import { useNavigate } from 'react-router-dom';
 
-import { Input, Card, CardBody, Avatar, Typography, Button } from '@material-tailwind/react';
+import { Input, Card, CardBody, Avatar, Typography, Button, Menu, MenuHandler, MenuList, MenuItem } from '@material-tailwind/react';
 import { Shield, Ellipsis, Heart } from 'lucide-react';
 // import { ChevronUp, ChevronDown, Shield, Ellipsis, Heart } from 'lucide-react';
 // import { sortItem } from "../../contents/selectItem";
@@ -14,6 +14,7 @@ import UserProperty from '../cards/UserProperty';
 
 const CommentListItem = () => {
     const [selectValue, setSelectValue] = React.useState < string > ('');
+    const [sortList, setSortList] = React.useState < string > ('Amount');
     // const [selectedOption, setSelectedOption] = React.useState < Option | null > (sortItem[0]);
     // const [isDropdownOpen, setIsDropdownOpen] = React.useState < boolean > (false);
 
@@ -51,6 +52,17 @@ const CommentListItem = () => {
 
             <div className="flex items-center gap-2 ">
                 <p className="text-gray-700 text-lg font-medium">Sort by</p>
+                <Menu>
+                    <MenuHandler>
+                        <Button style={{ textTransform: "none" }} className=" outline-none text-black text-center text-base bg-gray-200 hover:bg-gray-400 rounded-full" > {sortList}</Button>
+                    </MenuHandler>
+                    <MenuList className="z-50 w-40 text-md rounded-md text-gray-800 border-neutral-400 outline-none font-semibold gap-1">
+
+                        <MenuItem onClick={() => setSortList('Newest')}>Newest</MenuItem>
+                        <MenuItem onClick={() => setSortList("Like")}>Like</MenuItem>
+                        <MenuItem onClick={() => setSortList("Holders")}>Holders</MenuItem>
+                    </MenuList>
+                </Menu>
                 {/* <Select
                     className="flex w-36 border px-1 bg-gray-200 border-gray-400 focus-within:border-gray-600 rounded-full "
                     value={selectedOption}

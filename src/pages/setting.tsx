@@ -75,8 +75,8 @@ const Setting = () => {
           </Typography>
           <div className="flex justify-between items-center py-3">
             <div className="text-sm text-gray-400">Market Updates</div>
-            <div className="border-2">
-
+            
+            <div className="border-2 rounded-full w-12 bg-blue-200">
               <Switch
                 color="blue"
                 checked={isChecked}

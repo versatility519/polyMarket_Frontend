@@ -54,12 +54,12 @@ const TopNavbar = () => {
         <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
         <SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
-        <div className="flex gap-10 w-full justify-between items-center ">
+        <div className="flex md:gap-20 w-full justify-between items-center ">
           <div className="cursor-pointer" onClick={() => navigate('/')}>
             <Logo color="text-fuchsia-900" />
           </div>
 
-          <div className="lg:visible lg:flex lg:w-full md:w-96 sm:hidden hidden px-4 py-2 gap-2 items-center hover:border-black border border-gray-700 rounded-lg">
+          <div className="lg:visible lg:flex lg:w-full md:w-72 sm:hidden hidden px-4 py-2 gap-2 items-center hover:border-black border border-gray-700 rounded-lg">
             <SearchIcon color="black" size={18} />
             <input type="text" className="w-full outline-none" placeholder="Search markets" />
           </div>
@@ -87,7 +87,7 @@ const TopNavbar = () => {
               </MenuList>
             </Menu>
 
-            <Button style={{ textTransform: "none" }} className="shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/election') }}>
+            <Button style={{ textTransform: "none" }} className="shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/elections') }}>
               <p className="justify-center flex">
                 <Flag className="text-center" size={20} />
               </p>
@@ -110,24 +110,24 @@ const TopNavbar = () => {
           <div className="w-full px-5">
             {isLoggedIn ?
               <div className="flex items-center  ">
-                <div className="md:flex hidden ">
+                <div className="lg:flex hidden ">
                   <Button style={{ textTransform: "none" }} className="outline-none  w-full shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
                     <p className="text-sm font-medium">Portfolio</p>
                   </Button>
                 </div>
-                <div className="md:flex hidden ">
+                <div className="lg:flex hidden ">
                   <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-4 py-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
                     <p className="text-green-500 text-sm">$0.00</p>
                     <p className="text-sm font-medium">Cash</p>
                   </Button>
                 </div>
-                <div className="md:flex hidden ">
+                <div className="lg:flex hidden ">
                   <Button style={{ textTransform: "none" }} className="outline-none p-2 w-full shadow-none  rounded-md items-center bg-blue-700 hover:text-black  hover:bg-gray-300" onClick={() => { }}>
                     <p className="">Deposit</p>
                   </Button>
                 </div>
-                <div className="flex md:border-r-2 border-gray-400 px-2">
+                <div className="flex lg:border-r-2 border-gray-400 px-2">
                   <Button style={{ textTransform: "none" }} className="shadow-none w-full p-2 rounded-md items-center text-gray-400 hover:text-black hover:bg-gray-300 " onClick={() => { }}>
                     <Bell />
                   </Button>
@@ -141,8 +141,8 @@ const TopNavbar = () => {
                   allowHover={true}
                 >
                   <MenuHandler>
-                    <Button style={{ textTransform: "none" }} className="w-14 hidden md:flex outline-none   border-gray-300 p-2 rounded-full  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                      <img className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
+                    <Button style={{ textTransform: "none" }} className="w-14 hidden lg:flex outline-none border-gray-300 p-2 rounded-full  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                      <img className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" /> 
                     </Button>
                   </MenuHandler>
                   <MenuList className="-w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none">

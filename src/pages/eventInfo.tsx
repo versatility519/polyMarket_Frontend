@@ -10,6 +10,7 @@ import { getUsersData } from "../store/reducers/users";
 import { dispatch } from "../store";
 import YesNoBtn from "../components/YesNoBtn";
 import Logo from "../components/Logo";
+import MobileFooter from "../components/MobileFooter";
 
 const Profile = () => {
   const [isVisible, setIsVisible] = React.useState < boolean > (false);
@@ -27,7 +28,7 @@ const Profile = () => {
       <div className="flex justify-center">
         <div className="flex xl:px-[20vw] lg:w-full sm:px-[4vw] gap-4">
           <div className="px-2 py-4">
-            <div className="flex  border-2 items-center gap-4 px-2 py-1  text-black-700">
+            <div className="flex items-center gap-4 px-2 py-1  text-black-700">
               <Avatar size="md" className=" rounded-md" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
               <div className="w-full ">
                 <div className="flex w-full justify-between gap-3">
@@ -175,6 +176,7 @@ const Profile = () => {
           </div>
         </div >
       </div >
+      <MobileFooter />
     </div >
   );
 };
