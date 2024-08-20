@@ -17,8 +17,8 @@ const EventCard: React.FC<EventCardProps> = ({ img, text, betAmount, state }) =>
 
     const [which, setWhich] = React.useState < string > ()
     const navigate = useNavigate()
-    const [isYesHovered, setIsYesHovered] = React.useState(false);
-    const [isNoHovered, setIsNoHovered] = React.useState(false);
+    const [isYesHovered, setIsYesHovered] = React.useState < number | null > (null);
+    const [isNoHovered, setIsNoHovered] = React.useState < number | null > (null);
     // const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     //     const inputValue = e.target.value;
     //     if (inputValue === '' || /^[0-9]*$/.test(inputValue)) {
@@ -77,20 +77,22 @@ const EventCard: React.FC<EventCardProps> = ({ img, text, betAmount, state }) =>
                                     <div className="flex cursor-pointer" onClick={() => { }}> {item.range} </div>
                                     <div className="flex items-center  gap-4">
                                         {item.percent}%
-                                        <div className="grid grid-cols-2  w-full gap-1 items-center">
+                                        <div className="grid grid-cols-2 w-full gap-1 items-center">
                                             <Button
+                                                key={index}
                                                 onClick={handleYesBettng}
-                                                onMouseEnter={() => setIsYesHovered(true)}
-                                                onMouseLeave={() => setIsYesHovered(false)}
-                                                text={isYesHovered ? `${item.percent}%` : 'Yes'}
-                                                className={`w-full border-none text-nowrap items-center px-2 py-1 rounded-md text-xs bg-green-300 text-green-600`} />
+                                                onMouseEnter={() => setIsYesHovered(index)}
+                                                onMouseLeave={() => setIsYesHovered(null)}
+                                                text={isYesHovered == index ? `${item.percent}%` : 'Yes'}
+                                                className={`w-9 text-center text-nowrap px-2 py-1 rounded-md text-xs bg-green-300 text-green-600`} />
 
                                             <Button
+                                                key={index}
                                                 onClick={handleNoBettng}
-                                                text={isNoHovered ? `${100 - Number(item.percent)}%` : 'No'}
-                                                onMouseEnter={() => setIsNoHovered(true)}
-                                                onMouseLeave={() => setIsNoHovered(false)}
-                                                className={`w-full border-none text-nowrap items-center text-xs rounded-md px-2 py-1 bg-red-300 text-red-600`} />
+                                                text={isNoHovered == index ? `${100 - Number(item.percent)}%` : 'No'}
+                                                onMouseEnter={() => setIsNoHovered(index)}
+                                                onMouseLeave={() => setIsNoHovered(null)}
+                                                className={`w-9 text-center text-nowrap text-xs rounded-md px-2 py-1 bg-red-300 text-red-600`} />
                                         </div>
                                     </div>
                                 </div>

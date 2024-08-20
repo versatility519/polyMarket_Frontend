@@ -102,7 +102,7 @@ export default function Admin() {
     };
 
     return (
-        <div className="">
+        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
             <div className="flex justify-center">
 

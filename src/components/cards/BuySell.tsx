@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import Button from "../Button/Button";
-import { Tooltip, Popover, PopoverContent, PopoverHandler } from "@material-tailwind/react";
+import { Tooltip } from "@material-tailwind/react";
 import { Info, RefreshCcw, Plus, Minus, Settings, Percent } from "lucide-react";
 import YesNoBtn from "../YesNoBtn";
 interface BuySellProps {
@@ -24,6 +24,23 @@ const BuySell: React.FC<BuySellProps> = ({ activeTab }) => {
             setNumber(inputValue === '' ? 0 : parseInt(inputValue, 10));
         }
     };
+
+    const ref = React.useRef < HTMLDivElement | null > (null)
+    const handleClickOutside = (event: MouseEvent) => {
+        if (ref.current && !ref.current.contains(event.target as Node)) {
+            setPopOver(false);
+        }
+    };
+
+    React.useEffect(() => {
+        // Add event listener for mouse down events
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // Cleanup function to remove the event listener
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div className="gap-4">
@@ -56,18 +73,16 @@ const BuySell: React.FC<BuySellProps> = ({ activeTab }) => {
                 <div className="flex items-center gap-2">
                     <RefreshCcw onClick={() => { }} size={14} />
 
-                    {popOver == false ?
-                        <Tooltip placement="bottom" content="Trade settings">
+                    <div className="relative ">
+                        <Tooltip content="Trade settings">
                             <Settings className="cursor-pointer" onClick={() => { setPopOver(true) }} size={20} />
                         </Tooltip>
-                        : <Popover>
-                            <PopoverHandler>
-                                <Settings className="cursor-pointer" onClick={() => { setPopOver(false) }} size={20} />
-                            </PopoverHandler>
-                            <PopoverContent className="items-center gap-4 z-40  ">
+                        {popOver == true &&
+
+                            <div className="absolute border rounded-md p-3 items-center gap-4 bg-white z-30 " ref={ref} >
                                 <div>
                                     <p className="text-md font-medium py-2">Tania Andrew</p>
-                                    <div className="flex justify-between border-none gap-2">
+                                    <div className="flex border-none gap-2">
                                         <Button value="market" className={`${orderType === 'market' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`} onClick={() => changeOrderType('market')} text="Market" />
                                         <Button value="limit" className={`${orderType === 'limit' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
                                             onClick={() => changeOrderType('limit')} text="Limit" />
@@ -96,18 +111,17 @@ const BuySell: React.FC<BuySellProps> = ({ activeTab }) => {
                                             onClick={() => changeTolerence('five')} text="0.5%" />
                                         <Button value="one" className={`${tolerance === 'one' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-600'} px-3 py-1 rounded-md`}
                                             onClick={() => changeTolerence('one')} text="1%" />
-
-                                        <div className="flex w-[3vw] items-center border px-1 border-black rounded-md ">
-                                            <input className="" />
-                                            < Percent />
+                                        <div className="flex gap-1 items-center border px-1 border-black rounded-md ">
+                                            <input className="text-balance w-6 " />
+                                            <Percent size={16} />
                                         </div>
 
                                     </div>
                                 </div>
 
-                            </PopoverContent>
-                        </Popover>
-                    }
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
             <div className="flex w-full gap-2 py-1 justify-center">

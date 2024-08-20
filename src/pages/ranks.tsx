@@ -21,7 +21,7 @@ const Leaderboard = () => {
     dispatch(getUsersData());
   }, []);
   return (
-    <div className="">
+    <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
       <div className="mt-36 justify-center pt-8">
 

@@ -5,16 +5,16 @@ import { Shield, Ellipsis, Heart } from 'lucide-react';
 import { customers } from "../database";
 import UserProperty from '../cards/UserProperty';
 
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import { Trophy, House, ChevronUp, ChevronDown } from 'lucide-react';
+const options = [
+    { value: 'home', label: 'Home', icon: <House /> },
+    { value: 'user', label: 'User', icon: <Trophy /> },
+];
 type Option = {
     value: string;
     label: string;
+    icon: JSX.Element;  
 };
-const options = [
-    { value: 'home', label: 'Newest' },
-    { value: 'like', label: 'Like' },
-    { value: 'holders', label: 'Holders' },
-];
 const CommentListItem = () => {
     const [selectValue, setSelectValue] = React.useState < string > ('');
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
@@ -59,8 +59,9 @@ const CommentListItem = () => {
             <div className="flex items-center gap-2 ">
                 <p className="text-gray-700 text-lg font-medium">Sort by</p>
 
-                <div className="relative w-28">
-                    <div className="flex justify-between py-2 px-4 rounded-full  cursor-pointer bg-gray-300 border items-center" onClick={toggleDropdown}>
+                <div className="relative w-32">
+                    <div className="flex gap-2 py-2 px-4 rounded-full  cursor-pointer bg-gray-300 border items-center" onClick={toggleDropdown}>
+                        {selected.icon}
                         {selected.label}
                         {isDropdownOpen ? <ChevronUp /> : <ChevronDown />}
 
@@ -69,6 +70,7 @@ const CommentListItem = () => {
                         <div className="absolute z-10 w-full px-2 rounded-md  bg-gray-300 ">
                             {options.map((option) => (
                                 <div key={option.value} className="flex py-1 cursor-pointer" onClick={() => handleOptionClick(option)}>
+                                    {option.icon}
                                     {option.label}
                                 </div>
                             ))}

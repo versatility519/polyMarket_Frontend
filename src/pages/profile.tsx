@@ -18,6 +18,7 @@ import MobileFooter from "../components/MobileFooter";
 
 const Profile = () => {
   const navigate = useNavigate();
+
   // Getting Data
   const username = useSelector((state) => state.userInfo.user.username);
   const address = useSelector((state) => state.userInfo.user.username);
@@ -26,7 +27,7 @@ const Profile = () => {
     dispatch(getUsersData());
   }, []);
   return (
-    <div className="overflow-hidden">
+    <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
 
       <div className="flex mt-36 justify-center px-4 ">
