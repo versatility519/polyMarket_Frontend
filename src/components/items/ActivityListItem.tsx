@@ -1,6 +1,7 @@
 import React from "react";
+import Button from "../Button/Button";
 // import { ActivityListItemProps } from "../../types/rank"; // Make sure this path is correct
-import { Card, Button, CardBody, Typography, Avatar, Menu, MenuHandler, MenuItem, MenuList } from "@material-tailwind/react";
+import { Menu, MenuHandler } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import UserProperty from "../cards/UserProperty";
 // Sample customer data
@@ -10,30 +11,24 @@ const ActivityListItem: React.FC = () => {
     const [menuNum, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
-        <Card className="md:px-2 sm:px-4 lg:px-6 gap-4 ">
-            <CardBody>
+        <div className="md:px-2 sm:px-4 lg:px-6 gap-4 ">
+            <div>
                 <div className="flex border-b-2 pb-2 items-center justify-between">
-                    <Typography className="text-black font-medium">
-                        <p className="flex items-center px-6 py-4 text-3xl font-medium text-black"> Activity</p>
-                    </Typography>
-                    <Typography
-                        variant="small"
-                        color="blue"
-                        className="font-bold"
-                    >
-                        <Menu>
-                            <MenuHandler>
-                                <Button style={{ textTransform: "none" }} className=" px-6 outline-none text-black text-center bg-gray-200 hover:bg-gray-400 rounded-full" >Min ${menuNum}</Button>
-                            </MenuHandler>
-                            <MenuList className="z-50 w-40 text-md rounded-md text-gray-800 border-neutral-400 outline-none font-semibold gap-1">
-                                <MenuItem onClick={() => setMenuNum("Amount")}>None</MenuItem>
-                                <MenuItem onClick={() => setMenuNum(10)}>$10</MenuItem>
-                                <MenuItem onClick={() => setMenuNum(100)}>$100</MenuItem>
-                                <MenuItem onClick={() => setMenuNum(1000)}>$1000</MenuItem>
-                                <MenuItem onClick={() => setMenuNum(10000)}>$10,000</MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Typography>
+
+                    <p className="flex items-center px-6 py-4 text-3xl font-medium text-black"> Activity</p>
+
+                    <Menu>
+                        <MenuHandler>
+                            <Button className="text-lg px-4 py-2 outline-none text-black text-center bg-gray-200 hover:bg-gray-400 rounded-full" text={`Min ${menuNum}`} />
+                        </MenuHandler>
+                        <select className="z-50 w-40 text-md rounded-md text-gray-800 border-neutral-400 outline-none font-semibold gap-1">
+                            <p onClick={() => setMenuNum("Amount")}>None</p>
+                            <p onClick={() => setMenuNum(10)}>$10</p>
+                            <p onClick={() => setMenuNum(100)}>$100</p>
+                            <p onClick={() => setMenuNum(1000)}>$1000</p>
+                            <p onClick={() => setMenuNum(10000)}>$10,000</p>
+                        </select>
+                    </Menu>
                 </div>
                 <div className="divide-y divide-gray-200">
                     {customers.map(({ eventName, username, laterTime, avatar, position, address, volume, isBet, isSold, price, count }, index) => (
@@ -42,14 +37,14 @@ const ActivityListItem: React.FC = () => {
                             className="flex items-center justify-between py-3 last:pb-2"
                         >
                             <div className="flex items-center gap-x-3">
-                                <Avatar size="md" src={avatar} alt={eventName} variant="rounded" />
+                                <img width={58} src={avatar} alt={eventName} className="rounded-md" />
                                 <div>
                                     {eventName &&
-                                        <Typography className="font-semibold cursor-pointer" onClick={() => navigate('/event')}>
+                                        <p className="font-semibold cursor-pointer" onClick={() => navigate('/event')}>
                                             {eventName}
-                                        </Typography>
+                                        </p>
                                     }
-                                    <Typography className="text-sm items-center flex gap-1">
+                                    <div className="text-sm items-center flex gap-1">
                                         <div className="flex items-center text-base cursor-pointer gap-2" onClick={() => navigate('/profile')}>
                                             <p className=" font-semibold hover:underline underline-offset-4">
                                                 <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
@@ -63,17 +58,17 @@ const ActivityListItem: React.FC = () => {
                                             {count}</p>
                                         <p className=" text-base">at</p>
                                         <p className="font-">{price}¢ (${(price / 110).toPrecision(5)})</p>
-                                    </Typography>
+                                    </div>
                                 </div>
                             </div>
-                            <Typography>
+                            <p>
                                 {laterTime} ago
-                            </Typography>
+                            </p>
                         </div>
                     ))}
                 </div>
-            </CardBody >
-        </Card >
+            </div >
+        </div >
     );
 };
 
