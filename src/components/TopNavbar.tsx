@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Switch, Menu, MenuHandler, MenuList, Typography } from '@material-tailwind/react';
-import { Activity, Bell, AlignJustify, Flag, Trophy, } from "lucide-react";
-import { MarketsIcon } from "../components/icons";
+import Button from "./Button/Button";
+import { Menu, MenuHandler, MenuList } from '@material-tailwind/react';
+import { Activity, Bell, AlignJustify, Flag, Trophy, Grid3X3 } from "lucide-react";
 import { content } from "../contents/landing";
 import { SearchIcon } from "./icons";
 import SignInModal from "./SignInModal";
@@ -49,8 +49,8 @@ const TopNavbar = () => {
   }, [])
 
   return (
-    <div className="">
-      <div className="flex justify-between gap-2 items-center px-2 py-2">
+    <div className="fixed w-full z-30  bg-white top-0">
+      <div className=" flex justify-between gap-2 items-center px-2 py-2">
         <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
         <SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
@@ -75,62 +75,36 @@ const TopNavbar = () => {
               allowHover={true}
             >
               <MenuHandler>
-                <Button style={{ textTransform: "none" }} className="shadow-none px-2 py-1 rounded-md items-center bg-white text-gray-400 hover:text-black  hover:bg-gray-300">
-                  <p onClick={() => { navigate('/markets') }} className="justify-center flex">
-                    <MarketsIcon className="text-center" size={20} />
-                  </p>
-                  <p className="text-sm font-medium">Markets</p>
-                </Button>
+                <Button onClick={() => { navigate('/markets') }} text="Markets" className="justify-center flex flex-col cursor-pointer px-2 py-1 rounded-md items-center bg-white text-gray-400 hover:text-black  hover:bg-gray-300" icon={<Grid3X3 className="text-center" size={20} />} />
               </MenuHandler>
-              <MenuList className="z-10 hidden max-w-screen-xl rounded-xl lg:block">
+              
+              <MenuList className="z-40 hidden max-w-screen-xl rounded-xl lg:block">
                 <MarketNavbar />
               </MenuList>
+              
             </Menu>
-
-            <Button style={{ textTransform: "none" }} className="shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/elections') }}>
-              <p className="justify-center flex">
-                <Flag className="text-center" size={20} />
-              </p>
-              <p className="text-sm font-medium">Election</p>
-            </Button>
-            <Button style={{ textTransform: "none" }} className="shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/activity') }}>
-              <p className="justify-center flex">
-                <Activity className="text-center" size={18} />
-              </p>
-              <p className="text-sm font-medium">Activity</p>
-            </Button>
-            <Button style={{ textTransform: "none" }} className="shadow-none px-2 py-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-              <p className="justify-center flex">
-                <Trophy className="text-center" size={20} />
-              </p>
-              <p className="text-sm font-medium">Ranks</p>
-            </Button>
+            <Button text="Election" className="p-1 flex flex-col cursor-pointer  rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/elections') }} icon={<Flag className="text-center" size={20} />} />
+            <Button text="Activity" className="p-1 flex flex-col cursor-pointer rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/activity') }} icon={<Activity className="text-center" size={18} />} />
+            <Button text="Ranks" className="px-2 py-1 flex flex-col cursor-pointer rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }} icon={<Trophy className="text-center" size={20} />} />
           </div>
 
           <div className="w-full px-5">
             {isLoggedIn ?
-              <div className="flex items-center  ">
-                <div className="lg:flex hidden ">
-                  <Button style={{ textTransform: "none" }} className="outline-none  w-full shadow-none p-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                    <p className="text-green-500 text-sm">$0.00</p>
-                    <p className="text-sm font-medium">Portfolio</p>
-                  </Button>
+              <div className="flex items-center gap-1 ">
+                <div className="lg:flex hidden  w-full p-1 rounded-md flex-col cursor-pointer items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                  <p className="text-green-500 text-sm">$0.00</p>
+                  <p className="text-sm font-medium">Portfolio</p>
                 </div>
-                <div className="lg:flex hidden ">
-                  <Button style={{ textTransform: "none" }} className="outline-none w-full shadow-none px-4 py-1 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                    <p className="text-green-500 text-sm">$0.00</p>
-                    <p className="text-sm font-medium">Cash</p>
-                  </Button>
+                <div className="lg:flex hidden w-full px-4 py-1 rounded-md   flex-col cursor-pointer items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                  <p className="text-green-500 text-sm">$0.00</p>
+                  <p className="text-sm font-medium">Cash</p>
                 </div>
-                <div className="lg:flex hidden ">
-                  <Button style={{ textTransform: "none" }} className="outline-none p-2 w-full shadow-none  rounded-md items-center bg-blue-700 hover:text-black  hover:bg-gray-300" onClick={() => { }}>
-                    <p className="">Deposit</p>
-                  </Button>
-                </div>
+                {/* <div className="lg:flex hidden "> */}
+                <Button text="Deposit" className="p-2 w-full lg:flex hidden flex-col cursor-pointer  rounded-md items-center bg-blue-700 hover:bg-blue-500 text-white" onClick={() => { }} />
+
+                {/* </div> */}
                 <div className="flex lg:border-r-2 border-gray-400 px-2">
-                  <Button style={{ textTransform: "none" }} className="shadow-none w-full p-2 rounded-md items-center text-gray-400 hover:text-black hover:bg-gray-300 " onClick={() => { }}>
-                    <Bell />
-                  </Button>
+                  <Button icon={<Bell />} className="w-full p-2 rounded-md flex flex-col cursor-pointer items-center text-gray-400 hover:text-black hover:bg-gray-300 " onClick={() => { }} />
                 </div>
 
                 <Menu
@@ -141,19 +115,19 @@ const TopNavbar = () => {
                   allowHover={true}
                 >
                   <MenuHandler>
-                    <Button style={{ textTransform: "none" }} className="w-14 hidden lg:flex outline-none border-gray-300 p-2 rounded-full  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                      <img className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" /> 
+                    <Button className="w-14 hidden lg:flex border-gray-300 p-2 rounded-full  items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
+                      <img className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
                     </Button>
                   </MenuHandler>
-                  <MenuList className="-w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none">
+                  <MenuList className="z-40 w-[14rem] hidden max-w-screen-xl rounded-xl lg:block outline-none">
                     {userrole === "admin" ? (
                       <>
-                        <Button onClick={() => navigate("/admin")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">User Management</Button>
-                        <Button onClick={() => navigate("/admin/addevent")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Event Management</Button>
+                        <Button onClick={() => navigate("/admin")} className="w-full font-medium cursor-pointer flex gap-3 px-2 text-base items-center text-nowrap" text="User Management" />
+                        <Button onClick={() => navigate("/admin/addevent")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Event Management" />
                       </>
                     ) : (
                       <>
-                        <div className="flex w-full gap-3 py-3">
+                        <div className="flex w-full gap-2  ">
                           <img className=" w-10 rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
                           <div className=" ">
                             <p className="" onClick={() => { navigate('/profile') }}>{username}</p>
@@ -161,38 +135,31 @@ const TopNavbar = () => {
                           </div>
                         </div>
                         <hr />
-                        <Button onClick={() => navigate("/profile")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Profile</Button>
-                        <Button onClick={() => navigate("/setting")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Setting</Button>
-                        <Button onClick={() => navigate("/watchlist")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Watchlist</Button>
-                        <Button onClick={() => navigate("/election")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Elections</Button>
+                        <Button onClick={() => navigate("/profile")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Profile" />
+                        <Button onClick={() => navigate("/setting")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Setting" />
+                        <Button onClick={() => navigate("/watchlist")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Watchlist" />
+                        <Button onClick={() => navigate("/election")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Elections" />
                       </>
                     )}
-                    <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
-                    <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
-                    <div className="flex items-center">
-                      <Switch
-                        containerProps={{ className: "mr-2" }}
-                      />
+                    <Button onClick={() => navigate("/learn")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Learn" />
+                    <Button onClick={() => navigate("/docs")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Documentation" />
+                    <div className="flex  items-center">
                       <div>
-                        <Typography color="blue-gray" className="font-medium text-nowrap text-sm">
+                        <p color="blue-gray" className="font-medium cursor-pointer text-nowrap text-sm">
                           Dark Mode
-                        </Typography>
+                        </p>
                       </div>
                     </div>
-                    <Button onClick={() => handleLogout()} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Logout</Button>
+                    <Button onClick={() => handleLogout()} className="w-full font-medium cursor-pointer border-none flex gap-3 text-base px-2 items-center text-nowrap" text="Logout" />
                   </MenuList>
                 </Menu>
               </div >
               :
-              <div className="flex gap-1 items-center">
-                <div className="  ">
-                  <Button onClick={handleInClick} style={{ textTransform: "none", color: "blue" }} className="w-full font-medium hover:bg-gray-200 flex tems-center shadow-none outline-none px-4 py-2 text-base  bg-gray-50 text-nowrap">Log In</Button>
-                </div>
-                <div className=" ">
-                  <Button onClick={handleUpClick} style={{ textTransform: "none", color: "white" }} className="w-full font-medium px-4 py-2 items-centers shadow-none outline-none text-base bg-blue-700 text-nowrap">Sign Up</Button>
-                </div>
+              <div className="flex   gap-1 items-center">
+                <Button onClick={handleInClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-gray-200 flex tems-centertext-base  bg-gray-50 text-nowrap" text="Log In" />
+                <Button onClick={handleUpClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 items-centers text-base bg-blue-700 text-nowrap text-white" text="Sign Up" />
 
-                <div className="w-full md:flex hidden ">
+                <div className="w-[20px] md:flex hidden ">
                   <Menu
                     open={isMenuOpen}
                     handler={setIsMenuOpen}
@@ -201,28 +168,21 @@ const TopNavbar = () => {
                     allowHover={true}
                   >
                     <MenuHandler>
-                      <Button style={{ textTransform: "none" }} className=" outline-none  shadow-none px-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }}>
-                        <AlignJustify />
-                      </Button>
+                      <Button icon={<AlignJustify />} className=" p-2 rounded-md items-center text-gray-400 hover:text-black  hover:bg-gray-300" onClick={() => { navigate('/leaderboard') }} />
                     </MenuHandler>
-                    <MenuList className="z-50 -w-14 hidden max-w-screen-xl rounded-xl lg:block outline-none pr-8">
-                      <Button onClick={handleInClick} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Log In</Button>
-                      <Button onClick={handleUpClick} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Sign Up</Button>
-                      <hr />
 
-                      <Button onClick={() => navigate("/elections")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Election</Button>
-                      <Button onClick={() => navigate("/rewards")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Rewards</Button>
-                      <Button onClick={() => navigate("/learn")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Learn</Button>
-                      <Button onClick={() => navigate("/docs")} style={{ textTransform: "none" }} className="w-full font-medium flex gap-3 px-2 items-center outline-none shadow-none text-nowrap">Documentation</Button>
+                    <MenuList className=" w-[14rem] z-40  hidden max-w-screen-xl rounded-xl lg:block ">
+                      <Button onClick={handleInClick} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Log In" />
+                      <Button onClick={handleUpClick} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Sign Up" />
+                      <hr />
+                      <Button onClick={() => navigate("/elections")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Election" />
+                      <Button onClick={() => navigate("/rewards")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Rewards" />
+                      <Button onClick={() => navigate("/learn")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Learn" />
+                      <Button onClick={() => navigate("/docs")} className="w-full font-medium cursor-pointer flex gap-3 text-base px-2 items-center text-nowrap" text="Documentation" />
 
                       <div className="flex items-center">
-                        <Switch className="outline-none"
-                          containerProps={{ className: "mr-2" }}
-                        />
-                        <div>
-                          <Typography color="blue-gray" className="font-medium text-nowrap text-sm">
-                            Dark Mode
-                          </Typography>
+                        <div className="font-medium cursor-pointer text-nowrap text-sm">
+                          Dark Mode
                         </div>
                       </div>
                     </MenuList>
@@ -240,7 +200,7 @@ const TopNavbar = () => {
         {
           content.menuBtns.map((item, index) =>
             <div className=" ">
-              <Button style={{ fontSize: "15px", textTransform: "none" }} key={index} value={item.value} onClick={() => { }} className="  border-b-2 shadow-none rounded-none font-medium p-2 outline-none border-white hover:border-b-gray-500 focus:border-b-black  text-black text-nowrap" >{item.text}</Button>
+              <Button text={item.text} key={index} value={item.value} onClick={() => { }} className="  border-b-2 rounded-none font-medium cursor-pointer p-2 border-white hover:border-b-gray-500 focus:border-b-black  text-black text-nowrap" ></Button>
             </div>
           )
         }

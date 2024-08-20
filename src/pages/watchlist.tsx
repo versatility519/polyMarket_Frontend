@@ -4,7 +4,7 @@ const WatchList = () => {
         <div>
 
             <TopNavbar />
-            <div className="flex justify-center p-4 space-x-4">
+            <div className="flex mt-36 justify-center p-4 space-x-4">
                 Hi, here is WatchList Page.
             </div>
         </div>
