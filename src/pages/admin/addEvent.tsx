@@ -30,7 +30,7 @@ const AddEvent = () => {
         }
     }
     return (
-        <div className="">
+        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
             <div className="flex mt-36 justify-center">
                 {/* <div className="lg:px-[18vw] md:px-[6vw] sm:px-8 px-4 w-full  flex-col  border-2 border-red-800 pt-8 pb-4 font-semibold"> */}

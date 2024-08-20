@@ -4,6 +4,7 @@ import SignInModal from "./SignInModal";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button/Button";
 import { AlignJustify, Grid3X3, House, Radio, Search, X } from "lucide-react";
+import SocialLink from "./SocialLink";
 
 const MobileFooter = () => {
     const navigate = useNavigate();
@@ -32,7 +33,6 @@ const MobileFooter = () => {
         setIsSidebarOpen((prev) => !prev);
     };
     const handleClickOutside = (event: MouseEvent) => {
-        // Check if the click was outside the dropdown
         if (ref.current && !ref.current.contains(event.target as Node)) {
             setIsSidebarOpen(false);
         }
@@ -46,7 +46,7 @@ const MobileFooter = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [])
+    }, []);
     React.useEffect(() => {
         const handleScroll = () => {
             const currentScrollPos = window.scrollY;
@@ -72,11 +72,15 @@ const MobileFooter = () => {
                             <Button text="Add fonds" onClick={() => navigate(`/activity`)} className="flex font-medium text-xl p-1 text-black   items-center" />
                         </div>
                     }
-                    <Button text="Election" onClick={() => navigate(`/elections`)} className="flex font-medium text-xl p-1 text-black   items-center" />
+                    <Button text="Election" onClick={() => navigate(`/elections`)} className=" font-medium text-xl p-1 text-black   items-center" />
                     <Button text="Leadboard" onClick={() => navigate(`/leaderboard`)} className="flex font-medium text-xl p-1 text-black   items-center" />
                     <Button text="Activity" onClick={() => navigate(`/activity`)} className="flex font-medium text-xl p-1 text-black   items-center" />
                     <Button text="Resources" onClick={() => navigate(`/`)} className="flex font-medium text-xl p-1 text-black   items-center" />
                     <Button text="Rewards" onClick={() => navigate(`/`)} className="flex font-medium text-xl p-1 text-black   items-center" />
+
+                    <div>
+                        <SocialLink border={true} />
+                    </div>
                 </div>
                 {!isLoggedIn ?
                     <div className="flex flex-col px-4 gap-2 ">
@@ -98,7 +102,7 @@ const MobileFooter = () => {
                 <Button icon={<Search size={18} />} text="Search" onClick={() => navigate(`/`)} className="flex flex-col p-1   items-center text-gray-500 hover:text-black" />
                 <Button icon={<Radio size={18} />} text="Activity" onClick={() => navigate(`/activity`)} className="flex flex-col p-1   items-center text-gray-500 hover:text-black" />
 
-                <Button onClick={toggleSidebar} className="flex flex-col text-sm p-1   items-center text-gray-500 hover:text-black"
+                <Button onClick={toggleSidebar} className="flex flex-col text-sm p-1 items-center text-gray-500 hover:text-black"
                     text={isSidebarOpen ? "Close" : "More"}
                     icon={isSidebarOpen ? < X size={18} /> : <AlignJustify size={18} />}
                 />

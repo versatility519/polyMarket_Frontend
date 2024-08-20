@@ -24,11 +24,12 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
       <div className="flex mt-36 justify-center">
-        <div className="flex xl:px-[20vw] lg:w-full sm:px-[4vw] gap-4">
-          <div className="px-2 py-4">
+        <div className="flex lg:w-8/12 gap-4">
+          <div className="w-[50rem] px-2 py-4">
+
             <div className="flex items-center gap-4 px-2 py-1  text-black-700">
               <img className=" rounded-md" width={68} src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
               <div className="w-full ">
@@ -113,8 +114,7 @@ const Profile = () => {
                   <div className=" md:px-16 opacity-30">
                     <Logo />
                   </div>
-                  {/* <Button value="editProfile"
-                    className="lg:flex sm:hidden text-black items-center font-semibold rounded-lg gap-2 px-4 py-1"><Landmark />PloyMarket</Button> */}
+
                 </div>
               </div>
             </div>
@@ -144,33 +144,24 @@ const Profile = () => {
                 }
               </div>
 
-              {/* <Button onClick={toggleVisibility} text={isVisible ? "Show Less" : "Show More"}
-                className="flex text-sm gap-2 items-center px-1 outline-none text-gray-500 p-1 rounded-full  bg-grary-400 hover:bg-gray-300 transition duration-200"
-              /> */}
-
               <div onClick={toggleVisibility} className={`flex w-28 gap-2 text-nowrap text-sm   items-center px-2 outline-none hover:bg-gray-200 bg-white  text-black p-1 rounded-full cursor-pointer`}>
                 <p>{isVisible ? "Show Less" : "Show More"}</p>
                 {isVisible ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </div>
-
-              {/* {isVisible ? "Show Less" : "Show More"}
-                {isVisible ? <ChevronUp /> : <ChevronDown />}
-              </Button> */}
             </div>
-
             <EventInfoList />
           </div>
 
           <div className="">
-            <div className="lg:block w-[20rem] hidden border-2 py-4 rounded-lg">
+            <div className="lg:block w-[20rem] hidden">
               <EventInfoCard />
             </div>
           </div>
-          <div className="block sm:hidden visible fixed z-50 w-full bottom-1">
-            <YesNoBtn />
-          </div>
         </div >
       </div >
+      <div className="sm:flex lg:hidden  visible fixed z-50 w-full bottom-[78px]">
+        <YesNoBtn />
+      </div>
       <MobileFooter />
     </div >
   );

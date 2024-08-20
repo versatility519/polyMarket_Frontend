@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ReduxProvider store={store}>
       <BrowserRouter>
-        <App />
+          <App />
       </BrowserRouter>
     </ReduxProvider>
   </React.StrictMode>,

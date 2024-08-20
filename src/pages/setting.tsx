@@ -87,7 +87,7 @@ const Setting = () => {
     );
   };
   return (
-    <div className=" ">
+    <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
       <div className="flex mt-36  justify-center">
         <div className="flex sm:w-full sm:px-4 md:w-full lg:w-full xl:w-[48vw] w-full py-8">

@@ -30,7 +30,7 @@ const App = () => {
         dispatch(getAllEvents())
     }, [])
     return (
-        <div className=" ">
+        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
             <div className="xl:px-36 mt-36 justify-center overscroll-auto">
                 <div style={{ scrollbarWidth: 'none' }} className="mt-4 md:flex-row flex flex-col sm:overflow-x-scroll overflow-x-scroll md:gap-5 justify-center px-6 ">
