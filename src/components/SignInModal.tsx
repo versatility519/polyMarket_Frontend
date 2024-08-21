@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "./Button/Button";
 import instance from "../utils/axios";
 import { ModalProps } from "../types";
 import { GoogleIcon } from "./icons";
@@ -7,7 +6,7 @@ import useAuth from "../hooks/useAuth";
 import useNotification from "../hooks/useNotification";
 // import { useNavigate } from "react-router-dom";
 
-const SignInModal = ({ isOpen, onClose, title }: ModalProps) => {
+const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
     const { showNotification } = useNotification()
     // const { navigate } =useNavigate()
 
@@ -102,9 +101,15 @@ const SignInModal = ({ isOpen, onClose, title }: ModalProps) => {
                             <input type="password" className="w-full mt-2 pl-3 border border-gray-300 rounded-lg bg-white py-2" placeholder="Password" onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
                         </div>}
                     <hr />
+                    <div className="text-black flex gap-5 items-center w-full   px-10 cursor-pointer font-bold py-1 rounded-md shadow-md" onClick={connect}>
+                        <img src="https://img.freepik.com/premium-vector/metamask-logo-crypto-wallet-defi-web3-dapps-nfts-isolated-white-background_337410-1911.jpg?w=826" width={36} height={36} alt="" />Metamask
+                    </div>
 
-                    <Button text="MetaMask" className="text-black w-full border justify-start" />
-                    <Button text="WalletConnect" className="text-black w-full border justify-start" />
+                    <div className="text-black flex gap-5 items-center w-full   px-10 cursor-pointer font-bold py-3 rounded-md shadow-md">
+                        <img src="https://1000logos.net/wp-content/uploads/2022/05/WalletConnect-Logo-500x281.png" width={36} height={48} alt="" className="my-1" /> WalletConnect
+                    </div>
+                    {/* <Button text="MetaMask" className="text-black w-full border justify-start" />
+                    <Button text="WalletConnect" className="text-black w-full border justify-start" /> */}
                     <p className="border-b-2   text-center text-1xl mt-5"> Privacy Terms</p>
                 </div>
             </div>

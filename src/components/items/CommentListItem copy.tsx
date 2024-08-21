@@ -51,7 +51,7 @@ const CommentListItem = () => {
                 />
             </div>
 
-            <div className="flex bg-gray-200 border-2 items-center text-lg font-semibold gap-2 rounded-full py-3 justify-center">
+            <div className="flex bg-gray-200 border items-center text-lg font-semibold gap-2 rounded-full py-3 justify-center">
                 <Shield />
                 <p className="text-base font-semibold text-black">Beware of external links, they may be phishing attacks.</p>
             </div>

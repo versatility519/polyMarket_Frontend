@@ -51,7 +51,7 @@ const CommentListItem = () => {
                 />
             </div>
 
-            <div className="flex bg-gray-200 border-2 items-center text-lg font-semibold gap-2 rounded-full py-3 justify-center">
+            <div className="flex bg-gray-200 border items-center text-lg font-semibold gap-2 rounded-full py-3 justify-center">
                 <Shield />
                 <p className="text-base font-semibold text-black">Beware of external links, they may be phishing attacks.</p>
             </div>
@@ -60,15 +60,15 @@ const CommentListItem = () => {
                 <p className="text-gray-700 text-lg font-medium">Sort by</p>
 
                 <div className="relative w-28">
-                    <div className="flex justify-between py-2 px-4 rounded-full  cursor-pointer bg-gray-300 border items-center" onClick={toggleDropdown}>
+                    <div className="flex justify-between px-4 py-1 rounded-full cursor-pointer bg-gray-100 border items-center" onClick={toggleDropdown}>
                         {selected.label}
                         {isDropdownOpen ? <ChevronUp /> : <ChevronDown />}
 
                     </div>
                     {isOpen && (
-                        <div className="absolute z-10 w-full px-2 rounded-md  bg-gray-300 ">
+                        <div className="absolute z-10 w-full focus:border-black rounded-sm  bg-white border shadow-md ">
                             {options.map((option) => (
-                                <div key={option.value} className="flex py-1 cursor-pointer" onClick={() => handleOptionClick(option)}>
+                                <div key={option.value} className="flex px-2 py-1 cursor-pointer rounded-full" onClick={() => handleOptionClick(option)}>
                                     {option.label}
                                 </div>
                             ))}

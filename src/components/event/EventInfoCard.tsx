@@ -31,7 +31,6 @@ const EventInfoCard = () => {
                         onClick={() => { handleTabs(item.value); }}
                         className={`${selectPanel === `${item.value}` ? 'border-b-2 border-black' : 'border-b-2 border-gray-300'}  flex flex-col  font-medium cursor-pointer p-2  hover:border-b-gray-500  text-black text-nowrap`}
                     />
-
                 ))}
             </div>
 

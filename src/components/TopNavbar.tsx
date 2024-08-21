@@ -10,6 +10,7 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import MarketNavbar from "./MarketNavbar";
 import Logo from "./Logo";
+import { useSDK } from "@metamask/sdk-react";
 
 const TopNavbar = () => {
 
@@ -52,6 +53,20 @@ const TopNavbar = () => {
     navigate('/');
     logout()
   }
+  const [account, setAccount] = React.useState<string>();
+  const { sdk, connected, connecting, provider, chainId } = useSDK();
+
+  console.log(account, connected, connecting, provider, chainId );
+  
+
+  const connect = async () => {
+    try {
+      const accounts = await sdk?.connect();
+      setAccount(accounts?.[0]);
+    } catch (err) {
+      console.warn("failed to connect..", err);
+    }
+  };
 
   React.useEffect(() => {
     dispatch(getUserData())
@@ -60,10 +75,10 @@ const TopNavbar = () => {
   return (
     <div className="fixed w-full z-30  bg-white top-0">
       <div className=" flex justify-between gap-2 items-center px-2 py-2">
-        <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
+        <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" connect={connect} />
         <SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
-        <div className="flex md:gap-20 w-full justify-between items-center ">
+        <div className="flex md:gap-16 w-full justify-between items-center ">
           <div className="cursor-pointer" onClick={() => navigate('/')}>
             <Logo color="text-fuchsia-900" />
           </div>
@@ -76,7 +91,7 @@ const TopNavbar = () => {
 
         <div className="flex items-center">
           <div className="lg:visible lg:flex sm:hidden items-center hidden  ">
-          
+
             <div className="relative"
               onMouseEnter={toggleMarket}
               onMouseLeave={toggleMarket}>
@@ -88,7 +103,7 @@ const TopNavbar = () => {
               />
 
               {isMarketOpen && (
-                <div className="absolute right-[-140px] inline-block w-[380px] border px-2 items-center mt-2 pt-4 pb-2 bg-white rounded-md shadow-lg">
+                <div className="absolute right-[-140px] inline-block w-[400px] border px-2 items-center mt-2 pt-4 pb-2 bg-white rounded-md shadow-lg">
                   <MarketNavbar />
                 </div>
               )}
@@ -167,7 +182,7 @@ const TopNavbar = () => {
               <div className="flex gap-1 items-center">
                 <Button onClick={handleInClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-gray-200 items-centers flex tems-centertext-base  bg-gray-50 text-nowrap" text="Log In" />
                 <Button onClick={handleUpClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-gray-200 items-centers text-base bg-blue-700 text-nowrap text-white" text="Sign Up" />
- 
+
                 <div className="relative"
                   onMouseEnter={toggleMenu}
                   onMouseLeave={toggleMenu}>
@@ -204,8 +219,8 @@ const TopNavbar = () => {
       < div style={{ scrollbarWidth: 'none' }} className="flex gap-2 px-2 overflow-x-scroll " >
         {
           content.menuBtns.map((item, index) =>
-            <div className=" ">
-              <Button text={item.text} key={index} value={item.value} onClick={() => handleCategory(`${item.value}`)}
+            <div key={index} className=" ">
+              <Button text={item.text} value={item.value} onClick={() => handleCategory(`${item.value}`)}
                 className={`${selectCategory === `${item.value}` ? 'border-b-2 border-black' : ''} rounded-none font-normal cursor-pointer p-2   text-black text-nowrap`}
               />
             </div>
@@ -218,3 +233,4 @@ const TopNavbar = () => {
 }
 
 export default TopNavbar;
+
