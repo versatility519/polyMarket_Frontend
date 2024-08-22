@@ -6,6 +6,7 @@ import { customers } from "../database";
 import UserProperty from '../cards/UserProperty';
 
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import { Tooltip } from '@material-tailwind/react';
 type Option = {
     value: string;
     label: string;
@@ -80,21 +81,31 @@ const CommentListItem = () => {
             <div className="md:px-2 sm:px-4 lg:px-6 flex gap-4 border-b-2 border-gray-100">
                 <div>
                     <div className="divide-y divide-gray-200">
-                        {customers.map(({ eventName, username, address, avatar, position, volume }, index) => (
+                        {customers.map(({ username, address, avatar, position, volume }, index) => (
                             <div
                                 key={index}
                                 className="flex hover:rounded-md gap-2 py-2 last:pb-2"
                             >
                                 <div className="items-center">
-                                    <img width={120} className='rounded-sm' src={avatar} alt={eventName} />
+                                    <Tooltip
+                                        className="bg-white text-black border rounded-md"
+                                        content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
+                                    >
+                                        <img width={88} className='rounded-full' src={avatar} alt={avatar} onClick={() => navigate('/profile')} />
+                                    </Tooltip>
                                 </div>
                                 <div className=" ">
                                     <div className="flex py-1 justify-between">
-                                        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/profile')}>
-                                            <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
-                                            <p className="text-gray-600 text-sm">2mo ago</p>
+                                        <div className='flex items-center gap-2'>
+                                            <Tooltip
+                                                className="bg-white text-black border rounded-md"
+                                                content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
+                                            >
+                                                <p className='cursor-pointer hover:underline' onClick={() => navigate('/profile')}>{username}</p>
+                                            </Tooltip>
+                                            <p className='bg-green-200 text-green-600 text-sm rounded-md px-1'>15.8K</p>
+                                            <p className="text-gray-600 text-sm">2d ago</p>
                                         </div>
-
                                         <Ellipsis className='cursor-pointer text-black bg-gray-100' onClick={() => { alert('Login') }} />
                                     </div>
 

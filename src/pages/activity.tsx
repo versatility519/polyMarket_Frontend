@@ -1,6 +1,6 @@
 import React from "react";
 import TopNavbar from "../components/TopNavbar";
-import ActivityListItem from "../components/items/ActivityListItem";
+import ActivityListItem from "../components/eventInfo/ActivityListItem";
 import { getUsersData } from "../store/reducers/users";
 import { dispatch } from "../store";
 import MobileFooter from "../components/MobileFooter";

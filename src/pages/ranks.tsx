@@ -24,7 +24,6 @@ const Leaderboard = () => {
     <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
       <div className="mt-36 justify-center pt-8">
-
         <div className="xl:px-[28rem] lg:px-36 md:px-4 ">
           <div className="flex flex-col gap-6">
             <p className="flex items-center text-4xl font-medium text-black justify-center  ">Leaderboard</p>

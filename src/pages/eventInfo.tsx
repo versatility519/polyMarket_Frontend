@@ -8,6 +8,8 @@ import TopNavbar from "../components/TopNavbar";
 
 import { Trophy, Clock4, Star, Link, ChevronUp, ChevronDown, ChevronsLeftRight, Goal, } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
+import { getEventInfo } from "../store/reducers/events";
+
 import { dispatch } from "../store";
 import YesNoBtn from "../components/YesNoBtn";
 import Logo from "../components/Logo";
@@ -18,10 +20,21 @@ const Profile = () => {
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
+  const [pageId, setPageId] = React.useState < string | null > (null)
 
   React.useEffect(() => {
-    dispatch(getUsersData());
-  }, []);
+    const queryParams = new URLSearchParams(window.location.search)
+    console.log(queryParams)
+    setPageId(queryParams.get('id'))
+    alert("pageId")
+    if (pageId != null) {
+      dispatch(getUsersData());
+      dispatch(getEventInfo(pageId));
+    }
+
+  }, [pageId]);
+
+
 
   return (
     <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
@@ -29,7 +42,6 @@ const Profile = () => {
       <div className="flex mt-36 justify-center">
         <div className="flex lg:w-8/12 gap-4">
           <div className="w-[50rem] px-2 py-4">
-
             <div className="flex items-center gap-4 px-2 py-1  text-black-700">
               <img className=" rounded-md" width={68} src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
               <div className="w-full ">
@@ -114,7 +126,6 @@ const Profile = () => {
                   <div className=" md:px-16 opacity-30">
                     <Logo />
                   </div>
-
                 </div>
               </div>
             </div>
@@ -144,7 +155,7 @@ const Profile = () => {
                 }
               </div>
 
-              <div onClick={toggleVisibility} className={`flex w-28 gap-2 text-nowrap text-sm   items-center px-2 outline-none hover:bg-gray-200 bg-white  text-black p-1 rounded-full cursor-pointer`}>
+              <div onClick={toggleVisibility} className={`flex w-28 gap-1 text-nowrap text-sm items-center px-2 py-1 outline-none hover:bg-gray-200 bg-white  text-black p-1 rounded-full cursor-pointer`}>
                 <p>{isVisible ? "Show Less" : "Show More"}</p>
                 {isVisible ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </div>

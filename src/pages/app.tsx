@@ -1,22 +1,24 @@
 import React from "react";
 import Button from "../components/Button/Button";
 import { TrendingUp } from "lucide-react";
-import SemiCircularProgressBar from "../components/feature/Circlar";
 
 import TopEventCard from "../components/cards/TopEventCard";
 import TopNavbar from "../components/TopNavbar";
 import { content } from "../contents/landing";
-import { event } from "../contents/event";
+import { Tooltip } from "@material-tailwind/react";
+// import { event } from "../contents/event";
 import UserProperty from "../components/cards/UserProperty";
 import EventCard from "../components/event/EventCard";
 
+import { dispatch, useSelector } from "../store";
 import { getUsersData } from "../store/reducers/users";
-import { dispatch } from "../store";
 import { getAllEvents } from "../store/reducers/events";
 import Footer from "../components/Footer";
 import { customers } from "../components/database";
 import MobileFooter from "../components/MobileFooter";
 import { useNavigate } from "react-router-dom";
+
+
 const App = () => {
 
     const [selectedButton, setSelectedButton] = React.useState < string | null > ('top');
@@ -24,6 +26,7 @@ const App = () => {
         setSelectedButton(value);
     };
 
+    const eventData = useSelector((state) => state.events.events)
     const navigate = useNavigate();
     React.useEffect(() => {
         dispatch(getUsersData())
@@ -34,8 +37,8 @@ const App = () => {
             <TopNavbar />
             <div className="xl:px-36 mt-36 justify-center overscroll-auto">
                 {/* <SemiCircularProgressBar percentage={32} size={200} strokeWidth={20} /> */}
-                 
-                <div style={{ scrollbarWidth: 'none' }} className="mt-4 md:flex-row flex flex-col sm:overflow-x-scroll overflow-x-scroll md:gap-5 justify-center px-6 ">
+
+                <div style={{ scrollbarWidth: 'none' }} className="mt-4 md:flex-row flex flex-col sm:overflow-x-scroll overflow-x-scroll md:gap-5 justify-center ">
                     {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
                     <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="w-full flex bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
                     <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="w-full flex bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
@@ -44,7 +47,7 @@ const App = () => {
                     <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="w-full flex bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
                 </div>
 
-                <div style={{ scrollbarWidth: 'none' }} className="flex overflow-x-scroll w-full gap-2 px-4 py-3">
+                <div style={{ scrollbarWidth: 'none' }} className="flex overflow-x-scroll w-full gap-2 py-3">
                     <div className=" ">
                         <Button
                             text="Top"
@@ -66,27 +69,24 @@ const App = () => {
 
                 <div style={{ scrollbarWidth: "none" }} className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 gap-2 ">
                     {/* <div style={{ scrollbarWidth: "none" }} className="flex flex-wrap  gap-2 "> */}
-                    {event.eventList
+                    {eventData
                         // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
                         .map((key, index) => (
                             <EventCard
+                                // id={key._id}
                                 key={index}
                                 img={key.img}
-                                text={key.content}
-                                state={key.state}
-                                percentage={key.percentage}
-                                betAmount={key.betAmount}
+                                eventName={key.eventName}
+                                // state={key.state}
+                                // percentage={key.percentage}
+                                volume={key.volume}
+                                // chance={key.chance}
                             />
                         ))
                     }
                 </div>
-                {/* Events */}
-                {/* {event.science_card.filter((item) => item.content.toLowerCase().includes(search)).filter((item) => item.content.toLowerCase().includes(filter)).map((item, index) =>
-                    <Card key={index} img={item.img} text={item.content} state={item.state}
-                        percentage={item.percentage} Bet_amount={item.Bet_amount} />)
-                } */}
 
-                <div className="flex mt-3 justify-center">
+                <div className="flex my-6 justify-center">
                     <Button className="rounded-md px-2 py-1 bg-blue-700 text-white" text="View all"></Button>
                 </div>
 
@@ -96,25 +96,30 @@ const App = () => {
                             <p className="flex items-center py-4 text-2xl font-medium text-gray-600">Recent Activity</p>
                             <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-full items-center px-2 border text-gray-600 border-gray-500 hover:bg-gray-200" />
                         </div>
-                        {customers.map(({ eventName, username, laterTime, avatar, position, address, volume, isBet, isSold, price, count }, index) => (
+                        {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
                             <div
                                 key={index}
                                 className="flex items-center justify-between py-3 last:pb-2"
                             >
-                                <div className="flex items-center gap-x-3">
-                                    <img width={44} src={avatar} alt={eventName} className="rounded-md" />
+                                <div className="flex justify-stretch gap-3">
+                                    <img width={48} src={avatar} alt={eventName} className="rounded-md" />
                                     <div>
-                                        {eventName &&
-                                            <p className="font-semibold cursor-pointer" onClick={() => navigate('/event')}>
-                                                {eventName}
-                                            </p>
-                                        }
-                                        <div className="text-sm items-center flex gap-1">
-                                            <div className="flex items-center text-base cursor-pointer gap-2" onClick={() => navigate('/profile')}>
-                                                <p className=" font-semibold hover:underline underline-offset-4">
-                                                    <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
-                                                </p>
-                                            </div>
+
+                                        <p className=" text-gray-600 cursor-pointer" onClick={() => navigate('/event')}>
+                                            {eventName}
+                                        </p>
+
+                                        <div className="text-sm items-center flex  gap-1">
+                                            <Tooltip
+                                                className="bg-white border text-black z-50 rounded-lg"
+                                                content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <img width={22} className="rounded-full" src={toAvatar} alt="" />
+                                                    <p className="text-base font-semibold cursor-pointer" onClick={() => navigate('/profile')}> {username}</p>
+                                                </div>
+                                            </Tooltip>
+
                                             <p className="text-base">{isSold === true ? 'sold' : 'bought'}</p>
 
                                             <p className={`${isBet === true ? 'text-green-600 font-bold items-center' : 'text-orange-600 font-bold items-center'}`}>
@@ -126,23 +131,41 @@ const App = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <p> {laterTime} ago</p>
+                                <p>
+                                    {laterTime} ago
+                                </p>
                             </div>
                         ))}
                     </div>
 
                     <div className="w-full">
+
                         <div className="flex items-center justify-between">
                             <p className="flex items-center py-4 text-2xl font-medium text-gray-600">Top Volume This Week</p>
                             <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-full items-center px-2 border text-gray-600 border-gray-500 hover:bg-gray-200" />
                         </div>
-                        {customers.map(({ username, avatar, position, address, volume }, index) => (
+                        {customers.map(({ username, laterTime, avatar, position, address, volume }, index) => (
                             <div
                                 key={index}
-                                className="flex items-center justify-between py-2 last:pb-1 cursor-pointer"
+                                className="flex  items-center py-2 gap-4 last:pb-1 cursor-pointer"
                                 onClick={() => navigate(`/profile?${index}`)}
                             >
-                                <UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />
+                                <div className="flex w-full items-center justify-between">
+                                    <div className='flex w-full items-center  gap-3'>
+                                        <Tooltip
+                                            className="bg-white border text-black z-50 rounded-lg"
+                                            content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
+                                        >
+                                            <div className="flex  gap-4">
+                                                <img width={48} src={avatar} className="rounded-full" />
+                                                <div className=" ">
+                                                    <p className="">{username}</p>
+                                                    <p className="">${laterTime}</p>
+                                                </div>
+                                            </div>
+                                        </Tooltip>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>

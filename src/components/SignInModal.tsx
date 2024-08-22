@@ -4,12 +4,9 @@ import { ModalProps } from "../types";
 import { GoogleIcon } from "./icons";
 import useAuth from "../hooks/useAuth";
 import useNotification from "../hooks/useNotification";
-// import { useNavigate } from "react-router-dom";
 
 const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
     const { showNotification } = useNotification()
-    // const { navigate } =useNavigate()
-
     const { login, register, isLoggedIn } = useAuth()
 
     const [userData, setUserData] = React.useState({
@@ -107,9 +104,7 @@ const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
 
                     <div className="text-black flex gap-5 items-center w-full   px-10 cursor-pointer font-bold py-3 rounded-md shadow-md">
                         <img src="https://1000logos.net/wp-content/uploads/2022/05/WalletConnect-Logo-500x281.png" width={36} height={48} alt="" className="my-1" /> WalletConnect
-                    </div>
-                    {/* <Button text="MetaMask" className="text-black w-full border justify-start" />
-                    <Button text="WalletConnect" className="text-black w-full border justify-start" /> */}
+                    </div> 
                     <p className="border-b-2   text-center text-1xl mt-5"> Privacy Terms</p>
                 </div>
             </div>

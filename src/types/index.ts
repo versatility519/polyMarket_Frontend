@@ -34,19 +34,21 @@ export interface MyPropertyProps {
     value: number,
 }
 
-export interface SubContentProps {
-    title: string,
+export interface MarketProps {
+    marketName: string,
     url?: string,
     img_url?: string,
     percent: string,
 }
 export interface EventProps {
-    title: string,
-    img_url: string,
-    total_bet: number,
+    eventName: string,
+    img: string,
+    desc: string,
+    volume: number,
     url?: string,
-    event_date?: Date,
-    subcontent: SubContentProps[],
+    startDate?: Date | undefined,
+    endDate?: Date | undefined,
+    market: MarketProps[],
 }
 // Auth types
 export interface UserProfileProps {

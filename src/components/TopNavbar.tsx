@@ -58,7 +58,6 @@ const TopNavbar = () => {
 
   console.log(account, connected, connecting, provider, chainId );
   
-
   const connect = async () => {
     try {
       const accounts = await sdk?.connect();
@@ -83,7 +82,7 @@ const TopNavbar = () => {
             <Logo color="text-fuchsia-900" />
           </div>
 
-          <div className="lg:visible lg:flex lg:w-full md:w-72 sm:hidden hidden px-4 py-2 gap-2 items-center hover:border-black border border-gray-700 rounded-lg">
+          <div className="lg:visible lg:flex lg:w-full md:w-72 sm:hidden hidden px-4 py-2 gap-2 items-center border border-gray-200  focus-within:border-black rounded-lg">
             <SearchIcon color="black" size={18} />
             <input type="text" className="w-full outline-none" placeholder="Search markets" />
           </div>
