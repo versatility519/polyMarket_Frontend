@@ -21,17 +21,17 @@ const events = createSlice({
             state.events = action.payload
         },
         addEventData(state, action) {
-            state.events = action.payload
+            state.events.push(action.payload)
         },
-        // addEventData(state, action) {
-        //     state.events.push(action.payload)
-        // },
+ 
         getEventInfo(state, action) {
             state.event = action.payload
+        },
+        delEvent(state, action) {
+            state.events = state.events.filter(event => event._id !== action.payload);
         }
     }
 })
-
 
 export const getAllEvents = () => {
     return async () => {
@@ -43,7 +43,6 @@ export const getAllEvents = () => {
         }
     }
 }
-
 
 export const getEventInfo = (pageId: string | null) => {
     return async () => {
@@ -60,11 +59,24 @@ export function addEvent(eventData: EventProps) {
     return async () => {
         try {
             const response = await instance.post("/events/add", eventData);
-            dispatch(events.actions.addEventData(response.data.data.eventData));
+            
+            dispatch(events.actions.addEventData(response.data.data));
         } catch (error) {
             dispatch(events.actions.hasError(error));
         }
     };
+}
+export const delEvent = (eventId: string | null) => {
+    return async () => {
+        console.log("qqq", eventId)
+        try {
+            const response = await instance.delete(`/events/delEvent/${eventId}`)
+            console.log("delete====", response.data.data);
+            dispatch(events.actions.delEvent(eventId))
+        } catch (error) {
+            dispatch(events.actions.hasError(error))
+        }
+    }
 }
 
 export default events.reducer;

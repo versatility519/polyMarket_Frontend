@@ -4,16 +4,17 @@ import Button from './Button/Button';
 import { Ellipsis } from 'lucide-react';
 
 const YesNoBtn: React.FC<BtnProps> = () => {
-    const ref = React.useRef < HTMLDivElement | null > (null)
     const [convertBgColor, setConvertBgColor] = React.useState < boolean > (false);
     const convertColor = () => {
         setConvertBgColor(!convertBgColor);
     }
-
+    
     const [moreOpen, setMoreOpen] = React.useState < boolean > (false)
     const toggleFooterMore = () => {
         setMoreOpen((prev) => !prev);
     };
+    
+    const ref = React.useRef < HTMLDivElement | null > (null)
     const handleClickOutside = (event: MouseEvent) => {
         if (ref.current && !ref.current.contains(event.target as Node)) {
             setMoreOpen(false);
@@ -29,6 +30,7 @@ const YesNoBtn: React.FC<BtnProps> = () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+    
     return (
         <div className='bg-white grid grid-cols-2 md:grid-flow-col  w-full items-center gap-1 text-center justify-center px-1 '>
 

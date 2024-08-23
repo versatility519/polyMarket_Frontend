@@ -27,7 +27,7 @@ const EventInfo = () => {
     const regex = /[?&]tid=([^&#]*)/;
     const match = (window.location.search).match(regex);
     const tidValue = match ? match[1] : null;
-
+    // const pageURL = tidValue ? tidValue.replace(/ /g, '-') : null;
     setPageId(tidValue);
     if (pageId !== null) {
       dispatch(getUsersData());
@@ -45,7 +45,7 @@ const EventInfo = () => {
 
               <div className="flex gap-4 text-black-700">
                 <div className="items-center">
-                  <img className=" w-24 rounded-md" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
+                  <img className=" w-24 h-20 rounded-md" src={eventIfo?.avatar} alt="userAvatar" />
                 </div>
                 <div className="flex w-full flex-col">
                   <div className="flex w-full justify-between ">

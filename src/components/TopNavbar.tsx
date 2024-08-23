@@ -8,7 +8,7 @@ import { dispatch, useSelector } from "../store";
 import { getUserData } from "../store/reducers/userInfo";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import MarketNavbar from "./MarketNavbar";
+import MarketMenu from "./MarketMenu";
 import Logo from "./Logo";
 import { useSDK } from "@metamask/sdk-react";
 
@@ -25,6 +25,7 @@ const TopNavbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const handleCategory = (value: string) => {
+    // navigate(`/markets/${value}`)
     setSelectedButton(value);
   };
   // const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -53,17 +54,18 @@ const TopNavbar = () => {
     navigate('/');
     logout()
   }
-  
-  
-  const [account, setAccount] = React.useState<string>();
+
+
+  const [account, setAccount] = React.useState < string > ();
   const { sdk, connected, connecting, provider, chainId } = useSDK();
 
-  console.log(account, connected, connecting, provider, chainId );
-  
+  console.log(account, connected, connecting, provider, chainId);
   const connect = async () => {
     try {
       const accounts = await sdk?.connect();
-      setAccount(accounts?.[0]);
+      if (accounts && Array.isArray(accounts)) {
+        setAccount(accounts[0]);
+      }
     } catch (err) {
       console.warn("failed to connect..", err);
     }
@@ -105,7 +107,7 @@ const TopNavbar = () => {
 
               {isMarketOpen && (
                 <div className="absolute right-[-140px] inline-block w-[400px] border px-2 items-center mt-2 pt-4 pb-2 bg-white rounded-md shadow-lg">
-                  <MarketNavbar />
+                  <MarketMenu />
                 </div>
               )}
 
@@ -145,8 +147,7 @@ const TopNavbar = () => {
                       <div>
                         {userrole === "admin" ? (
                           <>
-                            <Button onClick={() => navigate("/admin")} className="w-full font-medium cursor-pointer flex gap-3 px-2   text-base py-2 hover:bg-gray-200 rounded-md  items-center text-nowrap" text="User Management" />
-                            <Button onClick={() => navigate("/admin/addevent")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-gray-200 rounded-md  px-2 items-center text-nowrap" text="Event Management" />
+                            <Button onClick={() => navigate("/admin")} className="w-full font-medium cursor-pointer flex gap-3 px-2   text-base py-2 hover:bg-gray-200 rounded-md  items-center text-nowrap" text="Event Management" />
                           </>
                         ) : (
                           <>

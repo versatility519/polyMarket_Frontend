@@ -74,12 +74,12 @@ export const content = {
                 value: "new"
             },
             {
-                text: "US Election",
-                value: "uselection"
+                text: "Breaking News",
+                value: "breakingNews"
             },
             {
-                text: "Kamala",
-                value: "kamala"
+                text: "Mertion Markets",
+                value: "mentionMarkets"
             },
             {
                 text: "Swing States",
@@ -142,9 +142,25 @@ export const content = {
                 value: "fedRales"
             },
             {
-                text: "Middle East",
-                value: "middleEast"
-            }
+                text: " ",
+                value: " "
+            },
+            {
+                text: " ",
+                value: " "
+            },
+            {
+                text: " ",
+                value: " "
+            },
+            {
+                text: " ",
+                value: " "
+            },
+            {
+                text: " ",
+                value: " "
+            },
         ],
         olympics: [
 

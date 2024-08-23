@@ -142,7 +142,7 @@ const App = () => {
                         ))}
                     </div>
 
-                    <div className="w-full shadow-md">
+                    <div className="w-full  shadow-md">
                         <div className="flex items-center justify-between">
                             <p className="flex items-center py-4 text-2xl font-medium text-gray-800">Top Volume This Week</p>
                             <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-full items-center px-2 border font-semibold text-gray-800 border-gray-500 hover:bg-gray-200" />

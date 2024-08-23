@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../../components/Button/Button'
 import Datepicker from 'react-tailwindcss-datepicker'
-import { CloudUpload, } from 'lucide-react'
+import { CloudUpload, CheckCircle } from 'lucide-react'
 import Select from 'react-select'
 import { EventProps, MarketProps } from '../../types'
 import TopNavbar from '../../components/TopNavbar'
@@ -12,12 +12,10 @@ import { addEvent } from '../../store/reducers/events'
 
 import { DateValue, handleDateValue } from '../../types/datePicker'
 
-
 const AddEvent = () => {
     const navigate = useNavigate()
 
     const { showNotification } = useNotification()
-    // const [selectedOption, setSelectedOption] = React.useState < string > ('')
     const [isMulti, setIsMulti] = React.useState < boolean > (false)
 
     const [dateValue, setDateValue] = React.useState < DateValue > ({ startDate: null, endDate: null });
@@ -45,6 +43,30 @@ const AddEvent = () => {
         { value: 'business', label: 'Business' },
         { value: 'science', label: 'Science' },
     ]
+    const [backgroundImage, setBackgroundImage] = React.useState('');
+    const fileInputRef = React.useRef < HTMLInputElement | null > (null);
+    const handleButtonClick = () => {
+        fileInputRef.current?.click();
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        const file = e.target.files?.[0];
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // Set the background image
+            if (typeof reader.result === 'string') {
+                setBackgroundImage(reader.result);
+                setEventData({
+                    ...eventData,
+                    avatar: reader.result as string,
+                });
+            }
+        };
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    };
 
     const handleApplyEvent = () => {
         if (!eventData.eventName || !eventData.volume || !eventData.desc) {
@@ -54,15 +76,14 @@ const AddEvent = () => {
             dispatch(addEvent(eventData))
             console.log(eventData)
             showNotification("Successfully!", "success")
+            navigate('/admin')
         }
     }
-    {/* <div className="lg:px-[18vw] md :px-[6vw] sm:px-8 px-4 w-full  flex-col  border border-red-800 pt-8 pb-4 font-semibold"> */ }
     return (
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-blue-200">
             <TopNavbar />
-            <div className="  mt-36 xl:px-[24vw] md:px-[18vw] sm:px-4  items-center ">
-                <div className='flex flex-col gap-4 px-8 py-4 bg-white border border-red-800 rounded-md'>
-
+            <div className="mt-36 xl:px-[24vw] md:px-[18vw] sm:px-4  items-center ">
+                <div className='flex flex-col gap-4 px-8 py-4 bg-white rounded-md'>
                     <div className='flex gap-8 items-center'>
                         <div className='flex w-full flex-col '>
                             <p className='flex pb-1 text-lg font-semibold text-gray-900 '>
@@ -117,7 +138,6 @@ const AddEvent = () => {
                                     Betting Period
                                 </p>
                                 <div className="border-gray-600 rounded-md border">
-                                    {/* <Datepicker value={dateValue} onChange={() => handleValueChange} /> */}
                                     <Datepicker value={dateValue} onChange={() => handleValueChange} />
                                 </div>
                             </div>
@@ -140,19 +160,26 @@ const AddEvent = () => {
                                     <label className='flex pb-1 text-lg font-semibold text-gray-900 '>
                                         Avatar
                                     </label>
-                                    <div className="flex w-full items-center pl-2 rounded-md shadow-smborder border-gray-500 focus:border-gray-800 ">
-                                        <CloudUpload type='file' />
-                                        <input
-                                            id="avatarInput"
-
-                                            name="avatar"
-                                            type="file"
-                                            placeholder="Input Field here ..."
-                                            onChange={(e) => {
-                                                setEventData({ ...eventData, avatar: e.target.value })
+                                    <div className="flex w-full items-end gap-4 rounded-md shadow-sm border-gray-500 focus:border-gray-800">
+                                        <div
+                                            className={` flex items-center justify-center w-20 h-20 bg-cover rounded-md border  border-green-300  ${!backgroundImage ? 'bg-green-200' : ''}`}
+                                            style={{
+                                                backgroundImage: `url(${backgroundImage || ''})`,
                                             }}
-                                            className=" flex border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-md"
-                                        />
+                                        >
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                className='hidden'
+                                                ref={fileInputRef}
+                                                onChange={handleFileChange}
+                                            />
+                                        </div>
+                                        {backgroundImage ? (
+                                            <CheckCircle size={42} className="text-green-500" />
+                                        ) : (
+                                            <CloudUpload size={42} onClick={handleButtonClick} />
+                                        )}
                                     </div>
                                 </div>
                             </div>
