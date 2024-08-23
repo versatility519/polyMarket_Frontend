@@ -36,7 +36,7 @@ const CommentListItem = () => {
     const navigate = useNavigate();
     return (
 
-        <div className="flex flex-col px-2 gap-3">
+        <div className="flex flex-col gap-3">
             <div className="flex w-full px-4 justify-between items-center py-1 border border-gray-500 focus-within:border-black rounded-full">
                 <input
                     type="text"

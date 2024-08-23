@@ -116,7 +116,7 @@ export default function Admin() {
                                 </p>
                             </div>
                             {eventData.map(
-                                ({ eventName, desc, volume, startDate, endDate }, index) => {
+                                ({ eventName, desc, volume,}, index) => {
                                     return (
                                         <div key={index} className="flex px-2 gap-3">
                                             <div className="flex w-full justify-between items-center text-left  py-2">
@@ -130,10 +130,10 @@ export default function Admin() {
                                                     {volume}
                                                 </p>
                                                 <p className="font-normal w-52"  >
-                                                    {startDate}
+                                                    {/* {startDate} */}
                                                 </p>
                                                 <p className="font-normal"  >
-                                                    {endDate}
+                                                    {/* {endDate} */}
                                                 </p>
                                                 <div className="flex gap-5">
                                                     <Tooltip content="Edit Event">

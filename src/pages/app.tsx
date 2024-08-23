@@ -35,7 +35,7 @@ const App = () => {
     return (
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
-            <div className="xl:px-36 mt-36 justify-center overscroll-auto">
+            <div className="xl:px-48 mt-36 sm:px-2 justify-center overscroll-auto">
                 {/* <SemiCircularProgressBar percentage={32} size={200} strokeWidth={20} /> */}
 
                 <div style={{ scrollbarWidth: 'none' }} className="mt-4 md:flex-row flex flex-col sm:overflow-x-scroll overflow-x-scroll md:gap-5 justify-center ">
@@ -71,16 +71,19 @@ const App = () => {
                     {/* <div style={{ scrollbarWidth: "none" }} className="flex flex-wrap  gap-2 "> */}
                     {eventData
                         // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
-                        .map((key, index) => (
+                        .map((item, index) => (
                             <EventCard
-                                // id={key._id}
+                                tid={item._id}
                                 key={index}
-                                img={key.img}
-                                eventName={key.eventName}
-                                // state={key.state}
-                                // percentage={key.percentage}
-                                volume={key.volume}
-                                // chance={key.chance}
+                                startDate={item.startDate}
+                                endDate={item.endDate}
+                                img={item.avatar}
+                                state={0}
+                                eventName={item.eventName}
+                                // state={item.state}
+                                // percentage={item.percentage}
+                                volume={item.volume}
+                            // chance={item.chance}
                             />
                         ))
                     }
@@ -90,11 +93,12 @@ const App = () => {
                     <Button className="rounded-md px-2 py-1 bg-blue-700 text-white" text="View all"></Button>
                 </div>
 
-                <div className=" lg:px-6 lg:flex sm:px-6 gap-8">
-                    <div className="w-full">
+                <div className=" lg:flex  gap-8">
+                    {/* <div className=" border-2 flex gap-8"> */}
+                    <div className="w-full shadow-md">
                         <div className="flex items-center justify-between">
-                            <p className="flex items-center py-4 text-2xl font-medium text-gray-600">Recent Activity</p>
-                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-full items-center px-2 border text-gray-600 border-gray-500 hover:bg-gray-200" />
+                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800">Recent Activity</p>
+                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-full items-center px-2 border font-semibold text-gray-800 border-gray-500 hover:bg-gray-200" />
                         </div>
                         {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
                             <div
@@ -138,11 +142,10 @@ const App = () => {
                         ))}
                     </div>
 
-                    <div className="w-full">
-
+                    <div className="w-full shadow-md">
                         <div className="flex items-center justify-between">
-                            <p className="flex items-center py-4 text-2xl font-medium text-gray-600">Top Volume This Week</p>
-                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-full items-center px-2 border text-gray-600 border-gray-500 hover:bg-gray-200" />
+                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800">Top Volume This Week</p>
+                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-full items-center px-2 border font-semibold text-gray-800 border-gray-500 hover:bg-gray-200" />
                         </div>
                         {customers.map(({ username, laterTime, avatar, position, address, volume }, index) => (
                             <div
@@ -157,7 +160,17 @@ const App = () => {
                                             content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                         >
                                             <div className="flex  gap-4">
-                                                <img width={48} src={avatar} className="rounded-full" />
+                                                <button className="px-1 relative border-2 border-transparent text-gray-800 rounded-full hover:text-gray-400 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out"
+                                                    onClick={() => navigate(`/profile?${index}`)}
+                                                >
+                                                    <img width={48} src={avatar} className="rounded-full" />
+                                                    <span className="absolute items-center inset-0 object-right-top left-10">
+                                                        <div className="inline-flex items-center w-4 justify-center border border-white rounded-full text-xs font-semibold leading-4 bg-black text-white">
+                                                            1
+                                                        </div>
+                                                    </span>
+                                                </button>
+                                                {/* <img width={48} src={avatar} className="rounded-full" /> */}
                                                 <div className=" ">
                                                     <p className="">{username}</p>
                                                     <p className="">${laterTime}</p>

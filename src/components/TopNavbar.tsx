@@ -53,6 +53,8 @@ const TopNavbar = () => {
     navigate('/');
     logout()
   }
+  
+  
   const [account, setAccount] = React.useState<string>();
   const { sdk, connected, connecting, provider, chainId } = useSDK();
 
@@ -164,7 +166,7 @@ const TopNavbar = () => {
                         )}
                         <Button onClick={() => navigate("/learn")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-gray-200 rounded-md  px-2 items-center text-nowrap" text="Learn" />
                         <Button onClick={() => navigate("/docs")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-gray-200 rounded-md  px-2 items-center text-nowrap" text="Documentation" />
-                        <div className="flex items-center">
+                        <div className="flex p-2  font-medium  items-center">
                           <div>
                             <p color="blue-gray" className="font-medium cursor-pointer text-nowrap text-sm">
                               Dark Mode

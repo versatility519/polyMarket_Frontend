@@ -7,20 +7,15 @@ import { MarketsIcon } from "../components/icons";
 // import { customStyles } from "../contents/selectStyle";
 // import { categoryItem } from "../contents/selectItem";
 import { getUsersData } from "../store/reducers/users";
-import { dispatch } from "../store";
 import { getAllEvents } from "../store/reducers/events";
 import Footer from "../components/Footer";
 import MobileFooter from "../components/MobileFooter";
-
+import { dispatch, useSelector } from "../store";
 import EventCard from "../components/event/EventCard";
-import { event } from "../contents/event";
+// import { event } from "../contents/event";
 import { content } from "../contents/landing";
 
-interface Option {
-    label: string;
-    value: string;
-    icon: JSX.Element;
-}
+
 
 const options = [
     { value: 'trading', label: 'Trading', icon: <TrendingUp /> },
@@ -32,12 +27,17 @@ const options = [
     { value: 'competitive', label: 'Competitive', icon: <Swords /> },
 ];
 const Markets = () => {
+    interface Option {
+        label: string;
+        value: string;
+        icon: JSX.Element;
+    }
     const [listView, setListView] = React.useState < boolean > (false);
 
     const [searchKey, setSearchKey] = React.useState < string > ('');
 
     const [selectedButton, setSelectedButton] = React.useState < string > ('top');
-
+    const eventData = useSelector((state) => state.events.events)
     const handleButtonClick = (value: string) => {
         setSelectedButton(value);
     };
@@ -143,18 +143,19 @@ const Markets = () => {
                 {/* Events */}
 
                 <div className="mt-4 gap-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 px-2 ">
-                    {event.eventList
-                        .filter((key) => key.content.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
+                    {eventData
+                        .filter((key) => key.eventName?.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
                         // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
                         .map((key, index) => (
                             <EventCard
+                                tid={key._id}
                                 key={index}
-                                img={key.img}
-                                text={key.content}
-                                state={key.state}
-                                percentage={key.percentage}
-                                betAmount={key.betAmount}
-                                chance={key.chance}
+                                startDate={key.startDate}
+                                endDate={key.endDate}
+                                img={key.avatar}
+                                state={1}
+                                eventName={key.eventName}
+                                volume={key.volume}
                             />
                         ))
                     }

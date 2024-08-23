@@ -3,38 +3,40 @@ import Button from '../../components/Button/Button'
 import Datepicker from 'react-tailwindcss-datepicker'
 import { CloudUpload, } from 'lucide-react'
 import Select from 'react-select'
+import { EventProps, MarketProps } from '../../types'
 import TopNavbar from '../../components/TopNavbar'
 import useNotification from '../../hooks/useNotification'
 import { useNavigate } from 'react-router-dom'
 import { dispatch } from '../../store'
 import { addEvent } from '../../store/reducers/events'
 
-interface DateRange {
-    startDate: Date | undefined;
-    endDate: Date | undefined;
-}
+import { DateValue, handleDateValue } from '../../types/datePicker'
+
+
 const AddEvent = () => {
     const navigate = useNavigate()
 
     const { showNotification } = useNotification()
     // const [selectedOption, setSelectedOption] = React.useState < string > ('')
     const [isMulti, setIsMulti] = React.useState < boolean > (false)
-    const [bettingDate, setBettingDate] = React.useState < DateRange > ({
-        startDate: null,
-        endDate: null
-    });
-    const [eventData, setEventData] = React.useState({
+
+    const [dateValue, setDateValue] = React.useState < DateValue > ({ startDate: null, endDate: null });
+    const [eventData, setEventData] = React.useState < EventProps & MarketProps > ({
         category: "",
         eventName: "",
-        volume: "",
+        volume: 0,
         desc: "",
-        startDate: '',
-        endDate: '',
+        startDate: dateValue.startDate ?? new Date(),
+        endDate: dateValue.endDate ?? new Date(),
         avatar: "",
         marketName: "",
         marketDesc: "",
     })
 
+    const handleValueChange = (newValue: handleDateValue) => {
+        alert(newValue.startDate);
+        setDateValue(newValue);
+    };
     const options = [
         { value: 'politics', label: 'Politics' },
         { value: 'crypto', label: 'Crypto' },
@@ -44,28 +46,17 @@ const AddEvent = () => {
         { value: 'science', label: 'Science' },
     ]
 
-    const handleDateChange = (newValue: DateRange) => {
-        setBettingDate({
-            startDate: newValue.startDate,
-            endDate: newValue.endDate
-        });
-        setEventData((prev: EventData) => ({
-            ...prev,
-            startDate: newValue.startDate,
-            endDate: newValue.endDate
-        }));
-    };
-
     const handleApplyEvent = () => {
         if (!eventData.eventName || !eventData.volume || !eventData.desc) {
             showNotification("Incorrect Input Data!", "error")
+
         } else {
             dispatch(addEvent(eventData))
             console.log(eventData)
             showNotification("Successfully!", "success")
         }
     }
-    {/* <div className="lg:px-[18vw] md:px-[6vw] sm:px-8 px-4 w-full  flex-col  border border-red-800 pt-8 pb-4 font-semibold"> */ }
+    {/* <div className="lg:px-[18vw] md :px-[6vw] sm:px-8 px-4 w-full  flex-col  border border-red-800 pt-8 pb-4 font-semibold"> */ }
     return (
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-blue-200">
             <TopNavbar />
@@ -95,7 +86,9 @@ const AddEvent = () => {
                                 isSearchable={false}
                                 options={options}
                                 onChange={(option) => {
-                                    setEventData({ ...eventData, category: option.label });
+                                    if (option) { // Check if option is not null
+                                        setEventData({ ...eventData, category: option.label });
+                                    }
                                 }}
                                 value={eventData.category ? options.find(option => option.value === eventData.category) : null}
                             />
@@ -124,11 +117,8 @@ const AddEvent = () => {
                                     Betting Period
                                 </p>
                                 <div className="border-gray-600 rounded-md border">
-                                    <Datepicker
-                                        value={bettingDate}
-                                        onChange={handleDateChange}
-                                        showShortcuts={true}
-                                    />
+                                    {/* <Datepicker value={dateValue} onChange={() => handleValueChange} /> */}
+                                    <Datepicker value={dateValue} onChange={() => handleValueChange} />
                                 </div>
                             </div>
 
@@ -141,7 +131,7 @@ const AddEvent = () => {
                                         name="value"
                                         type="number"
                                         value={eventData.volume}
-                                        onChange={(e) => setEventData({ ...eventData, volume: e.target.value })}
+                                        onChange={(e) => setEventData({ ...eventData, volume: Number(e.target.value) })}
                                         className="flex  p-2 rounded-md shadow-sm border border-gray-500 focus:border-gray-800 "
                                     />
                                 </div>
@@ -169,7 +159,9 @@ const AddEvent = () => {
 
                         </div>
                     </div>
-                    {/* <Datepicker value={value} onChange={newValue => setValue(newValue)} /> */}
+
+                    {/* {value.startDate}
+                    {value.endDate} */}
                     <label className='flex pb-1 font-semibold text-gray-900 '>
                         Single Events
                     </label>

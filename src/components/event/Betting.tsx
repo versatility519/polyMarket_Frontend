@@ -9,8 +9,8 @@ interface BettingProps {
     isOpen: boolean;
     onClose: () => void;
     which: string | undefined;
-    img: string,
-    text: string
+    img?: string,
+    text: string | undefined
 }
 const Betting: React.FC<BettingProps> = ({ isOpen, onClose, which, img, text }) => {
     if (!isOpen) return null;

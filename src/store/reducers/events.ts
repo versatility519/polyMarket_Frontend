@@ -2,11 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { eventsStateProps } from "../../types/states";
 import { dispatch } from "..";
 import instance from "../../utils/axios";
+import { EventProps } from "../../types";
 
 const initialState: eventsStateProps = {
     error: null,
     events: [],
-    event:null,
+    event: null,
 }
 
 const events = createSlice({
@@ -22,6 +23,9 @@ const events = createSlice({
         addEventData(state, action) {
             state.events = action.payload
         },
+        // addEventData(state, action) {
+        //     state.events.push(action.payload)
+        // },
         getEventInfo(state, action) {
             state.event = action.payload
         }
@@ -44,25 +48,23 @@ export const getAllEvents = () => {
 export const getEventInfo = (pageId: string | null) => {
     return async () => {
         try {
-            console.log("ddddddddddddddddddddd", pageId)
             const response = await instance.get(`/events/eventInfo/${pageId}`)
-            dispatch(events.actions.getEventInfo(response.data.data.event))
+            dispatch(events.actions.getEventInfo(response.data.data))
         } catch (error) {
             dispatch(events.actions.hasError(error))
         }
     }
 }
 
-export const addEvent = (eventData: { volume: string; desc: string; startDate: Date; endDate: number; avatar: string; }) => {
+export function addEvent(eventData: EventProps) {
     return async () => {
         try {
-            const response = await instance.post("/events/add", eventData)
-            dispatch(events.actions.addEventData(response.data.data.eventData))
-            console.log("==55555555555>>>", eventData)
+            const response = await instance.post("/events/add", eventData);
+            dispatch(events.actions.addEventData(response.data.data.eventData));
         } catch (error) {
-            dispatch(events.actions.hasError(error))
+            dispatch(events.actions.hasError(error));
         }
-    }
+    };
 }
 
 export default events.reducer;
