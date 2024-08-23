@@ -7,7 +7,8 @@ import { SearchIcon } from "lucide-react";
 import { useNavigate } from "react-router";
 
 import { dispatch, useSelector } from "../../store";
-import { getAllEvents } from '../../store/reducers/events'
+import { getAllEvents, delEvent } from '../../store/reducers/events'
+import useNotification from "../../hooks/useNotification";
 const TABS = [
     {
         label: "All",
@@ -20,31 +21,22 @@ const TABS = [
 
 ];
 
-
 export default function Admin() {
     const navigate = useNavigate();
+    const { showNotification } = useNotification();
     const [pagination, setPagination] = React.useState < number > (1);
 
     const eventData = useSelector((state) => state.events.events)
-    console.log("ddddddddddddd", eventData)
-    const handleDeleteEvent = () => {
-        const confirmDelete = window.confirm("Are you sure you want to delete this event?");
-        if (confirmDelete) {
-            alert('Event deleted!');
-        }
+
+    const handleDeleteEvent = (index: string | null) => {
+
+        showNotification("Successfully logined!", "success")
+        dispatch(delEvent(index))
     };
 
     React.useEffect(() => {
         dispatch(getAllEvents())
     }, [])
-
-    // const getItemProps = (index: number) =>
-    // ({
-    //     variant: pagination === index ? "filled" : "text",
-    //     color: "gray",
-    //     onClick: () => setPagination(index),
-    //     className: "rounded-full",
-    // });
 
     const next = () => {
         if (pagination === 5) return;
@@ -61,7 +53,7 @@ export default function Admin() {
     return (
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-blue-200">
             <TopNavbar />
-            <div className="  mt-36 xl:px-[14vw] md:px-[18vw] sm:px-4  items-center"> 
+            <div className="  mt-36 xl:px-[14vw] md:px-[18vw] sm:px-4  items-center">
                 <div className=" rounded-md  bg-white ">
                     <div className="px-2">
                         <div className="flex mb-8 items-center justify-between gap-8">
@@ -116,7 +108,7 @@ export default function Admin() {
                                 </p>
                             </div>
                             {eventData.map(
-                                ({ eventName, desc, volume,}, index) => {
+                                ({ eventName, desc, volume, _id }, index) => {
                                     return (
                                         <div key={index} className="flex px-2 gap-3">
                                             <div className="flex w-full justify-between items-center text-left  py-2">
@@ -130,7 +122,7 @@ export default function Admin() {
                                                     {volume}
                                                 </p>
                                                 <p className="font-normal w-52"  >
-                                                    {/* {startDate} */}
+                                                    {/* {startDate}  */}
                                                 </p>
                                                 <p className="font-normal"  >
                                                     {/* {endDate} */}
@@ -140,7 +132,14 @@ export default function Admin() {
                                                         <Button icon={<PencilIcon className="h-4 w-4" />} onClick={() => { alert('ddd') }} />
                                                     </Tooltip>
                                                     <Tooltip content="Delete Event">
-                                                        <Button icon={<Trash2 className="h-4 w-4" />} onClick={handleDeleteEvent} />
+                                                        <Button icon={<Trash2 className="h-4 w-4" />} onClick={() => {
+                                                            if (_id) {
+                                                                handleDeleteEvent(String(_id))
+                                                            } else {
+                                                                console.log("warning")
+                                                            }
+                                                        }
+                                                        } />
                                                     </Tooltip>
                                                 </div>
                                             </div>
@@ -148,7 +147,6 @@ export default function Admin() {
                                     );
                                 },
                             )}
-
                         </div>
                     </div>
 

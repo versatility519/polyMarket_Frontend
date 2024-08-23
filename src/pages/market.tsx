@@ -145,7 +145,7 @@ const Markets = () => {
                 <div className="mt-4 gap-2 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 px-2 ">
                     {eventData
                         .filter((key) => key.eventName?.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
-                        // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
+                        // .filter((key) => key.eventName.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
                         .map((key, index) => (
                             <EventCard
                                 tid={key._id}

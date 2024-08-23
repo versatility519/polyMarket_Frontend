@@ -13,9 +13,8 @@ interface BettingProps {
     text: string | undefined
 }
 const Betting: React.FC<BettingProps> = ({ isOpen, onClose, which, img, text }) => {
-    if (!isOpen) return null;
-    const navigate = useNavigate()
     const [betPrice, setBetPrice] = React.useState < number > (0);
+    const navigate = useNavigate()
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
         if (inputValue === '' || /^[0-9]*$/.test(inputValue)) {
@@ -26,10 +25,11 @@ const Betting: React.FC<BettingProps> = ({ isOpen, onClose, which, img, text }) 
     const handleInClick = () => {
         setInOpen(!inOpen);
     };
-
+    
+    if (!isOpen) return null;
     return (
 
-        <div className=" h-[180px] flex flex-col gap-2 ">
+        <div className=" h-[180px] flex flex-col gap-2" >
             <div className="h-[38px] justify-between items-center flex gap-8">
                 <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
                 <img className=" rounded-md " width={45} src={img} alt="" />
@@ -73,7 +73,7 @@ const Betting: React.FC<BettingProps> = ({ isOpen, onClose, which, img, text }) 
                     />
                 </div>
             </div>
-            <div className=" flex h-[12px] justify-between  text-gray-400 items-center">
+            <div className=" flex h-[12px] justify-between text-gray-400 items-center">
                 {which === 'yes' &&
                     <div
                         className="z-50 text-lg w-full text-center font-medium px-1 py-0.5 rounded-md cursor-pointer  bg-green-600 hover:bg-green-600 text-white "

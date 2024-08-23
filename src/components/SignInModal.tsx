@@ -69,7 +69,7 @@ const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
             >
                 <div className="flex flex-col gap-2 ">
                     <p className="text-center text-2xl text-black font-bold">{title}</p>
-                    <div className="cursor-pointer flex flex-row   bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg w-[100%] h-[80px]" onClick={() => googleSignIn()}>
+                    <div className="cursor-pointer flex flex-row bg-gradient-to-r from-sky-500 to-indigo-500 rounded-lg w-[100%] h-[80px]" onClick={() => googleSignIn()}>
                         <div className="flex items-center justify-center ml-2 my-auto w-[50px] h-[50px] bg-white rounded-lg">
                             <GoogleIcon />
                         </div>
@@ -104,7 +104,7 @@ const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
 
                     <div className="text-black flex gap-5 items-center w-full   px-10 cursor-pointer font-bold py-3 rounded-md shadow-md">
                         <img src="https://1000logos.net/wp-content/uploads/2022/05/WalletConnect-Logo-500x281.png" width={36} height={48} alt="" className="my-1" /> WalletConnect
-                    </div> 
+                    </div>
                     <p className="border-b-2   text-center text-1xl mt-5"> Privacy Terms</p>
                 </div>
             </div>
