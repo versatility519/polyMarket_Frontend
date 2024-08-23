@@ -36,7 +36,7 @@ const EventInfoList = () => {
     ];
     return (
         <div className="w-full">
-            <div className="flex gap-4">
+            <div className="flex gap-4 border-b">
                 {data.map((item, index) => (
                     <Button
                         key={index}

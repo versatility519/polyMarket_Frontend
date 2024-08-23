@@ -43,7 +43,7 @@ const EventInfo = () => {
           <div className=" flex  md:w-full gap-4">
             <div className="lg:w-[50rem] md:w-full w-full py-4">
 
-              <div className="flex border-2  gap-4 text-black-700">
+              <div className="flex gap-4 text-black-700">
                 <div className="items-center">
                   <img className=" w-24 rounded-md" src="https://d3lome5o0h180x.cloudfront.net/eyJidWNrZXQiOiJiYWNrYm9uZS1hc3NldHMtcHJkIiwia2V5IjoiQVNUXzQ5OTIzMi9BU1RfNDk5MjMyLmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzAwLCJoZWlnaHQiOjMwMCwiZml0IjoiY29udGFpbiJ9fX0=" alt="userAvatar" />
                 </div>
@@ -135,10 +135,9 @@ const EventInfo = () => {
                 </div>
               </div>
 
-
               <div className="py-4">
-                <h2 className="text-lg border-b-2 font-medium">Rules</h2>
-                <div className="p-4">
+                <h2 className="text-lg border-b font-medium">Rules</h2>
+                <div className="flex flex-col mt-3 gap-4">
                   <div className={`${!isVisible ? 'line-clamp-1' : ''} indent-3 font-normal`}>
                     {eventIfo?.desc}
                   </div>
