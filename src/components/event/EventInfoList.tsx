@@ -1,8 +1,8 @@
 import React from "react";
-import CommentListItem from "../items/CommentListItem";
-import ActivityListItem from "../items/ActivityListItem";
-import TopHolderListItem from "../items/TopHolderListItem";
-import RelatedListItem from "../items/RelatedListItem";
+import CommentListItem from "../eventInfo/CommentListItem";
+import ActivityListItem from "../eventInfo/ActivityListItem";
+import TopHolderListItem from "../eventInfo/TopHolderListItem";
+import RelatedListItem from "../eventInfo/RelatedListItem";
 import Button from "../Button/Button";
 
 const EventInfoList = () => {
@@ -36,14 +36,14 @@ const EventInfoList = () => {
     ];
     return (
         <div className="w-full">
-            <div className="flex">
+            <div className="flex gap-4 border-b">
                 {data.map((item, index) => (
                     <Button
                         key={index}
                         text={item.label}
                         value={item.value}
                         onClick={() => { handleTabs(item.value); }}
-                        className={`${selectPanel === `${item.value}` ? 'border-b-2 border-black' : 'border-b-2 border-gray-300'}  flex flex-col  font-medium cursor-pointer p-2  hover:border-b-gray-500  text-black text-nowrap`}
+                        className={`${selectPanel === `${item.value}` ? 'border-b-2 border-black' : ''}  flex flex-col  font-medium cursor-pointer py-2 hover:border-b-2 hover:border-b-gray-500  text-black text-nowrap`}
                     />
 
                 ))}
