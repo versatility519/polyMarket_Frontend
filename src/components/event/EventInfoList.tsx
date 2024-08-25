@@ -43,7 +43,7 @@ const EventInfoList = () => {
                         text={item.label}
                         value={item.value}
                         onClick={() => { handleTabs(item.value); }}
-                        className={`${selectPanel === `${item.value}` ? 'border-b-2 border-black' : ''}  flex flex-col  font-medium cursor-pointer py-2 hover:border-b-2 hover:border-b-gray-500  text-black text-nowrap`}
+                        className={`${selectPanel === `${item.value}` ? 'border-b-2 text-textColor' : 'text-gray-400'}  flex flex-col text-lg  font-medium cursor-pointer py-2 hover:border-b-2 hover:border-b-gray-500 text-nowrap`}
                     />
 
                 ))}

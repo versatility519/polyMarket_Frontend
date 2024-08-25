@@ -59,7 +59,6 @@ export function addEvent(eventData: EventProps) {
     return async () => {
         try {
             const response = await instance.post("/events/add", eventData);
-            
             dispatch(events.actions.addEventData(response.data.data));
         } catch (error) {
             dispatch(events.actions.hasError(error));
