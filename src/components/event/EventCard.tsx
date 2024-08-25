@@ -53,20 +53,20 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
 
     return (
         <>
-            <div className="h-[180px] overflow-hidden rounded-md p-2 shadow-[0_2px_12px_1px_rgba(0,0,0,0.1)] hover:shadow-md  ">
+            <div className="dark:bg-darkCardBg  h-[180px] overflow-hidden rounded-md shadow-[0_2px_12px_1px_rgba(0,0,0,0.1)] px-2  hover:shadow-md ">
                 <Betting isOpen={isModalOpen} onClose={closeModal} which={which} img={img} text={eventName} />
                 <div className="-z-20">
                     <div className="flex px-2 justify-between items-center">
-                        <div className="flex gap-2">
+                        <div className="flex gap-4 pt-2">
                             <img className="w-[50px] h-[50px] rounded-md" src={img} alt="evetnImage" />
                             {/* <p className="line-clamp-2 cursor-pointer text-gray-700 text-sm font-bold " onClick={() => { navigate(`/event`) }}> */}
-                            <p className="line-clamp-2 cursor-pointer text-gray-700 text-sm font-bold " onClick={() => { navigate(`/event/${eventName}?tid=${tid}`) }}>
+                            <p className="line-clamp-2 cursor-pointer  dark:text-white text-gray-700 text-sm font-bold " onClick={() => { navigate(`/event/${eventName}?tid=${tid}`) }}>
                                 {eventName}
                             </p>
                         </div>
-                        <div className="flex flex-col cursor-default text-center -z-10 ">
-                            <SemiCircleProgressBar percentage={43} strokeWidth={5} showPercentValue diameter={80} stroke={getStrokeColor(34)} />
-                            <p className="text-sm text-gray-600">Chance</p>
+                        <div className=" flex flex-col cursor-default text-center ">
+                            <SemiCircleProgressBar percentage={43} strokeWidth={5} showPercentValue diameter={70} stroke={getStrokeColor(34)} />
+                            <p className="text-sm dark:text-gray-300 text-gray-600">Chance</p>
                         </div>
                     </div>
                     {state == 1
@@ -77,21 +77,21 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
                                     text="Bet Yes"
                                     icon={<ChevronsUp />}
                                     onClick={handleYesBettng}
-                                    className="w-full text-md rounded-md  px-2 justify-center flex items-center text-sm bg-green-100 hover:bg-green-600 hover:text-white py-2 text-green-600" />
+                                    className="w-full text-md rounded-md p-2 justify-center flex items-center text-sm  dark:bg-darkYesBg bg-green-100 hover:bg-green-500 dark:hover:bg-green-600 text-green-500 hover:text-white"/>
 
                                 <Button
                                     text="Bet No"
                                     icon={<ChevronsDown />}
                                     onClick={handleNoBettng}
-                                    className="w-full  text-md rounded-md px-2 justify-center flex items-center text-sm bg-red-100 hover:bg-red-600 hover:text-white py-2 text-red-600" />
+                                    className="w-full text-md rounded-md p-2 justify-center flex items-center text-sm bg-red-200 dark:bg-darkNoBg hover:bg-orange-500 dark:hover:bg-orange-600 text-orange-700 hover:text-white" />
                             </div>
                         </div>
                         :
-                        <div className="flex flex-col px-2 py-2 justify-between h-[88px] overflow-y-auto" style={{ scrollbarWidth: 'none' }}                        >
+                        <div className="flex flex-col p-2 justify-between h-[88px] overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
                             {event.nested2.map((item, index) =>
-                                <div key={index} className="flex flex-row items-center justify-between py-0.5">
+                                <div key={index} className="flex flex-row items-center  dark:text-white justify-between py-0.5">
                                     <div className="flex cursor-pointer" onClick={() => { }}> {item.range} </div>
-                                    <div className="flex items-center  gap-4">
+                                    <div className="flex items-center gap-4">
                                         {item.percent}%
                                         <div className="grid grid-cols-2 w-full gap-1 items-center">
                                             <Button
@@ -100,7 +100,7 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
                                                 onMouseEnter={() => setIsYesHovered(index)}
                                                 onMouseLeave={() => setIsYesHovered(null)}
                                                 text={isYesHovered == index ? `${item.percent}%` : 'Yes'}
-                                                className={`w-9 text-center text-nowrap px-2 py-1 rounded-md text-xs bg-green-300 text-green-600`} />
+                                                className={`w-9 text-center font-semibold text-nowrap px-2 py-1 rounded-md text-xs  dark:bg-darkYesBg bg-green-100 hover:bg-green-500 dark:hover:bg-green-500 text-green-500 hover:text-white`} />
 
                                             <Button
                                                 key={index}
@@ -108,7 +108,7 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
                                                 text={isNoHovered == index ? `${100 - Number(item.percent)}%` : 'No'}
                                                 onMouseEnter={() => setIsNoHovered(index)}
                                                 onMouseLeave={() => setIsNoHovered(null)}
-                                                className={`w-9 text-center text-nowrap text-xs rounded-md px-2 py-1 bg-red-300 text-red-600`} />
+                                                className={`w-9 text-center font-semibold text-nowrap text-xs rounded-md px-2 py-1  dark:bg-darkNoBg bg-red-100 hover:bg-orange-500 dark:hover:bg-orange-500 text-orange-700 hover:text-white`} />
                                         </div>
                                     </div>
                                 </div>
@@ -116,15 +116,13 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
                         </div>
                     }
 
-                    <div className="flex px-4 h-[30px] justify-between  text-gray-400 items-center">
+                    <div className="flex px-1 h-[30px] justify-between  text-gray-400 items-center">
                         <h4>${volume}k Bet</h4>
                         <div className="flex gap-2 items-center ">
                             <Tooltip content="Rewards">
                                 <Gift size={18} className="cursor-pointer" />
                             </Tooltip>
-
                             <MessageCircle size={18} className="cursor-pointer" />
-
                             <Tooltip content="Add to watchlist">
                                 <Star size={18} className="cursor-pointer" />
                             </Tooltip>

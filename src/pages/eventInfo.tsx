@@ -4,7 +4,7 @@ import { Tooltip } from "@material-tailwind/react";
 import { Check } from "lucide-react";
 import EventInfoList from "../components/event/EventInfoList";
 import EventInfoCard from "../components/event/EventInfoCard";
-import TopNavbar from "../components/TopNavbar";
+import TopNavbar from "../components/layouts/TopNavbar";
 
 import { Trophy, Clock4, Star, Link, ChevronUp, ChevronDown, ChevronsLeftRight, Goal, } from "lucide-react";
 import { getUsersData } from "../store/reducers/users";
@@ -12,8 +12,8 @@ import { getEventInfo } from "../store/reducers/events";
 
 import { dispatch, useSelector } from "../store";
 import YesNoBtn from "../components/YesNoBtn";
-import Logo from "../components/Logo";
-import MobileFooter from "../components/MobileFooter";
+import Logo from "../components/layouts/Logo";
+import MobileFooter from "../components/layouts/MobileFooter";
 
 const EventInfo = () => {
   const eventIfo = useSelector((state) => state.events.event)
@@ -36,9 +36,9 @@ const EventInfo = () => {
   }, [pageId]);
 
   return (
-    <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
+    <div className="h-screen dark:bg-darkBg overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
-      <div className="flex mt-36 justify-center">
+      <div className="flex mt-36 justify-center dark:bg-darkBg">
         <div className="flex w-[72rem] flex-col gap-4 ">
           <div className=" flex  md:w-full gap-4">
             <div className="lg:w-[50rem] md:w-full w-full py-4">
@@ -74,7 +74,7 @@ const EventInfo = () => {
                             </div>
                           </div>
                         }>
-                          <Trophy className=" bg-gray-200 p-1 rounded-md" />
+                          <Trophy className=" bg-gray-200 dark:bg-darkBg dark:text-gray-500 p-1 rounded-md" />
                         </Tooltip>
                         <p className="text-gray-500 ">$4000 Bet</p>
 
@@ -86,7 +86,7 @@ const EventInfo = () => {
                         <p className="text-gray-500 ">Nov 5, 2024</p>
                       </div>
                     </div>
-                    <div className="flex scale-75 gap-2 cursor-pointer">
+                    <div className="flex scale-75 gap-2 dark:text-white cursor-pointer">
                       <Tooltip className="bg-gray-700 text-white px-2 py-1 rounded shadow" content="Add to watchlist">
                         <Star />
                       </Tooltip>
@@ -124,7 +124,7 @@ const EventInfo = () => {
                   </div>
 
                   <div className="flex w-full items-center justify-between">
-                    <div className="sm:w-full text-2xl  font-bold">
+                    <div className="sm:w-full text-2xl dark:text-white font-bold">
                       {eventIfo?.eventName}
                     </div>
 
@@ -136,9 +136,9 @@ const EventInfo = () => {
               </div>
 
               <div className="py-4">
-                <h2 className="text-lg border-b font-medium">Rules</h2>
+                <h2 className="text-xl border-b font-medium dark:text-white">Rules</h2>
                 <div className="flex flex-col mt-3 gap-4">
-                  <div className={`${!isVisible ? 'line-clamp-1' : ''} indent-3 font-normal`}>
+                  <div className={`${!isVisible ? 'line-clamp-1' : ''} indent-3 dark:text-white font-normal`}>
                     {eventIfo?.desc}
                   </div>
 
@@ -146,21 +146,21 @@ const EventInfo = () => {
                     <div className=" py-2">
                       <div className="flex items-center border  px-4 py-1 mb-3  rounded-lg">
                         <Goal size={32} className="bg-gray-300 p-1 rounded-full" />
-                        <div className="flex font-semibold flex-col ">
+                        <div className="flex font-semibold flex-col dark:text-gray-500 ">
                           <p className="px-4">Resolver</p>
                           <p className="px-4">0x11111111111111</p>
                         </div>
                       </div>
 
                       <Button text="Propose resolution"
-                        className="flex gap-2 border bg-white text-gray-600 border-gray-500 px-3  py-2 rounded-full "
+                        className="flex w-40 gap-2 border dark:text-white  text-gray-600 border-gray-500 px-2 py-1 text-center rounded-full "
                       />
                     </div>
                   }
                 </div>
 
-                <div onClick={toggleVisibility} className={`flex w-28 gap-1 text-nowrap text-sm items-center px-2 py-1 outline-none hover:bg-gray-200 bg-white  text-black p-1 rounded-full cursor-pointer`}>
-                  <p>{isVisible ? "Show Less" : "Show More"}</p>
+                <div onClick={toggleVisibility} className={`flex w-28 gap-1 text-nowrap text-sm items-center px-2 py-1 dark:bg-darkCardBg dark:text-white hover:bg-gray-200  bg-white  text-black rounded-full cursor-pointer`}>
+                  <p className="px-2">{isVisible ? "Show Less" : "Show More"}</p>
                   {isVisible ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                 </div>
               </div>

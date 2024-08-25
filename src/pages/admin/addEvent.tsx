@@ -4,7 +4,7 @@ import Datepicker from 'react-tailwindcss-datepicker'
 import { CloudUpload, CheckCircle } from 'lucide-react'
 import Select from 'react-select'
 import { EventProps, MarketProps } from '../../types'
-import TopNavbar from '../../components/TopNavbar'
+import TopNavbar from '../../components/layouts/TopNavbar'
 import useNotification from '../../hooks/useNotification'
 import { useNavigate } from 'react-router-dom'
 import { dispatch } from '../../store'
@@ -82,8 +82,15 @@ const AddEvent = () => {
     return (
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-blue-200">
             <TopNavbar />
-            <div className="mt-36 xl:px-[24vw] md:px-[18vw] sm:px-4  items-center ">
+            <div className=" mt-36 xl:px-[14vw] md:px-[18vw] sm:px-4  items-center">
+                {/* <div className="mt-36 xl:px-[24vw] md:px-[18vw] sm:px-4  items-center "> */}
                 <div className='flex flex-col gap-4 px-8 py-4 bg-white rounded-md'>
+                    <div className="p-4">
+                        <p className="justify-center items-center flex text-3xl">
+                            Event Add
+                        </p>
+                        <hr />
+                    </div>
                     <div className='flex gap-8 items-center'>
                         <div className='flex w-full flex-col '>
                             <p className='flex pb-1 text-lg font-semibold text-gray-900 '>
@@ -127,12 +134,12 @@ const AddEvent = () => {
                                 value={eventData.desc}
                                 placeholder="Description here ..."
                                 onChange={(e) => setEventData({ ...eventData, desc: e.target.value })}
-                                className="h-52  p-2 rounded-md shadow-sm border border-gray-500 focus:border-gray-800 "
+                                className="h-full p-2 rounded-md shadow-sm border border-gray-500 focus:border-gray-800 "
                             />
                         </div>
 
 
-                        <div className='flex flex-col w-96 gap-2'>
+                        <div className='flex flex-col w-2/4 gap-2'>
                             <div className='flex flex-col'>
                                 <p className='flex pb-1 text-lg font-semibold text-gray-900 '>
                                     Betting Period
@@ -142,7 +149,7 @@ const AddEvent = () => {
                                 </div>
                             </div>
 
-                            <div className='flex gap-3  '>
+                            <div className='flex flex-col gap-3  '>
                                 <div className='flex w-24 flex-col'>
                                     <p className='flex pb-1 text-lg font-semibold text-gray-900 '>
                                         Volume
@@ -189,8 +196,8 @@ const AddEvent = () => {
 
                     {/* {value.startDate}
                     {value.endDate} */}
-                    <label className='flex pb-1 font-semibold text-gray-900 '>
-                        Single Events
+                    <label className='flex text-lg font-semibold text-gray-900 '>
+                        Market Add
                     </label>
                     <div className='flex flex-col gap-1 pl-4'>
                         <div className="flex w-full gap-2 pl-2 rounded-md shadow-sm ">
@@ -202,7 +209,7 @@ const AddEvent = () => {
                                 onChange={() => setIsMulti(false)}
                             />
                             <label htmlFor="title" className="flex font-semibold text-gray-900 ">
-                                Single Events
+                                Single Market
                             </label>
                         </div>
 
@@ -214,14 +221,14 @@ const AddEvent = () => {
                                 onChange={() => setIsMulti(true)}
                             />
                             <label htmlFor="title" className="flex font-semibold text-gray-900 ">
-                                Multiple Events
+                                Multiple Markets
                             </label>
                         </div>
                         {/* </div> */}
                     </div>
                     {isMulti == true
                         ? (
-                            <div className="flex w-full font-semibold gap-6">
+                            <div className="flex w-full items-center font-semibold gap-6">
                                 <div className="flex w-full flex-col font-semibold">
                                     <label className='flex pb-1 text-lg font-semibold text-gray-900 '>
                                         Market Name
@@ -254,10 +261,19 @@ const AddEvent = () => {
                                         />
                                     </div>
                                 </div>
+                                <div className=" flex-col font-semibold">
+                                    <label className='flex pb-1 text-lg font-semibold text-gray-900 '>
+                                    </label>
+
+                                    <div className='items-end w-8  border'>
+                                        <Button className='w-full' text="add" />
+
+                                    </div>
+                                </div>
                             </div>
 
                         )
-                        : "Single"}
+                        : "Single Market"}
                 </div>
                 <div className='flex justify-center p-3 gap-6 pt-6'>
                     <Button text='Cancel' value='eventCancel' className='flex px-3 py-2 bg-gray-300 text-black items-center hover:bg-blue-300 rounded-md' onClick={() => navigate('/admin', { replace: true })} />

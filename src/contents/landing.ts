@@ -27,7 +27,7 @@ export const content = {
             link: 'leaderboard'
         }
     ],
-  
+
     menuBtns: [
         {
             text: "All",
@@ -78,25 +78,13 @@ export const content = {
                 value: "breakingNews"
             },
             {
-                text: "Mertion Markets",
+                text: "Mention Markets",
                 value: "mentionMarkets"
             },
             {
-                text: "Swing States",
-                value: "swingstates"
+                text: "US Election",
+                value: "usElection"
             },
-            {
-                text: "Lebanon",
-                value: "lebanon"
-            },
-            {
-                text: "Crypto Prices",
-                value: "cryptoPrices"
-            },
-            {
-                text: "Movies",
-                value: "movies"
-            }
         ],
         new: [
             {

@@ -1,5 +1,5 @@
-import MobileFooter from "../components/MobileFooter";
-import TopNavbar from "../components/TopNavbar";
+import MobileFooter from "../components/layouts/MobileFooter";
+import TopNavbar from "../components/layouts/TopNavbar";
 const Election = () => {
     return (
         <div>

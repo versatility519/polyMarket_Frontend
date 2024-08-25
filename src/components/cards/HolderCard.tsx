@@ -12,11 +12,13 @@ const HolderCard: React.FC<HolderCard> = ({ first, second, icon }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="justify-between w-full rounded-lg border-gray-100 border shadow-md p-2 ">
+        <div className="justify-between w-full dark:bg-darkCardBg dark:text-white rounded-lg border-gray-100 border shadow-md p-2 ">
             <div className=" flex justify-between items-center font-semibold">
-                <h2 className="flex gap-2 text-2xl text-black font-semibold">{icon} {first || second}</h2>
+                <h2 className="flex gap-2 text-2xl text-black  dark:text-white font-semibold">
+                    <p className="dark:text-blue-500">{icon}</p>
+                    {first || second}</h2>
             </div>
-            
+
             <div className="gap-4 border-b-2 mt-4 border-gray-100">
                 <div className="divide-y divide-gray-200">
                     {customers.map(({ username, laterTime, avatar, position, address, volume }, index) => (
@@ -44,7 +46,7 @@ const HolderCard: React.FC<HolderCard> = ({ first, second, icon }) => {
                                     </Tooltip>
                                     <div className="lg:flex w-full  justify-between gap-5">
                                         <Tooltip
-                                            className="bg-white border text-black z-50 rounded-lg"
+                                            className="bg-white dark:bg-darkBg text-black z-50 rounded-lg"
                                             content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                         >
                                             <p onClick={() => navigate(`/profile?${index}`)} className="hover:underline">{username}</p>

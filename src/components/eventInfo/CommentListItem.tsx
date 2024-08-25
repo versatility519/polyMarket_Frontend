@@ -37,39 +37,39 @@ const CommentListItem = () => {
     return (
 
         <div className="flex flex-col gap-3">
-            <div className="flex w-full px-4 justify-between items-center py-1 border border-gray-500 focus-within:border-black rounded-full">
+            <div className="flex w-full px-4 justify-between items-center py-1 border border-gray-500 dark:focus-within:border-black rounded-full">
                 <input
                     type="text"
                     value={selectValue}
                     onChange={e => setSelectValue(e.target.value.trim())}
-                    className="w-full px-2 py-2"
+                    className="w-full px-2 py-2 dark:bg-darkBg dark:text-white focus-within:border-black dark:focus-within:border-white"
                     placeholder='Add a Comment'
 
                 />
                 <Button
                     text="Post"
-                    className={`${selectValue ? "text-white bg-gray-400" : "text-blue-400"} w-14 text-center rounded-full cursor-pointer`}
+                    className={`${selectValue ? "text-white dark:text-blue-400 dark:bg-darkBg bg-gray-400  dark:hover:text-blue-400 dark:hover:bg-darkBg" : "text-blue-400 dark:hover:bg-darkBg dark:hover:text-blue-400 dark:hover:border-none"} w-14 text-center rounded-full cursor-pointer`}
                 />
             </div>
 
-            <div className="flex bg-gray-200 border items-center text-lg font-semibold gap-2 rounded-full py-3 justify-center">
+            <div className="flex bg-gray-200 dark:bg-darkCardBg items-center text-lg font-semibold gap-2 rounded-lg dark:text-white py-3 justify-center">
                 <Shield />
-                <p className="text-base font-semibold text-black">Beware of external links, they may be phishing attacks.</p>
+                <p className="text-base font-semibold text-black dark:text-white">Beware of external links, they may be phishing attacks.</p>
             </div>
 
             <div className="flex items-center gap-2 ">
-                <p className="text-gray-700 text-lg font-medium">Sort by</p>
+                <p className="text-gray-700 dark:text-gray-500 text-lg font-medium">Sort by</p>
 
                 <div className="relative w-28">
-                    <div className="flex justify-between px-4 py-1 rounded-full cursor-pointer bg-gray-100 border items-center" onClick={toggleDropdown}>
+                    <div className="flex justify-between px-4 py-1 dark:bg-darkCardBg dark:text-white rounded-full cursor-pointer bg-gray-100 border items-center" onClick={toggleDropdown}>
                         {selected.label}
-                        {isDropdownOpen ? <ChevronUp /> : <ChevronDown />}
+                        {isDropdownOpen ? <ChevronUp className='dark:text-white' /> : <ChevronDown className='dark:text-white' />}
 
                     </div>
                     {isOpen && (
-                        <div className="absolute z-10 w-full focus:border-black rounded-sm  bg-white border shadow-md ">
+                        <div className="absolute z-10 w-full focus:border-black rounded-sm  dark:bg-darkBg bg-white border shadow-md ">
                             {options.map((option) => (
-                                <div key={option.value} className="flex px-2 py-1 cursor-pointer rounded-full" onClick={() => handleOptionClick(option)}>
+                                <div key={option.value} className="flex px-2 py-2 cursor-pointer rounded-md dark:text-white dark:hover:bg-[#2a3b49]" onClick={() => handleOptionClick(option)}>
                                     {option.label}
                                 </div>
                             ))}
@@ -88,7 +88,7 @@ const CommentListItem = () => {
                             >
                                 <div className="items-center">
                                     <Tooltip
-                                        className="bg-white text-black border rounded-md"
+                                        className="bg-white dark:bg-darkBg text-black border rounded-md"
                                         content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                     >
                                         <img width={88} className='rounded-full' src={avatar} alt={avatar} onClick={() => navigate('/profile')} />
@@ -98,22 +98,22 @@ const CommentListItem = () => {
                                     <div className="flex py-1 justify-between">
                                         <div className='flex items-center gap-2'>
                                             <Tooltip
-                                                className="bg-white text-black border rounded-md"
+                                                className="bg-white dark:bg-darkBg text-black border rounded-md"
                                                 content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                             >
-                                                <p className='cursor-pointer hover:underline' onClick={() => navigate('/profile')}>{username}</p>
+                                                <p className='cursor-pointer hover:underline dark:text-white' onClick={() => navigate('/profile')}>{username}</p>
                                             </Tooltip>
                                             <p className='bg-green-200 text-green-600 text-sm rounded-md px-1'>15.8K</p>
                                             <p className="text-gray-600 text-sm">2d ago</p>
                                         </div>
-                                        <Ellipsis className='cursor-pointer text-black bg-gray-100' onClick={() => { alert('Login') }} />
+                                        <Ellipsis className='cursor-pointer text-black dark:text-white bg-gray-100 dark:bg-darkBg' onClick={() => { alert('Login') }} />
                                     </div>
 
-                                    <p className="text-gray-700 indent-3"> {/* Set text color to blue */}
+                                    <p className="text-gray-700 indent-3 dark:text-white"> {/* Set text color to blue */}
                                         This market will resolve to "Yes" if the data for the Global Land-Ocean Temperature Index for August 2024 shows an increase greater than that of any prior August when it is released. Otherwise, this market will resolve to "No".
                                     </p>
 
-                                    <div className='flex gap-2 pt-1 '>
+                                    <div className='flex gap-2 pt-1 dark:text-gray-400'>
                                         <Heart /> {position}
                                     </div>
 

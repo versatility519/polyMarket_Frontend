@@ -3,7 +3,7 @@ import { BtnProps } from "../../types/buttons";
 const Button: React.FC<BtnProps> = ({ icon, text, onClick, onMouseEnter, onMouseLeave, className, children }) => {
     return (
         <div>
-            <div onClick={onClick} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} className={`${className} cursor-pointer`}>
+            <div onClick={onClick} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} className={`${className}  dark:hover:text-white dark:hover:bg-slate-700 cursor-pointer`}>
                 {icon}
                 <p>{text}</p>
                 {children}

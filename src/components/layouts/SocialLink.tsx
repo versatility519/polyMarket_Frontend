@@ -3,7 +3,6 @@ interface SocialLinkProps {
     border: boolean;  
 }
 
- 
 const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
     return (
         <div className="flex gap-4 items-center">

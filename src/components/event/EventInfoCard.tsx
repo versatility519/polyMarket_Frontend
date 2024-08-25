@@ -29,7 +29,7 @@ const EventInfoCard = () => {
                         text={item.label}
                         value={item.value}
                         onClick={() => { handleTabs(item.value); }}
-                        className={`${selectPanel === `${item.value}` ? 'text-blue-500 border-b-2 border-blue-500 ' : 'border-b-2 border-gray-300'}  flex flex-col  font-medium cursor-pointer p-2  hover:border-b-gray-500  text-black text-nowrap`}
+                        className={`${selectPanel === `${item.value}` ? 'text-blue-500 border-b-2 border-blue-500' : 'border-b-2 border-gray-300 dark:text-white'}  flex flex-col  font-medium cursor-pointer p-2  hover:border-b-gray-500 dark:hover:border-b-blue-500  text-black text-nowrap`}
                     />
                 ))}
             </div>

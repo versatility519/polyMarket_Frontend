@@ -3,7 +3,7 @@ import Button from "../components/Button/Button";
 import { TrendingUp } from "lucide-react";
 
 import TopEventCard from "../components/cards/TopEventCard";
-import TopNavbar from "../components/TopNavbar";
+import TopNavbar from "../components/layouts/TopNavbar";
 import { content } from "../contents/landing";
 import { Tooltip } from "@material-tailwind/react";
 // import { event } from "../contents/event";
@@ -13,9 +13,10 @@ import EventCard from "../components/event/EventCard";
 import { dispatch, useSelector } from "../store";
 import { getUsersData } from "../store/reducers/users";
 import { getAllEvents } from "../store/reducers/events";
-import Footer from "../components/Footer";
 import { customers } from "../components/database";
-import MobileFooter from "../components/MobileFooter";
+
+import Footer from "../components/layouts/Footer";
+import MobileFooter from "../components/layouts/MobileFooter";
 import { useNavigate } from "react-router-dom";
 
 
@@ -33,10 +34,9 @@ const App = () => {
         dispatch(getAllEvents())
     }, [])
     return (
-        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto">
+        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto  dark:bg-darkBg">
             <TopNavbar />
-            <div className="xl:px-48 mt-36 sm:px-2 justify-center overscroll-auto">
-                {/* <SemiCircularProgressBar percentage={32} size={200} strokeWidth={20} /> */}
+            <div className="dark:bg-dark xl:px-48 mt-36 sm:px-2 justify-center overscroll-auto">
 
                 <div style={{ scrollbarWidth: 'none' }} className="mt-4 md:flex-row flex flex-col sm:overflow-x-scroll overflow-x-scroll md:gap-5 justify-center ">
                     {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
@@ -52,7 +52,7 @@ const App = () => {
                         <Button
                             text="Top"
                             value="top"
-                            className={`${selectedButton === 'top' ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 border-gray-200 text-black'}  flex font-medium px-3 py-2 outline-none text-nowrap  justify-center items-center text-center  gap-2 rounded-md border border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`}
+                            className={`${selectedButton === 'top' ? 'bg-blue-600 dark:hover:bg-darkBtn dark:bg-darkBtn dark:border-blue-600 focus:text-white' : 'bg-gray-200 dark:bg-darkCardBg border-gray-200 text-black'} dark:text-white flex font-medium  px-2 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border dark:border-darkCardBg border-gray-200 hover:border-blue-600 dark:hover:border-darkBtn `}
                             onClick={() => handleButtonClick('top')} icon={<TrendingUp size={24} />}
                         />
                     </div>
@@ -60,7 +60,7 @@ const App = () => {
                         content.filterBtns.all.map((item, index) =>
                             <div className="">
                                 <Button key={index} value={item.value} onClick={() => handleButtonClick(`${item.value}`)}
-                                    text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-blue-600  focus:text-white' : 'bg-gray-200 text-black'}   font-medium p-2 outline-none text-nowrap  justify-center items-center text-center  rounded-md border border-gray-200 after:bg-red-500 hover:border-blue-600 focus:bg-blue-700 focus:text-white focus:border-blue-700`} />
+                                    text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-blue-600 dark:hover:bg-darkBtn dark:bg-darkBtn dark:border-darkBtn focus:text-white' : 'bg-gray-200 dark:bg-darkCardBg border-gray-200 text-black'} border   dark:text-white font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md dark:border-darkCardBg hover:border-blue-600 dark:hover:border-darkBtn `} />
 
                             </div>
                         )
@@ -90,15 +90,15 @@ const App = () => {
                 </div>
 
                 <div className="flex my-6 justify-center">
-                    <Button className="rounded-md px-2 py-1 bg-blue-700 text-white" text="View all"></Button>
+                    <Button className="font-semibold rounded-md px-3 py-2 bg-blue-700 text-white dark:bg-darkBtn" text="View all"></Button>
                 </div>
 
                 <div className=" lg:flex  gap-8">
                     {/* <div className=" border-2 flex gap-8"> */}
                     <div className="w-full shadow-md">
                         <div className="flex items-center justify-between">
-                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800">Recent Activity</p>
-                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-full items-center px-2 border font-semibold text-gray-800 border-gray-500 hover:bg-gray-200" />
+                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800 dark:text-white">Recent Activity</p>
+                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-gray-800  dark:text-white border-gray-500 hover:bg-gray-200" />
                         </div>
                         {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
                             <div
@@ -109,18 +109,18 @@ const App = () => {
                                     <img width={48} src={avatar} alt={eventName} className="rounded-md" />
                                     <div>
 
-                                        <p className=" text-gray-600 cursor-pointer" onClick={() => navigate('/event')}>
+                                        <p className=" text-gray-600 cursor-pointer dark:text-gray-300" onClick={() => navigate('/event')}>
                                             {eventName}
                                         </p>
 
                                         <div className="text-sm items-center flex  gap-1">
                                             <Tooltip
-                                                className="bg-white border text-black z-50 rounded-lg"
+                                                className="bg-white dark:bg-darkBg border text-black z-50 rounded-lg"
                                                 content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                             >
                                                 <div className="flex items-center gap-2">
                                                     <img width={22} className="rounded-full" src={toAvatar} alt="" />
-                                                    <p className="text-base font-semibold cursor-pointer" onClick={() => navigate('/profile')}> {username}</p>
+                                                    <p className="text-base font-semibold cursor-pointer dark:text-white" onClick={() => navigate('/profile')}> {username}</p>
                                                 </div>
                                             </Tooltip>
 
@@ -144,8 +144,8 @@ const App = () => {
 
                     <div className="w-full  shadow-md">
                         <div className="flex items-center justify-between">
-                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800">Top Volume This Week</p>
-                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-full items-center px-2 border font-semibold text-gray-800 border-gray-500 hover:bg-gray-200" />
+                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800 dark:text-white">Top Volume This Week</p>
+                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-gray-800 border-gray-500 dark:text-white hover:bg-gray-200" />
                         </div>
                         {customers.map(({ username, laterTime, avatar, position, address, volume }, index) => (
                             <div
@@ -156,7 +156,7 @@ const App = () => {
                                 <div className="flex w-full items-center justify-between">
                                     <div className='flex w-full items-center  gap-3'>
                                         <Tooltip
-                                            className="bg-white border text-black z-50 rounded-lg"
+                                            className="bg-white border dark:bg-darkBg text-black z-50 rounded-lg"
                                             content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                         >
                                             <div className="flex  gap-4">
@@ -172,8 +172,8 @@ const App = () => {
                                                 </button>
                                                 {/* <img width={48} src={avatar} className="rounded-full" /> */}
                                                 <div className=" ">
-                                                    <p className="">{username}</p>
-                                                    <p className="">${laterTime}</p>
+                                                    <p className="dark:text-white">{username}</p>
+                                                    <p className="dark:text-gray-400">${laterTime}</p>
                                                 </div>
                                             </div>
                                         </Tooltip>

@@ -1,8 +1,8 @@
 import React from "react";
-import useAuth from "../hooks/useAuth";
-import SignInModal from "./SignInModal";
+import useAuth from "../../hooks/useAuth";
+import SignInModal from "../SignInModal";
 import { useNavigate } from "react-router-dom";
-import Button from "./Button/Button";
+import Button from "../Button/Button";
 import { AlignJustify, Grid3X3, House, Radio, Search, X } from "lucide-react";
 import SocialLink from "./SocialLink";
 
