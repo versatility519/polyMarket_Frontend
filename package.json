@@ -29,6 +29,7 @@
     "react-select": "^5.8.0",
     "react-tailwindcss-datepicker": "^1.7.0",
     "react-toastify": "^10.0.5",
+    "react-toggle-button": "^2.2.0",
     "redux-persist": "^6.0.0"
   },
   "devDependencies": {

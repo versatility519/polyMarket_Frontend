@@ -34,7 +34,7 @@ const App = () => {
         dispatch(getAllEvents())
     }, [])
     return (
-        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto  dark:bg-darkBg">
+        <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-bgColor">
             <TopNavbar />
             <div className="dark:bg-dark xl:px-48 mt-36 sm:px-2 justify-center overscroll-auto">
 
@@ -52,15 +52,15 @@ const App = () => {
                         <Button
                             text="Top"
                             value="top"
-                            className={`${selectedButton === 'top' ? 'bg-blue-600 dark:hover:bg-darkBtn dark:bg-darkBtn dark:border-blue-600 focus:text-white' : 'bg-gray-200 dark:bg-darkCardBg border-gray-200 text-black'} dark:text-white flex font-medium  px-2 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border dark:border-darkCardBg border-gray-200 hover:border-blue-600 dark:hover:border-darkBtn `}
-                            onClick={() => handleButtonClick('top')} icon={<TrendingUp size={24} />}
+                            className={`${selectedButton === 'top' ? 'bg-btnColor  focus:text-white' : 'bg-selectBtnBg  border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor dark:text-white flex font-medium  px-2 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-selectBtnBg  `}
+                            onClick={() => handleButtonClick('top')} icon={<TrendingUp className="" size={24} />}
                         />
                     </div>
                     {
                         content.filterBtns.all.map((item, index) =>
                             <div className="">
                                 <Button key={index} value={item.value} onClick={() => handleButtonClick(`${item.value}`)}
-                                    text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-blue-600 dark:hover:bg-darkBtn dark:bg-darkBtn dark:border-darkBtn focus:text-white' : 'bg-gray-200 dark:bg-darkCardBg border-gray-200 text-black'} border   dark:text-white font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md dark:border-darkCardBg hover:border-blue-600 dark:hover:border-darkBtn `} />
+                                    text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-btnColor focus:text-white' : 'bg-selectBtnBg border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor dark:text-white font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md `} />
 
                             </div>
                         )
@@ -97,8 +97,8 @@ const App = () => {
                     {/* <div className=" border-2 flex gap-8"> */}
                     <div className="w-full shadow-md">
                         <div className="flex items-center justify-between">
-                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800 dark:text-white">Recent Activity</p>
-                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-gray-800  dark:text-white border-gray-500 hover:bg-gray-200" />
+                            <p className="text-textColor flex items-center py-4 text-2xl font-medium ">Recent Activity</p>
+                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-textColor border-gray-500 hover:bg-gray-200" />
                         </div>
                         {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
                             <div
@@ -109,33 +109,33 @@ const App = () => {
                                     <img width={48} src={avatar} alt={eventName} className="rounded-md" />
                                     <div>
 
-                                        <p className=" text-gray-600 cursor-pointer dark:text-gray-300" onClick={() => navigate('/event')}>
+                                        <p className="text-textColor cursor-pointer " onClick={() => navigate('/event')}>
                                             {eventName}
                                         </p>
 
                                         <div className="text-sm items-center flex  gap-1">
                                             <Tooltip
-                                                className="bg-white dark:bg-darkBg border text-black z-50 rounded-lg"
+                                                className="bg-bgColor border text-black z-50 rounded-lg"
                                                 content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                             >
                                                 <div className="flex items-center gap-2">
                                                     <img width={22} className="rounded-full" src={toAvatar} alt="" />
-                                                    <p className="text-base font-semibold cursor-pointer dark:text-white" onClick={() => navigate('/profile')}> {username}</p>
+                                                    <p className="text-base font-semibold cursor-pointer text-textWhiteColor" onClick={() => navigate('/profile')}> {username}</p>
                                                 </div>
                                             </Tooltip>
 
-                                            <p className="text-base">{isSold === true ? 'sold' : 'bought'}</p>
+                                            <p className="text-base text-textWhiteColor">{isSold === true ? 'sold' : 'bought'}</p>
 
                                             <p className={`${isBet === true ? 'text-green-600 font-bold items-center' : 'text-orange-600 font-bold items-center'}`}>
                                                 {isBet ? 'Yes' : 'No'}</p>
                                             <p className={`${isBet === true ? 'text-green-600 font-bold items-center' : 'text-orange-600 font-bold items-center'}`}>
                                                 {count}</p>
-                                            <p className=" text-base">at</p>
-                                            <p className="font-">{price}¢ (${(price / 110).toPrecision(5)})</p>
+                                            <p className="text-textWhiteColor text-base">at</p>
+                                            <p className="text-textWhiteColor">{price}¢ (${(price / 110).toPrecision(5)})</p>
                                         </div>
                                     </div>
                                 </div>
-                                <p>
+                                <p className="text-textColor">
                                     {laterTime} ago
                                 </p>
                             </div>
@@ -144,8 +144,8 @@ const App = () => {
 
                     <div className="w-full  shadow-md">
                         <div className="flex items-center justify-between">
-                            <p className="flex items-center py-4 text-2xl font-medium text-gray-800 dark:text-white">Top Volume This Week</p>
-                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-gray-800 border-gray-500 dark:text-white hover:bg-gray-200" />
+                            <p className="text-textColor flex items-center py-4 text-2xl font-medium">Top Volume This Week</p>
+                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-textColor border-gray-500  hover:bg-gray-200" />
                         </div>
                         {customers.map(({ username, laterTime, avatar, position, address, volume }, index) => (
                             <div
@@ -156,7 +156,7 @@ const App = () => {
                                 <div className="flex w-full items-center justify-between">
                                     <div className='flex w-full items-center  gap-3'>
                                         <Tooltip
-                                            className="bg-white border dark:bg-darkBg text-black z-50 rounded-lg"
+                                            className="bg-bgColor text-textColor z-50 rounded-lg"
                                             content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                         >
                                             <div className="flex  gap-4">
@@ -172,8 +172,8 @@ const App = () => {
                                                 </button>
                                                 {/* <img width={48} src={avatar} className="rounded-full" /> */}
                                                 <div className=" ">
-                                                    <p className="dark:text-white">{username}</p>
-                                                    <p className="dark:text-gray-400">${laterTime}</p>
+                                                    <p className="text-textColor">{username}</p>
+                                                    <p className="text-gray-500">${laterTime}</p>
                                                 </div>
                                             </div>
                                         </Tooltip>

@@ -3,7 +3,7 @@ import SocialLink from "./SocialLink";
 
 const Footer = () => {
     return (
-        <div className=" flex w-full flex-col mt-16 bg-fuchsia-900 dark:bg-darkBg border-t dark:border-gray-200 text-white">
+        <div className="bg-footerBg flex w-full flex-col mt-16 border-t dark:border-gray-200 text-white">
             <div className=" md:flex lg:flex-none mt-10 px-4 py-5 justify-between text-1xl h-[400px]"  >
                 <div className=" ">
                     <Logo />

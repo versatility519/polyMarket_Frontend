@@ -12,7 +12,7 @@ const Acticity = () => {
         dispatch(getUsersData())
     }, [])
     return (
-        <div className="h-screen dark:bg-darkBg overflow-hidden-scrollbar overflow-y-auto">
+        <div className="bg-bgColor h-screen overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
             <div className="flex mt-36 justify-center ">
                 <div className="flex w-[60rem] flex-col gap-4 ">

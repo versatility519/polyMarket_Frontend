@@ -32,10 +32,10 @@ const YesNoBtn: React.FC<BtnProps> = () => {
     }, []);
 
     return (
-        <div className='bg-white dark:bg-darkBg grid grid-cols-2 md:grid-flow-col  w-full items-center gap-1 text-center justify-center px-1 '>
+        <div className='bg-bgColo grid grid-cols-2 md:grid-flow-col  w-full items-center gap-1 text-center justify-center px-1 '>
 
-            <Button onClick={() => { convertColor(); }} className={`w-full  text-md font-semibold text-nowrap rounded-md py-3 ${!convertBgColor ? 'bg-green-600 text-white' : 'bg-gray-200 dark:bg-darkCardBg text-gray-600'}`} text='Yes'></Button>
-            <Button onClick={() => { convertColor(); }} className={`w-full text-md font-semibold text-nowrap rounded-md  py-3 ${convertBgColor ? 'bg-orange-600 text-white' : 'bg-gray-200 dark:bg-darkCardBg text-gray-600'}`} text='No '></Button>
+            <Button onClick={() => { convertColor(); }} className={`w-full  text-md font-semibold text-nowrap rounded-md py-3 ${!convertBgColor ? 'bg-green-600 text-white' : 'bg-cardBg text-gray-600'}`} text='Yes'></Button>
+            <Button onClick={() => { convertColor(); }} className={`w-full text-md font-semibold text-nowrap rounded-md  py-3 ${convertBgColor ? 'bg-orange-600 text-white' : 'bg-cardBg text-gray-600'}`} text='No '></Button>
 
             <div className='md:flex lg:hidden flex relative w-10'>
                 <Button onClick={() => { toggleFooterMore() }} className={`lg:hidden sm:flex w-12 text-md font-semibold text-nowrap rounded-md  py-3 bg-gray-200 p-4  `} icon={<Ellipsis />}></Button>

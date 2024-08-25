@@ -63,7 +63,7 @@ const Markets = () => {
         dispatch(getAllEvents())
     }, [])
     return (
-        <div className="h-screen dark:bg-darkBg overflow-hidden-scrollbar overflow-y-auto">
+        <div className="h-screen bg-bgColor overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
             <div className="dark:bg-darkBg mt-36">
                 <div style={{ scrollbarWidth: 'none' }} className=" my-4 md:flex-row flex flex-col md:overflow-y-scroll overflow-x-scroll md:gap-5 justify-center px-3">
@@ -76,20 +76,20 @@ const Markets = () => {
                     <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="w-full flex bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
                 </div>
                 {/* SubBar */}
-                <div className="sticky top-[130px] dark:bg-darkBg bg-white drop-shadow-sm">
+                <div className="sticky top-[130px] bg-bgColor text-textColor drop-shadow-sm">
                     <div className="  lg:flex sm:grid-cols-2 grid-cols-2 grid lg:items-center px-3 gap-2">
-                        <div className="lg:order-1 sm:order-3 order-3 p-2 border justify-center items-center gap-2 rounded-md flex dark:text-white cursor-pointer hover:bg-slate-100" onClick={() => { }}>
+                        <div className="hover:bg-searchHover lg:order-1 sm:order-3 order-3 p-2 border justify-center items-center gap-2 rounded-md flex cursor-pointer" onClick={() => { }}>
                             <ListFilter size={24} />
                             <p className="sm:visible lg:hidden">Filters</p>
                         </div>
 
-                        <div className="lg:order-2 sm:order-1 order-1 flex lg:w-full gap-2 px-4 py-1  dark:hover:bg-slate-600 items-center border border-gray-400 hover:bg-gray-100   focus-within:border-black rounded-lg">
+                        <div className="lg:order-2 sm:order-1 order-1 flex lg:w-full gap-2 px-4 py-1  items-center border hover:bg-searchHover border-gray-400 focus-within:border-white rounded-lg">
                             <Search className="dark:text-white" />
-                            <input type="text" className="w-full py-1 dark:bg-darkBg dark:hover:bg-gray-600 hover:bg-gray-100 " placeholder="Search by markets" onChange={(e) => setSearchKey(e.target.value)} />
+                            <input type="text" className="hover:bg-searchHover w-full py-1 bg-bgColor " placeholder="Search by markets" onChange={(e) => setSearchKey(e.target.value)} />
                         </div>
                         <div className="w-full  lg:order-3 lg:w-[16vw] sm:w-full sm:order-4 order-4 h-full  justify-between flex items-center rounded-lg">
                             <div className="relative w-full ">
-                                <div className="flex  justify-between gap-2 px-2 py-1 shadow-sm rounded-md  cursor-pointer border items-center dark:bg-darkBg dark:hover:bg-gray-600" onClick={toggleDropdown}>
+                                <div className="hover:bg-searchHover flex  justify-between gap-2 px-2 py-1 shadow-sm rounded-md  cursor-pointer border items-center bg-bgColor dark:hover:bg-gray-600" onClick={toggleDropdown}>
                                     <div className="flex gap-2 items-center">
                                         <p className="bg-blue-100 p-1 rounded-md">{selected.icon} </p>
                                         <p className=" dark:text-white">{selected.label}</p>
@@ -97,9 +97,9 @@ const Markets = () => {
                                     {isDropdownOpen ? <ChevronUp className="dark:text-white" /> : <ChevronDown className="dark:text-white" />}
                                 </div>
                                 {isOpen && (
-                                    <div className="absolute  w-full rounded-md border  dark:bg-darkBg bg-white ">
+                                    <div className="z-50 absolute  w-full rounded-md border  dark:bg-darkBg bg-white ">
                                         {options.map((option) => (
-                                            <div key={option.value} className=" flex p-2 gap-2 hover:bg-gray-50 dark:hover:bg-[#2a3b49] items-center cursor-pointer" onClick={() => handleOptionClick(option)}>
+                                            <div key={option.value} className=" flex p-2 bg-bgColor text-textColor hover:bg-selBtnHoverColor gap-2 items-center cursor-pointer" onClick={() => handleOptionClick(option)}>
                                                 <p className="bg-blue-50 p-1 rounded-md">{option.icon}</p>
                                                 <p className="dark:text-white">{option.label}</p>
                                             </div>
@@ -111,10 +111,14 @@ const Markets = () => {
                         </div>
 
                         <div className="lg:order-4 lg:flex sm:hidden hidden border rounded-md ">
-                            <Button value="gridView" className="flex border-r-2 text-gray-500 p-4 items-center justify-center cursor-pointer " icon={<MarketsIcon />} onClick={() => { setListView(false) }} />
-                            <Button value="listView" className="flex text-gray-500 p-3 items-center justify-center cursor-pointer " icon={<List />} onClick={() => { setListView(false) }} />
+                            <Button value="gridView" className="flex border-r-2 text-textColor hover:bg-selBtnHoverColor p-4 items-center justify-center cursor-pointer " icon={<MarketsIcon />}
+                                onClick={() => { setListView(false) }}
+                            />
+                            <Button value="listView" className="flex text-textColor hover:bg-selBtnHoverColor p-3 items-center justify-center cursor-pointer " icon={<List />}
+                                onClick={() => { setListView(false) }}
+                            />
                         </div>
-                        <div className="lg:order-5 sm:order-2 order-2 p-2 border justify-center dark:text-white  dark:hover:bg-slate-500 items-center gap-2 rounded-md flex cursor-pointer hover:bg-slate-100" onClick={() => { }}>
+                        <div className="lg:order-5 sm:order-2 order-2 p-2 border justify-center text-textColor hover:bg-selBtnHoverColor items-center gap-2 rounded-md flex cursor-pointer" onClick={() => { }}>
                             <Star onClick={() => { setListView(false) }} className="" size={28} />
                         </div>
                     </div>
@@ -124,15 +128,15 @@ const Markets = () => {
                             <Button
                                 text="Top"
                                 value="top"
-                                className={`${selectedButton === 'top' ? 'bg-blue-600 dark:hover:bg-darkBtn dark:bg-darkBtn dark:border-blue-600 focus:text-white' : 'bg-gray-200 dark:bg-darkCardBg border-gray-200 text-black'} dark:text-white flex font-medium  px-2 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border dark:border-darkCardBg border-gray-200 hover:border-blue-600 dark:hover:border-darkBtn `}
-                                onClick={() => handleButtonClick('top')} icon={<TrendingUp size={24} />}
+                                className={`${selectedButton === 'top' ? 'bg-btnColor  focus:text-white' : 'bg-selectBtnBg  border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor dark:text-white flex font-medium  px-2 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-selectBtnBg  `}
+                                onClick={() => handleButtonClick('top')} icon={<TrendingUp className="" size={24} />}
                             />
                         </div>
                         {
                             content.filterBtns.all.map((item, index) =>
                                 <div className="">
                                     <Button key={index} value={item.value} onClick={() => handleButtonClick(`${item.value}`)}
-                                        text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-blue-600 dark:hover:bg-darkBtn dark:bg-darkBtn dark:border-darkBtn focus:text-white' : 'bg-gray-200 dark:bg-darkCardBg border-gray-200 text-black'} border   dark:text-white font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md dark:border-darkCardBg hover:border-blue-600 dark:hover:border-darkBtn `} />
+                                        text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-btnColor focus:text-white' : 'bg-selectBtnBg border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor dark:text-white font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md `} />
 
                                 </div>
                             )
