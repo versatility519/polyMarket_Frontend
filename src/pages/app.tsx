@@ -37,14 +37,20 @@ const App = () => {
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-bgColor">
             <TopNavbar />
             <div className="dark:bg-dark xl:px-48 mt-36 sm:px-2 justify-center overscroll-auto">
-
-                <div style={{ scrollbarWidth: 'none' }} className="mt-4 md:flex-row flex flex-col sm:overflow-x-scroll overflow-x-scroll md:gap-5 justify-center ">
-                    {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
-                    <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="w-full flex bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
-                    <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="w-full flex bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
+                <div className="">
+                    <div style={{ scrollbarWidth: 'none' }} className="overflow-x-auto ">
+                        {/* <div style={{ scrollbarWidth: 'none' }} className="gap-4 my-4  flex   overflow-x-auto justify-center px-4"> */}
+                        {/* <div className="justify-between flex "> */}
+                        <div className="flex space-x-4 lg:space-x-2 md:space-x-4">
+                            {/* <div style={{ scrollbarWidth: 'none' }} className="  grid-cols-4 md:grid-cols-3 px-6 overflow-x-scroll my-4 "> */}
+                            {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
+                            <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
+                            <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
+                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
  " />
-                    <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="w-full flex bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
-                    <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="w-full flex bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
+                            <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
+                        </div>
+                    </div>
                 </div>
 
                 <div style={{ scrollbarWidth: 'none' }} className="flex overflow-x-scroll w-full gap-2 py-3">
@@ -52,7 +58,7 @@ const App = () => {
                         <Button
                             text="Top"
                             value="top"
-                            className={`${selectedButton === 'top' ? 'bg-btnColor  focus:text-white' : 'bg-selectBtnBg  border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor dark:text-white flex font-medium  px-2 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-selectBtnBg  `}
+                            className={`${selectedButton === 'top' ? 'bg-btnColor  focus:text-white' : 'bg-selectBtnBg  border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor flex font-medium  px-3 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-selectBtnBg  `}
                             onClick={() => handleButtonClick('top')} icon={<TrendingUp className="" size={24} />}
                         />
                     </div>
@@ -60,14 +66,14 @@ const App = () => {
                         content.filterBtns.all.map((item, index) =>
                             <div className="">
                                 <Button key={index} value={item.value} onClick={() => handleButtonClick(`${item.value}`)}
-                                    text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-btnColor focus:text-white' : 'bg-selectBtnBg border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor dark:text-white font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md `} />
+                                    text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-btnColor focus:text-white' : 'bg-selectBtnBg border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md `} />
 
                             </div>
                         )
                     }
                 </div>
 
-                <div style={{ scrollbarWidth: "none" }} className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 gap-2 ">
+                <div style={{ scrollbarWidth: "none" }} className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-1 gap-4 ">
                     {/* <div style={{ scrollbarWidth: "none" }} className="flex flex-wrap  gap-2 "> */}
                     {eventData
                         // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
@@ -98,7 +104,7 @@ const App = () => {
                     <div className="w-full shadow-md">
                         <div className="flex items-center justify-between">
                             <p className="text-textColor flex items-center py-4 text-2xl font-medium ">Recent Activity</p>
-                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-textColor border-gray-500 hover:bg-gray-200" />
+                            <Button onClick={() => { navigate('/activity') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-textColor border-gray-500 hover:bg-cardHoverBg" />
                         </div>
                         {customers.map(({ eventName, username, laterTime, avatar, toAvatar, position, address, volume, isBet, isSold, price, count }, index) => (
                             <div
@@ -145,7 +151,7 @@ const App = () => {
                     <div className="w-full  shadow-md">
                         <div className="flex items-center justify-between">
                             <p className="text-textColor flex items-center py-4 text-2xl font-medium">Top Volume This Week</p>
-                            <Button onClick={() => { navigate('/rank') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-textColor border-gray-500  hover:bg-gray-200" />
+                            <Button onClick={() => { navigate('/leaderboard') }} text="See all" className="rounded-md items-center px-2 py-1 border font-semibold text-textColor border-gray-500  hover:bg-cardHoverBg" />
                         </div>
                         {customers.map(({ username, laterTime, avatar, position, address, volume }, index) => (
                             <div

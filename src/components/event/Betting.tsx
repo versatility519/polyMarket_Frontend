@@ -33,30 +33,30 @@ const Betting: React.FC<BettingProps> = ({ isOpen, onClose, which, img, text }) 
             <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
             <div className="h-[40px] pt-3 justify-between items-center flex gap-8">
                 <img className=" rounded-md " width={45} src={img} alt="" />
-                <p className="line-clamp-1 cursor-pointer text-gray-700 text-base dark:text-white font-bold " onClick={() => { navigate('/event') }}>
+                <p className="line-clamp-1 cursor-pointer text-base font-bold " onClick={() => { navigate('/event') }}>
                     {text}
                 </p>
                 <div className="items-center">
-                    <CircleX className="cursor-pointer dark:text-white" size={18} onClick={onClose} />
+                    <CircleX className="cursor-pointer " size={18} onClick={onClose} />
                 </div>
             </div>
 
-            <div className="flex h-[80px] items-center gap-2">
-                <div className="flex w-full dark:bg-darkBg border dark:border-none rounded-md items-center py-2 px-1 justify-between gap-2  ">
+            <div className=" flex h-[80px] items-center gap-2">
+                <div className="bg-bgColor border flex w-full rounded-md items-center py-2 px-1 justify-between gap-2  ">
                     <input
-                        className="w-12 items-center dark:bg-darkBg dark:text-white text-center"
+                        className="w-12 bg-bgColor items-center text-center"
                         type="text"
                         value={`$${betPrice}`}
                         onChange={handleInputChange}
                     />
                     <div className="gap-1 items-center flex">
                         <Button text={"+1"}
-                            className="text-sm font-medium text-gray-400 px-2 py-1 bg-gray-200 dark:bg-darkCardBg rounded-md cursor-pointer"
+                            className="text-sm font-medium px-2 py-1 bg-cardBg rounded-md cursor-pointer"
                             onClick={() => setBetPrice(prevNumber => Math.max(prevNumber + 1, 0))}
                         />
 
                         <Button text={"+10"}
-                            className="text-sm font-medium text-gray-400 px-1 py-1  bg-gray-200  dark:bg-darkCardBg rounded-md cursor-pointer"
+                            className="text-sm font-medium px-2 py-1 bg-cardBg rounded-md cursor-pointer"
                             onClick={() => setBetPrice(prevNumber => Math.max(prevNumber + 10, 0))}
                         />
                     </div>

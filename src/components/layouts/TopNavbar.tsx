@@ -15,7 +15,6 @@ import { useSDK } from "@metamask/sdk-react";
 const TopNavbar = () => {
   const { darkTheme, toggleTheme } = useTheme()
 
-
   const [isMarketOpen, setIsMarketOpen] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [selectCategory, setSelectedButton] = React.useState < string > ('');
@@ -88,10 +87,11 @@ const TopNavbar = () => {
             <Logo color="text-fuchsia-900" />
           </div>
 
-          <div className="hover:bg-searchHover lg:visible lg:flex lg:w-full md:w-72 sm:hidden hidden px-4 py-2 gap-2  items-center border focus-within:border-white rounded-lg">
+          <div className="group hover:bg-searchHover lg:visible lg:flex lg:w-full md:w-72 sm:hidden hidden px-4 py-2 gap-2 items-center border focus-within:border-white rounded-lg">
             <SearchIcon className="text-textColor" size={16} />
-            <input type="text" className="w-full bg-bgColor hover:bg-searchHover text-textColor" placeholder="Search markets" />
+            <input type="text" className="w-full h-full bg-bgColor group-hover:bg-searchHover text-textColor" placeholder="Search markets" />
           </div>
+
         </div>
 
         <div className="flex items-center">
@@ -114,12 +114,12 @@ const TopNavbar = () => {
               )}
 
             </div>
-            <Button text="Election" className="px-2 py-1 flex flex-col cursor-pointer  rounded-md items-center text-gray-500 hover:text-selBtnHoverTextColor hover:bg-selBtnHoverColor" onClick={() => { navigate('/elections') }} icon={<Flag className="text-center" size={20} />} />
+            <Button text="Election" className="px-2 py-1 flex flex-col cursor-pointer  rounded-md items-center text-gray-500 hover:text-selBtnHoverTextColor hover:bg-selBtnHoverColor active:bg-red-600" onClick={() => { navigate('/elections') }} icon={<Flag className="text-center" size={20} />} />
             <Button text="Activity" className="px-2 py-1  flex flex-col cursor-pointer rounded-md items-center text-gray-500 hover:text-selBtnHoverTextColor hover:bg-selBtnHoverColor" onClick={() => { navigate('/activity') }} icon={<Activity className="text-center" size={18} />} />
             <Button text="Ranks" className="px-3 py-1 flex flex-col cursor-pointer rounded-md items-center text-gray-500  hover:text-selBtnHoverTextColor hover:bg-selBtnHoverColor" onClick={() => { navigate('/leaderboard') }} icon={<Trophy className="text-center" size={20} />} />
           </div>
 
-          <div className="w-full px-5">
+          <div className=" w-full px-5">
             {isLoggedIn ?
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -147,7 +147,7 @@ const TopNavbar = () => {
                   </Button>
 
                   {isMenuOpen && (
-                    <div className="bg-bgColor text-textColor absolute right-0 inline-block w-[220px] border px-2 items-center pt-4 pb-2 mt-1   rounded-md shadow-lg">
+                    <div className=" bg-bgColor text-textColor absolute right-0 inline-block w-[220px] border px-2 items-center pt-4 pb-2 mt-1   rounded-md shadow-lg">
                       <div>
                         {userrole === "admin" ? (
                           <>
@@ -171,19 +171,27 @@ const TopNavbar = () => {
                         )}
                         <Button onClick={() => navigate("/learn")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center select-none text-nowrap" text="Learn" />
                         <Button onClick={() => navigate("/docs")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center select-none text-nowrap" text="Documentation" />
-                        <div className="flex p-2  font-medium  items-center">
-                          <p onClick={toggleTheme} color="blue-gray" className="font-medium cursor-pointer text-nowrap select-none text-sm">
-                            Dark {darkTheme ? 'Light' : 'Dark'} Mode
+                        <div className="flex p-2 cursor-pointer font-medium  items-center justify-between hover:bg-selBtnHoverColor" onClick={toggleTheme} >
+                          <p color="blue-gray" className=" text-base font-medium cursor-pointer text-nowrap select-none">
+                            Dark Mode
                           </p>
+                          <div className="relative">
+                            <input type="checkbox" onClick={toggleTheme} checked={darkTheme} className="sr-only" />
+                            <div
+                              className={`box block h-6 w-10 rounded-full bg-darkMode `} />
+                            <div
+                              className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${darkTheme ? 'translate-x-full' : ''}`} />
+                          </div>
+
                         </div><hr />
-                        <Button onClick={() => handleLogout()} className="w-full font-medium cursor-pointer border-none flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Logout" />
+                        <Button onClick={() => handleLogout()} className="w-full font-medium cursor-pointer border-none flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Log Out" />
                       </div>
                     </div>
                   )}
                 </div >
               </div >
               :
-              <div className="flex gap-1 items-center">
+              <div className="  flex gap-1 items-center">
                 <Button onClick={handleInClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-selBtnHoverColor items-centers flex tems-centertext-base text-btnColor text-nowrap" text="Log In" />
                 <Button onClick={handleUpClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-btnHoverColor items-centers text-base bg-btnColor text-nowrap text-white" text="Sign Up" />
 
@@ -193,7 +201,7 @@ const TopNavbar = () => {
                   <Button icon={<AlignJustify />} className=" p-2 rounded-md items-center text-textColor mt-1 hover:bg-selBtnHoverColor" onClick={() => { }} />
 
                   {isMenuOpen && (
-                    <div className="bg-bgColor text-textColor absolute right-0 inline-block w-[180px] border px-2 items-center pt-4 pb-2 rounded-md shadow-lg">
+                    <div className=" bg-bgColor text-textColor absolute right-0 inline-block w-[180px] border px-2 items-center pt-4 pb-2 rounded-md shadow-lg">
 
                       <Button onClick={handleInClick} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Log In" />
                       <Button onClick={handleUpClick} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Sign Up" />
@@ -202,10 +210,18 @@ const TopNavbar = () => {
                       <Button onClick={() => navigate("/rewards")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Rewards" />
                       <Button onClick={() => navigate("/learn")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Learn" />
                       <Button onClick={() => navigate("/docs")} className="w-full font-medium cursor-pointer flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Documentation" />
-                      <div className="flex items-center">
-                        <div className="font'-medium cursor-pointer text-nowrap text-sm">
+                      <div className="flex p-2 cursor-pointer font-medium  items-center justify-between hover:bg-selBtnHoverColor" onClick={toggleTheme} >
+                        <p color="blue-gray" className=" text-base font-medium cursor-pointer text-nowrap select-none">
                           Dark Mode
+                        </p>
+                        <div className="relative">
+                          <input type="checkbox" onClick={toggleTheme} checked={darkTheme} className="sr-only" />
+                          <div
+                            className={`box block h-6 w-10 rounded-full bg-darkMode `} />
+                          <div
+                            className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${darkTheme ? 'translate-x-full' : ''}`} />
                         </div>
+
                       </div>
                     </div>
                   )}
@@ -225,7 +241,7 @@ const TopNavbar = () => {
           content.menuBtns.map((item, index) =>
             <div key={index} className=" ">
               <Button text={item.text} value={item.value} onClick={() => handleCategory(`${item.value}`)}
-                className={`${selectCategory === `${item.value}` ? 'border-b-2 border-black' : ''} rounded-none font-normal cursor-pointer p-2 text-textColor text-nowrap`}
+                className={`${selectCategory === `${item.value}` ? 'border-b-2 ' : ' '} hover:border-b-2 font-normal text-textColor hover:text-selBtnHoverTextColor cursor-pointer p-2 text-nowrap`}
               />
             </div>
           )
