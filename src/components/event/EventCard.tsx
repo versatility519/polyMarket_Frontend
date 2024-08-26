@@ -53,20 +53,20 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
 
     return (
         <>
-            <div className="bg-cardBg text-textColor h-[180px] overflow-hidden rounded-md shadow-[0_2px_12px_1px_rgba(0,0,0,0.1)] px-2  hover:shadow-md ">
+            <div className="bg-cardBg hover:bg-cardHoverBg text-textColor h-[180px] overflow-hidden rounded-md shadow-[0_2px_12px_1px_rgba(0,0,0,0.1)] px-2  hover:shadow-md">
                 <Betting isOpen={isModalOpen} onClose={closeModal} which={which} img={img} text={eventName} />
-                <div className="-z-10 px-1 py-2">
+                <div className="px-1 py-2">
                     <div className="flex px-2 justify-between items-center">
                         <div className="flex gap-4 ">
                             <img className="w-[50px] h-[50px] rounded-md" src={img} alt="evetnImage" />
                             {/* <p className="line-clamp-2 cursor-pointer text-gray-700 text-sm font-bold " onClick={() => { navigate(`/event`) }}> */}
-                            <p className="line-clamp-2 cursor-pointer  text-sm font-bold " onClick={() => { navigate(`/event/${eventName}?tid=${tid}`) }}>
+                            <p className="line-clamp-2 cursor-pointer  text-sm font-bold hover:underline " onClick={() => { navigate(`/event/${eventName}?tid=${tid}`) }}>
                                 {eventName}
                             </p>
                         </div>
                         <div className=" flex flex-col cursor-default text-center ">
-                            <SemiCircleProgressBar percentage={43} strokeWidth={5} showPercentValue diameter={70} stroke={getStrokeColor(34)} />
-                            <p className="text-sm dark:text-gray-300 text-gray-600">Chance</p>
+                            <SemiCircleProgressBar  percentage={43} strokeWidth={5} showPercentValue diameter={70} stroke={getStrokeColor(34)} />
+                            <p className="text-sm">Chance</p>
                         </div>
                     </div>
                     {state == 1

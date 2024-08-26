@@ -8,11 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
+        darkMode: `var(--darkMode)`,
         bgColor: `var(--bgColor)`,
         textColor: `var(--textColor)`,
         textWhiteColor: `var(--textWhiteColor)`,
         textRvWhiteColor: `var(--textRvWhiteColor)`,
         cardBg: `var(--cardBg)`,
+        cardHoverBg: `var(--cardHoverBg)`,
         selectBtnBg: `var(--selectBtnBg)`,
         selectBlackBtnBg: `var(--selectBlackBtnBg)`,
         yesBg: `var(--yesBg)`,
@@ -21,24 +23,17 @@ export default {
         noBg: `var(--noBg)`,
         noHoverBg: `var(--noHoverBg)`,
         noBtnText: `var(--noBtnText)`,
-        
+
         btnColor: `var(--btnColor)`,
-        btnHoverColor:`var(--btnHoverColor)`,
-        selBtnHoverColor:`var(--selBtnHoverColor)`,
-        selBtnHoverTextColor:`var(--selBtnHoverTextColor)`,
+        btnHoverColor: `var(--btnHoverColor)`,
+        selBtnHoverColor: `var(--selBtnHoverColor)`,
+        selBtnHoverTextColor: `var(--selBtnHoverTextColor)`,
 
         searchHover: `var(--searchHover)`,
 
-
-        footerBg:`var(--footerBg)`
+        footerBg: `var(--footerBg)`
+        
       },
-      //   colors: {
-      //     darkBg: "#1f2a3b",
-      //     darkCardBg:'#2f3f4f',
-      //     darkYesBg:'#335554',
-      //     darkNoBg:'#524350',
-      //     darkBtn:'#2d9cdb',
-      //   }
     },
   },
   plugins: [],
