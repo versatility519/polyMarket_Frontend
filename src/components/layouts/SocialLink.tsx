@@ -8,7 +8,7 @@ interface SocialLinkProps {
 const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
     const { darkTheme, toggleTheme } = useTheme();
     return (
-        <div className="flex gap-4 text-textColor items-center">
+        <div className="flex flex-row gap-4 text-textColor items-center">
             <div className={`${border ? 'flex items-center border rounded-full h-14 w-14 justify-center' : ''} hover:bg-gray-600 cursor-pointer`}>
                 <span className={`[&>svg]:h-8 [&>svg]:w-8">`}>
                     <svg

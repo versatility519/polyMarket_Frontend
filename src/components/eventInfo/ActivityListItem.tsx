@@ -37,7 +37,7 @@ const ActivityListItem: React.FC = () => {
 
                                 <div className="text-sm items-center flex  gap-1">
                                     <Tooltip
-                                        className="bg-white dark:bg-darkBg border text-black z-50 rounded-lg"
+                                        className="border text-black z-50 rounded-lg"
                                         content={<UserProperty avatar={avatar} username={username} address={address} position={position} volume={volume} />}
                                     >
                                         <p className="text-textWhiteColor text-base font-semibold cursor-pointer" onClick={() => navigate('/profile')}> {username}</p>

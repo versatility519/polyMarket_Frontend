@@ -198,7 +198,7 @@ const TopNavbar = () => {
                 <div className="relative"
                   onMouseEnter={toggleMenu}
                   onMouseLeave={toggleMenu}>
-                  <Button icon={<AlignJustify />} className=" p-2 rounded-md items-center text-textColor mt-1 hover:bg-selBtnHoverColor" onClick={() => { }} />
+                  <Button icon={<AlignJustify />} className="lg:flex md:hidden hidden p-2 rounded-md items-center text-textColor mt-1 hover:bg-selBtnHoverColor" onClick={() => { }} />
 
                   {isMenuOpen && (
                     <div className=" bg-bgColor text-textColor absolute right-0 inline-block w-[180px] border px-2 items-center pt-4 pb-2 rounded-md shadow-lg">

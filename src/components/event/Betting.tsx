@@ -51,12 +51,12 @@ const Betting: React.FC<BettingProps> = ({ isOpen, onClose, which, img, text }) 
                     />
                     <div className="gap-1 items-center flex">
                         <Button text={"+1"}
-                            className="text-sm font-medium px-2 py-1 bg-cardBg rounded-md cursor-pointer"
+                            className="text-sm font-medium px-2 py-1 bg-selectBtnBg rounded-md cursor-pointer"
                             onClick={() => setBetPrice(prevNumber => Math.max(prevNumber + 1, 0))}
                         />
 
                         <Button text={"+10"}
-                            className="text-sm font-medium px-2 py-1 bg-cardBg rounded-md cursor-pointer"
+                            className="text-sm font-medium px-2 py-1 bg-selectBtnBg rounded-md cursor-pointer"
                             onClick={() => setBetPrice(prevNumber => Math.max(prevNumber + 10, 0))}
                         />
                     </div>

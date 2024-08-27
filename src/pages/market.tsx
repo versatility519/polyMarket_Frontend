@@ -68,21 +68,17 @@ const Markets = () => {
             <div className="dark:bg-darkBg mt-36">
                 <div className="px-4">
                     <div style={{ scrollbarWidth: 'none' }} className="overflow-x-auto ">
-                        {/* <div style={{ scrollbarWidth: 'none' }} className="gap-4 my-4  flex   overflow-x-auto justify-center px-4"> */}
-                        {/* <div className="justify-between flex "> */}
-                        <div className="flex space-x-4 lg:space-x-3 md:space-x-4">
-                            {/* <div style={{ scrollbarWidth: 'none' }} className="  grid-cols-4 md:grid-cols-3 px-6 overflow-x-scroll my-4 "> */}
-                            {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
-                            <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
-                            <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
-                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
+                        <div className="flex space-x-4 justify-between  ">
+                            <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="flex-none bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
+                            <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="flex-none bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
+                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
  " />
-                            <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
+                            <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="flex-none bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
                         </div>
                     </div>
                 </div>
                 {/* SubBar */}
-                <div className="z-20 sticky top-[134px] pt-3 bg-bgColor text-textColor mb-4 drop-shadow-sm">
+                <div className="z-20 sticky top-[132px] pt-3 bg-bgColor text-textColor mb-4 drop-shadow-sm">
                     <div className="lg:flex sm:grid-cols-2 grid-cols-2 grid w-full lg:items-center px-3 gap-2">
                         <div className="hover:bg-searchHover lg:order-1 sm:order-3 order-3 p-2 border justify-center items-center gap-2 rounded-md flex cursor-pointer" onClick={() => { }}>
                             <ListFilter size={24} />
@@ -134,7 +130,7 @@ const Markets = () => {
                             <Button
                                 text="Top"
                                 value="top"
-                                className={`${selectedButton === 'top' ? 'bg-btnColor  focus:text-white' : 'bg-selectBtnBg  border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor flex font-medium  px-3 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-selectBtnBg  `}
+                                className={`${selectedButton === 'top' ? 'bg-btnColor  text-white focus:text-white' : 'bg-selectBtnBg  border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor flex font-medium  px-3 py-1.5 text-nowrap  justify-center items-center text-center  gap-2 rounded-md border-selectBtnBg  `}
                                 onClick={() => handleButtonClick('top')} icon={<TrendingUp className="" size={24} />}
                             />
                         </div>
@@ -142,7 +138,7 @@ const Markets = () => {
                             content.filterBtns.all.map((item, index) =>
                                 <div className="">
                                     <Button key={index} value={item.value} onClick={() => handleButtonClick(`${item.value}`)}
-                                        text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-btnColor focus:text-white' : 'bg-selectBtnBg border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md `} />
+                                        text={item.text} className={`${selectedButton === `${item.value}` ? 'bg-btnColor text-white focus:text-white' : 'bg-selectBtnBg border-selectBtnBg'} border  text-textColor hover:border-btnHoverColor font-medium px-2 py-1.5  text-nowrap  justify-center items-center text-center  rounded-md `} />
 
                                 </div>
                             )
