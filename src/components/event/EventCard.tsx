@@ -77,14 +77,14 @@ const EventCard: React.FC<EventCardProps> = ({ tid, img, eventName, volume, stat
                                     text="Bet Yes"
                                     icon={<ChevronsUp />}
                                     onClick={handleYesBettng}
-                                    className="w-full text-md rounded-md p-2 justify-center flex items-center text-sm bg-yesBg hover:bg-yesHoverBg text-yesBtnText hover:text-white"
+                                    className=" w-full text-md rounded-md p-2 justify-center flex items-center text-sm bg-yesBg hover:bg-yesHoverBg text-yesBtnText hover:text-white"
                                 />
 
                                 <Button
                                     text="Bet No"
                                     icon={<ChevronsDown />}
                                     onClick={handleNoBettng}
-                                    className="w-full text-md rounded-md p-2 justify-center flex items-center text-sm bg-noBg hover:bg-noHoverBg text-noBtnText hover:text-white" />
+                                    className=" w-full text-md rounded-md p-2 justify-center flex items-center text-sm bg-noBg hover:bg-noHoverBg text-noBtnText hover:text-white" />
                             </div>
                         </div>
                         :

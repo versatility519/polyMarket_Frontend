@@ -36,23 +36,18 @@ const App = () => {
     return (
         <div className="h-screen overflow-hidden-scrollbar overflow-y-auto bg-bgColor">
             <TopNavbar />
-            <div className="dark:bg-dark xl:px-48 mt-36 sm:px-2 justify-center overscroll-auto">
-                <div className="">
+            <div className="dark:bg-dark xl:px-48 mt-36 sm:px-2 px-2 justify-center overscroll-auto">
+                <div className="  ">
                     <div style={{ scrollbarWidth: 'none' }} className="overflow-x-auto ">
-                        {/* <div style={{ scrollbarWidth: 'none' }} className="gap-4 my-4  flex   overflow-x-auto justify-center px-4"> */}
-                        {/* <div className="justify-between flex "> */}
-                        <div className="flex space-x-4 lg:space-x-2 md:space-x-4">
-                            {/* <div style={{ scrollbarWidth: 'none' }} className="  grid-cols-4 md:grid-cols-3 px-6 overflow-x-scroll my-4 "> */}
-                            {/* <div className=" flex  overflow-x-scroll gap-3 px-4"> */}
-                            <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
-                            <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
-                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
+                        <div className="flex space-x-4 justify-between">
+                            <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="flex-none  bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
+                            <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="flex-none  bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
+                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none  bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
  " />
-                            <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="flex-none lg:w-1/4 md:w-1/3 sm:w-full bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
+                            <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="flex-none  bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
                         </div>
                     </div>
                 </div>
-
                 <div style={{ scrollbarWidth: 'none' }} className="flex overflow-x-scroll w-full gap-2 py-3">
                     <div className=" ">
                         <Button
