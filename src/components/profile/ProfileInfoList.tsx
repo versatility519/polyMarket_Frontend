@@ -24,14 +24,14 @@ export default function ProfileInfoList() {
     ];
     return (
         <div className="w-full">
-            <div className="flex ">
+            <div className="flex gap-4">
                 {data.map((item, index) => (
                     <Button
                         key={index}
                         text={item.label}
                         value={item.value}
                         onClick={() => { handleTabs(item.value); }}
-                        className={`${selectPanel === `${item.value}` ? 'border-b-2 border-black' : 'border-b-2 border-gray-300'}  flex flex-col  font-medium cursor-pointer p-2  hover:border-b-gray-500  text-black text-nowrap`}
+                        className={`${selectPanel === `${item.value}` ? 'border-b-2 border-textWhiteColor text-textWhiteColor ' : 'border-b-2 border-gray-500 text-gray-500'}   flex flex-col  font-medium cursor-pointer py-2  hover:border-b-gray-500   text-nowrap`}
                     />
                 ))}
                

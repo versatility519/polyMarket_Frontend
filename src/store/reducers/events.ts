@@ -23,12 +23,12 @@ const events = createSlice({
         addEventData(state, action) {
             state.events.push(action.payload)
         },
- 
+
         getEventInfo(state, action) {
             state.event = action.payload
         },
         delEvent(state, action) {
-            state.events = state.events.filter(event => event._id !== action.payload);
+            state.events = state.events.filter(event => event.id !== action.payload);
         }
     }
 })

@@ -1,13 +1,19 @@
 import React from "react";
+
+import { dispatch, useSelector } from "../../store";
+import { getUserData } from "../../store/reducers/userInfo";
 import useAuth from "../../hooks/useAuth";
 import SignInModal from "../SignInModal";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import { AlignJustify, Grid3X3, House, Radio, Search, X } from "lucide-react";
+import { AlignJustify, Grid3X3, House, Radio, Search, Settings, X } from "lucide-react";
 import SocialLink from "./SocialLink";
 
 const MobileFooter = () => {
     const navigate = useNavigate();
+    const username = useSelector((state) => state.userInfo.user.username)
+    const email = useSelector((state) => state.userInfo.user.email)
+
     const [isHidden, setIsHidden] = React.useState(false);
     const [prevScrollPos, setPrevScrollPos] = React.useState(0);
     const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
@@ -39,7 +45,11 @@ const MobileFooter = () => {
     };
 
     React.useEffect(() => {
-        // Add event listener for mouse down events
+        dispatch(getUserData())
+    }, [])
+
+    React.useEffect(() => {
+        // Add event listener for mouse down events 
         document.addEventListener('mousedown', handleClickOutside);
 
         // Cleanup function to remove the event listener
@@ -59,17 +69,29 @@ const MobileFooter = () => {
     }, [prevScrollPos]);
 
     return (
-        <div className={`fixed z-50 bottom-0 left-0 lg:hidden sm:w-full w-full border-t bg-bgColor text-gray-500 px-12 py-3 transition-transform duration-300 ${isHidden ? 'transform translate-y-full' : ''}`}>
+        <div className={`fixed z-50 bottom-0 left-0 lg:hidden sm:w-full w-full border-t bg-bgColor text-gray-500 justify-center  py-3 transition-transform duration-300 ${isHidden ? 'transform translate-y-full' : ''}`}>
             {/* Sidebar */}
             <SignInModal isOpen={inOpen} onClose={handleInClick} title="Sign In" />
             <SignInModal isOpen={upOpen} onClose={handleUpClick} title="Sign Up" />
 
-            <div className={`fixed top-0 left-0 h-full  bg-cardBg text-textColor transition-all duration-300 ${isSidebarOpen ? 'w-[80vw]' : 'w-0 overflow-x-hidden'}`} ref={ref}>
-                <div className="mx-8 mt-4" >
+            <div className={`fixed top-0 left-0 h-full bg-cardBg text-textColor transition-all duration-300 ${isSidebarOpen ? 'w-[80vw]' : 'w-0 overflow-x-hidden'}`} ref={ref}>
+                <div className="px-4 mt-4" >
                     {isLoggedIn &&
                         <div>
-                            <Button text="Profile" onClick={() => navigate(`/activity`)} className="flex font-medium text-xl p-1  items-center" />
-                            <Button text="Add fonds" onClick={() => navigate(`/activity`)} className="flex font-medium text-xl p-1  items-center" />
+                            <div className="flex items-center justify-between">
+                                <div className="flex w-full items-center gap-2 px-2 py-2 ">
+                                    <img width={48} className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
+                                    <div className=" ">
+                                        <p className="" onClick={() => { navigate('/profile') }}>{username}</p>
+                                        <p className="">{email}</p>
+                                    </div>
+                                </div>
+                                <div className="border p-2 rounded-full">
+                                    <Settings className="text-textColor" onClick={() => { navigate('/setting') }} />
+                                </div>
+                            </div>
+                            <Button text="Profile" onClick={() => navigate(`/profile`)} className="flex font-medium text-xl p-1  items-center" />
+                            <Button text="Add funds" onClick={() => { }} className="flex font-medium text-xl p-1  items-center" />
                         </div>
                     }
                     <Button text="Election" onClick={() => navigate(`/elections`)} className="flex font-medium text-xl p-1  items-center" />
@@ -78,7 +100,7 @@ const MobileFooter = () => {
                     <Button text="Resources" onClick={() => navigate(`/`)} className="flex font-medium text-xl p-1  items-center" />
                     <Button text="Rewards" onClick={() => navigate(`/`)} className="flex font-medium text-xl p-1  items-center" />
 
-                    <div className="flex py-4">
+                    <div className="flex w-full py-4">
                         <SocialLink border={true} />
                     </div>
                 </div>
@@ -96,7 +118,7 @@ const MobileFooter = () => {
 
             </div>
             {/* Main Footer Buttons */}
-            <div className="flex justify-between">
+            <div className="flex justify-around w-f">
                 <Button icon={<House size={18} />} text="Home" onClick={() => navigate(`/`)} className="flex flex-col p-1  hover:text-textWhiteColor items-center text-gray-500" />
                 <Button icon={<Grid3X3 size={18} />} text="Markets" onClick={() => navigate(`/markets`)} className="flex flex-col p-1 hover:text-textWhiteColor  items-center text-gray-500" />
                 <Button icon={<Search size={18} />} text="Search" onClick={() => navigate(`/`)} className="flex flex-col p-1 hover:text-textWhiteColor  items-center text-gray-500" />

@@ -4,7 +4,7 @@ export const customers = [
         eventName: "Confirmed case of monkeypox in US by Aug 31?",
         username: "Stefan",
         price: 420,
-        laterTime: 4342,
+        laterTime: 3,
         isBet: false,
         isSold: false,
         count: 235,
@@ -18,12 +18,12 @@ export const customers = [
         totalPrice:90,
         avgPrice:90,
         curPrice:89,
-        rate:400
+        rate:20
     },
     {
         eventName: "Monkeypox lab leak confirmed by US in 2024?",
-        username: "Alexa Liras",
-        laterTime: 235235,
+        username: "Alexa",
+        laterTime: 1,
         price: 340,
         isBet: true,
         isSold: false,
@@ -42,8 +42,8 @@ export const customers = [
     },
     {
         eventName: "Georgia Presidential Election Winner",
-        username: "Richard Gran",
-        laterTime: 231,
+        username: "Richard",
+        laterTime: 5,
         price: 520,
         isBet: false,
         isSold: true,
@@ -62,8 +62,8 @@ export const customers = [
     },
     {
         eventName: "Will the Jaguars win Super Bowl 2025?",
-        username: "Micheal Levi",
-        laterTime: 9502,
+        username: "Tony",
+        laterTime: 1,
         price: 780,
         isBet: true,
         isSold: false,

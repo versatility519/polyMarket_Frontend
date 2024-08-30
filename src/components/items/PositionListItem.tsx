@@ -13,85 +13,79 @@ const PositionListItem: React.FC = () => {
   return (
     <div className="flex w-full overflow-x-auto">
 
-      <table className="w-full ">
+      <div className="w-full">
 
-        <tr className="uppercase justify-between text-gray-300 px-2 lg:flex hidden ">
-          <th className="  w-7/12 ">Market</th>
-          <th className="   ">Avg</th>
-          <th className="  ">Current</th>
-          <th className=" ">Value</th>
-        </tr>
+        <div className="uppercase text-sm  text-gray-500 py-1 lg:flex hidden ">
+          <p className=" w-8/12">Market</p>
+          <p className=" w-1/12">Avg</p>
+          <p className=" w-2/12">Current</p>
+          <p className="   ">Value</p>
+        </div>
         {customers.map(({ avatar, eventName, isBet, avgPrice, curPrice, totalPrice, rate }, index) => (
 
           <div className=" ">
-            <tr key={index} className="md:hidden hidden lg:flex w-full px-2 py-2 items-center justify-between">
-              <td className="w-7/12">
-                <div className="flex gap-2 items-center">
-                  <img width={48} className="rounded-md" src={avatar} alt="avatar" />
+            <div key={index} className=" md:hidden hidden lg:flex w-full py-2 items-center">
+              <div className=" flex gap-2 items-center w-8/12">
+                <img width={48} className="rounded-md" src={avatar} alt="avatar" />
 
-                  <div className=" ">
-                    <p className="text-base text-nowrap  cursor-pointer font-normal">
-                      {eventName}
-                    </p>
-                    <div className="flex text-nowrap items-center gap-1">
-                      {isBet ? (
-                        <p className="text-green-600 bg-green-200 text-sm font-semibold w-6 text-center rounded-md">Yes</p>
-                      ) : (
-                        <p className="text-red-600 bg-gray-200 text-sm font-semibold w-6 text-center rounded-md">No</p>
-                      )}
-                      {33} shares
-                    </div>
-                  </div>
-                  {/* <Content avatar={avatar} eventName={eventName} isBet={isBet} value={33} /> */}
-                </div>
-              </td>
-              <td className=" lg:flex hidden">
-                <p className="font-normal text-nowrap">{avgPrice} $</p>
-              </td>
-              <td className=" lg:flex hidden">
-                <p className="font-normal text-nowrap">{curPrice} $</p>
-              </td>
-              <td className=" text-end">
-                <div className="flex items-center gap-2">
-                  <div className="text-end font-normal">
-                    <p>${totalPrice}</p>
-                    <p className="text-nowrap font-normal text-green-600">{rate} (686.59%)</p>
-                  </div>
-                  <div className="items-end lg:flex hidden">
-                    <Tooltip content="Share">
-                      <Upload size={20} onClick={() => alert('Share button clicked!')} />
-                    </Tooltip>
+                <div className=" ">
+                  <p className="text-base text-nowrap text-textWhiteColor  cursor-pointer font-normal">
+                    {eventName}
+                  </p>
+                  <div className="flex text-nowrap items-center gap-2">
+                    {isBet ? (
+                      <p className="bg-yesBg text-yesBtnText  text-center text-sm w-6 font-semibold rounded-md">Yes</p>
+                    ) : (
+                      <p className=" bg-noBg text-noBtnText text-center  text-sm w-6 font-semibold rounded-md">No</p>
+                    )}
+                    <p className="text-gray-400">{33} shares</p>
                   </div>
                 </div>
-              </td>
-            </tr>
+                {/* <Content avatar={avatar} eventName={eventName} isBet={isBet} value={33} /> */}
+              </div>
+              <div className=" w-1/12 lg:flex hidden">
+                <p className="font-normal text-nowrap text-textWhiteColor">{avgPrice} $</p>
+              </div>
+              <div className=" w-1/12 lg:flex hidden">
+                <p className="font-normal text-nowrap text-textWhiteColor">{curPrice} $</p>
+              </div>
+              <div className="flex text-end items-center gap-4">
+                <div className="font-normal">
+                  <p className="text-textWhiteColor">${totalPrice}</p>
+                  <p className="text-nowrap font-normal text-green-600">{rate} (686.59%)</p>
+                </div>
+                <div className="items-end lg:flex hidden  rounded-md hover:bg-cardBg p-1">
+                  <Tooltip content="Share">
+                    <Upload size={20} className="text-textWhiteColor cursor-pointer" onClick={() => alert('Share button clicked!')} />
+                  </Tooltip>
+                </div>
+              </div>
+            </div>
 
-            <div key={index} className="lg:hidden sm:flex flex-col  w-full px-2 py-2 items-center justify-between">
-
+            <div key={index} className="lg:hidden sm:flex flex-col gap-2 w-full py-1 items-center justify-between">
               <div className="flex w-full gap-2 tems-center">
                 <img width={48} className="rounded-md" src={avatar} alt="avatar" />
-                <p className="text-base cursor-pointer font-normal">
+                <p className="text-base cursor-pointer text-textWhiteColor font-normal">
                   {eventName}
                 </p>
               </div>
               <div className="w-full flex justify-between items-center">
                 <div className=" text-nowrap items-center">
                   {isBet ? (
-                    <p className="text-green-600 bg-green-200 w-8  text-sm font-semibold text-center rounded-md">Yes</p>
+                    <p className="bg-yesBg text-yesBtnText text-center text-sm w-6 font-semibold rounded-md">Yes</p>
                   ) : (
-                    <p className="text-red-600 bg-gray-200 w-8 text-sm font-semibold text-center rounded-md">No</p>
+                    <p className=" bg-noBg text-noBtnText text-center  text-sm w-6 font-semibold rounded-md">No</p>
                   )}
 
-                  <div onClick={toggleVisibility} className={`flex w-28 text-nowrap text-sm   items-center px-2  bg-white  text-black  rounded-full cursor-pointer`}>
-                    <p> {33} shares</p>
-                    {isVisible ? <ChevronUp size={16} /> : <ChevronDown size={12} />}
+                  <div onClick={toggleVisibility} className={`flex gap-1 w-28 text-nowrap text-sm items-center bg-bgColor text-gray-400  rounded-full cursor-pointer`}>
+                    <p className=" "> {2} shares</p>
+                    {isVisible ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </div>
                 </div>
 
-
                 <div className="flex items-center gap-2">
                   <div className="text-end font-normal">
-                    <p>${totalPrice}</p>
+                    <p className="text-textColor">${totalPrice}</p>
                     <p className="text-nowrap font-normal text-green-600">{rate} (686.59%)</p>
                   </div>
                   <div className="items-end lg:flex hidden">
@@ -100,22 +94,21 @@ const PositionListItem: React.FC = () => {
                     </Tooltip>
                   </div>
                 </div>
-
               </div>
-              <div className={`${!isVisible ? 'hidden' : ''}  w-full px-4 py-2 `}>
 
-                <div className="flex items-center justify-between ">
-                  <div className="gap-3 flex" >
-                    <div className="  text-center text-sm">
+              <div className={`${!isVisible ? 'hidden' : ''} bg-cardBg rounded-md  w-full px-4 py-2 `}>
+                <div className="flex  items-center justify-between ">
+                  <div className="flex gap-2" >
+                    <div className=" text-sm ">
                       <p className="text-gray-400">Avg</p>
-                      <p className="font-normal text-nowrap">{avgPrice} $</p>
+                      <p className="font-normal text-textWhiteColor text-nowrap">{avgPrice} $</p>
                     </div>
                     <div className="text-sm">
                       <p className="text-gray-400">Current</p>
-                      <p className="font-normal text-nowrap">{curPrice} $</p>
+                      <p className="font-normal text-textWhiteColor text-nowrap">{curPrice} $</p>
                     </div>
                   </div>
-                  <Button text="Trade" className="bg-black text-white rounded-md w-16 text-center" />
+                  <Button text="Trade" className="bg-black text-white hover:bg-btnHoverColor rounded-md px-4 py-2 w-16 text-center" />
                 </div>
               </div>
             </div>
@@ -124,7 +117,7 @@ const PositionListItem: React.FC = () => {
 
         ))
         }
-      </table >
+      </div >
     </div >
   );
 };

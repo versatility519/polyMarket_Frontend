@@ -33,25 +33,40 @@ export interface MyPropertyProps {
     icon: ReactNode,
     value: number,
 }
-
-export interface MarketProps {
-    marketDesc?: string
-    marketName: string,
-    url?: string,
-    img_url?: string,
-}
 export interface EventProps {
-    _id?: number;
-    category?: string,
-    eventName?: string | undefined,
-    avatar?: string,
-    desc?: string,
+    id?: number,
+    tid?: number,
+    slug?: string,
+    title?: string,
+    description?: string,
     volume?: number,
-    url?: string,
+    image?: string,
+    active?: boolean,
+    closed?: boolean,
+    new?: boolean | undefined,
+    liquidity?: number,
+    commentCount?: number,
     startDate?: Date | undefined,
     endDate?: Date | undefined,
-    markets?: MarketProps[],
+    market: MarketProps[],
 }
+
+export interface MarketProps {
+    image: string | undefined;
+    id?: number,
+    question?: string | undefined,
+    endDate?: Date | undefined,
+    active?: boolean,
+    closed?: boolean,
+    new?: boolean,
+    description?: string
+    groupItemTitle?: string
+    volume?: number,
+    outcome?: string[],
+    outcomePrice?: number[],
+}
+
+
 // Auth types
 export interface UserProfileProps {
     id?: number,

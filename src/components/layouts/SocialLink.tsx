@@ -8,9 +8,9 @@ interface SocialLinkProps {
 const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
     const { darkTheme, toggleTheme } = useTheme();
     return (
-        <div className="flex flex-row gap-4 text-textColor items-center">
+        <div className="flex w-full flex-row gap-2 text-textColor items-center">
             <div className={`${border ? 'flex items-center border rounded-full h-14 w-14 justify-center' : ''} hover:bg-gray-600 cursor-pointer`}>
-                <span className={`[&>svg]:h-8 [&>svg]:w-8">`}>
+                <span className={`[&>svg]:h-6 [&>svg]:w-6">`}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
@@ -21,7 +21,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
                 </span>
             </div>
             <div className={`${border ? 'flex items-center border rounded-full h-14 w-14 justify-center' : ''}  hover:bg-gray-600 cursor-pointer`}>
-                <span className={`[&>svg]:h-8 [&>svg]:w-8">`}>
+                <span className={`[&>svg]:h-6 [&>svg]:w-6">`}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
@@ -32,7 +32,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
                 </span>
             </div>
             <div className={`${border ? 'flex items-center border rounded-full h-14 w-14 justify-center' : ''}  hover:bg-gray-600 cursor-pointer`}>
-                <span className={`[&>svg]:h-8 [&>svg]:w-8">`}>
+                <span className={`[&>svg]:h-6 [&>svg]:w-6">`}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
@@ -43,7 +43,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
                 </span>
             </div>
             <div className={`${border ? 'flex items-center border rounded-full h-14 w-14 justify-center' : ''}  hover:bg-gray-600 cursor-pointer`}>
-                <span className={`[&>svg]:h-8 [&>svg]:w-8">`}>
+                <span className={`[&>svg]:h-6 [&>svg]:w-6">`}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
@@ -56,9 +56,9 @@ const SocialLink: React.FC<SocialLinkProps> = ({ border }) => {
             {border &&
                 <div onClick={toggleTheme} className="flex border rounded-full h-14 w-14 justify-center items-center">
                     {darkTheme ?
-                        <Sun size={32} className=""/>
+                        <Sun size={28} className=""/>
                         :
-                        <Moon size={34}  />
+                        <Moon size={28}  />
                     }
                 </div>
             }
