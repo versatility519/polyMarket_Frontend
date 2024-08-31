@@ -9,12 +9,12 @@ export interface BtnProps {
     onMouseLeave?: () => void,
     onMouseEnter?: () => void,
     className?: string,
-    children?:React.ReactNode
+    children?: React.ReactNode
 }
 
 export interface YesNoProps {
     text?: string,
-    price: string,
+    price?: string,
     icon?: ReactNode,
     onClick?: () => void,
     className?: string,

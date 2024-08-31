@@ -7,17 +7,5 @@ export interface RankItemProps {
 }
 
 export interface ActivityListItemProps {
-    avatar: string,
-    toAvatar: string,
-    isBet: boolean,
-    isSold: boolean,
-    eventName: string,
-    onClick: () => void,
-    price: number,
-    laterTime: number,
-    count?: number,
-    username: string,
-    position: number,
-    volume: number,
-    address: string,
+    text?:string,
 }

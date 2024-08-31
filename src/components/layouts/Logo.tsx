@@ -1,15 +1,15 @@
 
-import logo from "../../assets/logo.png" 
-interface ColorProps{
-    color?:string
+import logo from "../../assets/logo.png"
+interface ColorProps {
+    color?: string
 }
 
-const Logo:React.FC<ColorProps> = ({color}) => {
- 
+const Logo: React.FC<ColorProps> = ({ color }) => {
+
     return (
-        <div className="flex items-center gap-2" >
-            <img src={logo} width={60} alt="logo" />
-            <p className={`font-bold text-3xl ${color}`}>Oráculo</p>
+        <div className="flex w-full items-center gap-1" >
+            <img src={logo} className="md:w-16 md:h-16 w-12 h-12 " alt="logo" />
+            <p className={`w-full font-bold md:text-3xl text-lg ${color}`}>Oráculo</p>
         </div>
     )
 }

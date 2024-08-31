@@ -1,5 +1,5 @@
-import AddEvent from "../pages/admin/addEvent";
-import Admin from "../pages/admin/admin";
+// import AddEvent from "../pages/admin/addEvent";
+// import Admin from "../pages/admin/admin";
 import Setting from "../pages/setting";
 
 const AdminRoute = {
@@ -7,11 +7,11 @@ const AdminRoute = {
     children: [
         {
             path: "/admin",
-            element: <Admin />
+            // element: <Admin />
         },
         {
             path: "/admin/addevent",
-            element: <AddEvent />
+            // element: <AddEvent />
         },
         {
             path: "/admin/setting",

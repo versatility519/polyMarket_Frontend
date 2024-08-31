@@ -65,20 +65,19 @@ const Markets = () => {
     return (
         <div className="h-screen bg-bgColor overflow-hidden-scrollbar overflow-y-auto">
             <TopNavbar />
-            <div className="dark:bg-darkBg mt-36">
+            <div className="mt-36">
                 <div className="px-4">
                     <div style={{ scrollbarWidth: 'none' }} className="overflow-x-auto ">
                         <div className="flex space-x-4 justify-between  ">
                             <TopEventCard text="2024 Election Forecast" btn_text="View" onClick={() => { }} className="flex-none bg-gradient-to-r from-blue-600 to-blue-200" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fopen-ai.png&w=256&q=75 " />
                             <TopEventCard text="U.S. Recession in 2024?" btn_text="Bet now" onClick={() => { }} className="flex-none bg-gradient-to-r from-indigo-600 to-indigo-300" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2FDeposit.png&w=256&q=75 " />
-                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75
- " />
+                            <TopEventCard text="2024 Presidential Election" btn_text="Bet now" onClick={() => { }} className="flex-none bg-gradient-to-r from-red-600 to-red-400" img_url=" https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhurricanes.png&w=256&q=75 " />
                             <TopEventCard text="Trade Elections" btn_text="Sign Up" onClick={() => { }} className="flex-none bg-gradient-to-r from-orange-500 to-orange-400" img_url="https://polymarket.com/_next/image?url=%2Fimages%2Ffeatured%2Fhottest-record.png&w=256&q=75 " />
                         </div>
                     </div>
                 </div>
                 {/* SubBar */}
-                <div className="z-20 sticky top-[132px] pt-3 bg-bgColor text-textColor mb-4 drop-shadow-sm">
+                <div className="z-20 sticky sm:top-[120px] top-[100px] pt-3 bg-bgColor text-textColor mb-4 drop-shadow-sm">
                     <div className="lg:flex sm:grid-cols-2 grid-cols-2 grid w-full lg:items-center px-3 gap-2">
                         <div className="hover:bg-searchHover lg:order-1 sm:order-3 order-3 p-2 border justify-center items-center gap-2 rounded-md flex cursor-pointer" onClick={() => { }}>
                             <ListFilter size={24} />
@@ -89,7 +88,7 @@ const Markets = () => {
                             <Search className=" " />
                             <input type="text" className="group-hover:bg-searchHover w-full py-1 bg-bgColor " placeholder="Search by markets" onChange={(e) => setSearchKey(e.target.value)} />
                         </div>
-                        <div className="w-full  lg:order-3 lg:w-[16vw] sm:w-full sm:order-4 order-4 h-full  justify-between flex items-center rounded-lg">
+                        <div className="w-full  lg:order-3 lg:w-[16vw] sm:w-full  sm:order-4 order-4 h-full  justify-between flex items-center rounded-lg">
                             <div className="relative w-full ">
                                 <div className="hover:bg-searchHover flex  justify-between gap-2 px-2 py-1 shadow-sm rounded-md  cursor-pointer border items-center bg-bgColor dark:hover:bg-gray-600" onClick={toggleDropdown}>
                                     <div className="flex px-1 gap-2 items-center">
@@ -148,19 +147,26 @@ const Markets = () => {
                 {/* Events */}
 
                 <div className="mt-4 px-3 grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4">
+
                     {eventData
-                        .filter((key) => key.eventName?.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
-                        // .filter((key) => key.category.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
-                        .map((key, index) => (
+                        .filter((key) => key.title?.toLowerCase().includes(searchKey.toLowerCase())) // Filter by searchKey
+                        // .filter((key) => key.content.toLowerCase().includes(selectedButton.toLowerCase())) // Filter by selectedButton
+                        .map((item, index) => (
+
                             <EventCard
-                                tid={key._id}
+                                tid={item.id}
                                 key={index}
-                                startDate={key.startDate}
-                                endDate={key.endDate}
-                                img={key.avatar}
-                                state={1}
-                                eventName={key.eventName}
-                                volume={key.volume}
+                                title={item.title}
+                                description={item.description}
+                                volume={item.volume}
+                                // active={item.active}
+                                // closed={item.closed}
+                                // new={item.new}
+                                // liquidity={0}
+                                // commentCount={0}
+                                // startDate={item.startDate}
+                                // endDate={item.endDate}
+                                market={item.market}
                             />
                         ))
                     }

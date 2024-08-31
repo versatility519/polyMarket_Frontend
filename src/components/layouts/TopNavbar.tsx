@@ -119,7 +119,7 @@ const TopNavbar = () => {
             <Button text="Ranks" className="px-3 py-1 flex flex-col cursor-pointer rounded-md items-center text-gray-500  hover:text-selBtnHoverTextColor hover:bg-selBtnHoverColor" onClick={() => { navigate('/leaderboard') }} icon={<Trophy className="text-center" size={20} />} />
           </div>
 
-          <div className=" w-full px-5">
+          <div className=" w-full">
             {isLoggedIn ?
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -142,7 +142,7 @@ const TopNavbar = () => {
                   onMouseEnter={toggleMenu}
                   onMouseLeave={toggleMenu}>
 
-                  <Button className="w-14 hidden lg:flex border-gray-300 p-2 rounded-full  items-center text-gray-400" onClick={() => { navigate('/') }}>
+                  <Button className="w-14 hidden lg:flex border-gray-300 p-2 rounded-full  items-center text-gray-400"  >
                     <img className=" rounded-full" src="https://docs.material-tailwind.com/img/face-2.jpg" alt="" />
                   </Button>
 
@@ -176,14 +176,14 @@ const TopNavbar = () => {
                             Dark Mode
                           </p>
                           <div className="relative">
-                            <input type="checkbox" onClick={toggleTheme} checked={darkTheme} className="sr-only" />
+                            <input type="checkbox" onClick={toggleTheme} checked={darkTheme} defaultChecked={false} className="sr-only" />
                             <div
                               className={`box block h-6 w-10 rounded-full bg-darkMode `} />
                             <div
                               className={`absolute left-1 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-white transition ${darkTheme ? 'translate-x-full' : ''}`} />
                           </div>
-
-                        </div><hr />
+                        </div>
+                        <hr />
                         <Button onClick={() => handleLogout()} className="w-full font-medium cursor-pointer border-none flex gap-3 text-base py-2 hover:bg-selBtnHoverColor rounded-md  px-2 items-center text-nowrap" text="Log Out" />
                       </div>
                     </div>
@@ -191,7 +191,7 @@ const TopNavbar = () => {
                 </div >
               </div >
               :
-              <div className="  flex gap-1 items-center">
+              <div className=" flex gap-1 items-center">
                 <Button onClick={handleInClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-selBtnHoverColor items-centers flex tems-centertext-base text-btnColor text-nowrap" text="Log In" />
                 <Button onClick={handleUpClick} className="w-full font-medium cursor-pointer rounded-md px-4 py-2 hover:bg-btnHoverColor items-centers text-base bg-btnColor text-nowrap text-white" text="Sign Up" />
 
@@ -215,7 +215,7 @@ const TopNavbar = () => {
                           Dark Mode
                         </p>
                         <div className="relative">
-                          <input type="checkbox" onClick={toggleTheme} checked={darkTheme} className="sr-only" />
+                          <input type="checkbox" onClick={toggleTheme} checked={darkTheme} defaultChecked={false} className="sr-only" />
                           <div
                             className={`box block h-6 w-10 rounded-full bg-darkMode `} />
                           <div

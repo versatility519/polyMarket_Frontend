@@ -83,13 +83,13 @@ const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
                     {title === "Sign Up" ?
                         <div className=" flex flex-col gap-3 justify-between">
                             <div className="flex flex-row mt-2">
-                                <input type="text" name="text" className="py-2 pl-3 bg-bgColor border border-gray-300 rounded-lg w-[70%] hover:bg-selBtnHoverColor text-white" autoComplete='email' placeholder="User Name" onChange={(e) => setUserData({ ...userData, username: e.target.value })} />
+                                <input type="text" name="text" className="py-2 pl-3 bg-bgColor border border-gray-300 rounded-lg w-[70%] hover:bg-selBtnHoverColor text-textColor " autoComplete='email' placeholder="User Name" onChange={(e) => setUserData({ ...userData, username: e.target.value })} />
                                 <div className="ml-2 font-bold w-[30%] rounded-lg  text-1xl flex items-center justify-center cursor-pointer  bg-gray-400 text-textColor" onClick={() => handleClick()}>Continue</div>
                             </div>
                             <div className="flex  gap-2 flex-row justify-between ">
-                                <input type="email" name="email" className="w-full  bg-bgColor text-white hover:bg-selBtnHoverColo  pl-3 border rounded-lg py-2" placeholder="Email Name" onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
+                                <input type="email" name="email" className="w-full  bg-bgColor text-textColor hover:bg-selBtnHoverColo  pl-3 border rounded-lg py-2" placeholder="Email Name" onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
                             </div>
-                            <input type="password" className="pl-3 border border-gray-300 rounded-lg bg-bgColor text-white  hover:bg-selBtnHoverColor py-2" placeholder="Password" onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
+                            <input type="password" className="pl-3 border border-gray-300 rounded-lg bg-bgColortext-textColor hover:bg-selBtnHoverColor py-2" placeholder="Password" onChange={(e) => setUserData({ ...userData, password: e.target.value })} />
                         </div>
                         :
                         <div>

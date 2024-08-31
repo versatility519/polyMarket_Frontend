@@ -3,16 +3,17 @@ import SocialLink from "./SocialLink";
 
 const Footer = () => {
     return (
-            <div className="bg-footerBg flex w-full flex-col mt-16 border-t  text-white">
-                <div className="border-b md:flex lg:flex-none mt-10 px-4 py-5 justify-between text-1xl h-[400px]"  >
-                    <div className=" ">
-                        <Logo />
-                        <h1>The world's largest prediction market.</h1>
-                    </div>
+        <div className="bg-footerBg flex w-full flex-col mt-16 border-t px-2  text-white">
+            <div className=" border-b mt-4 px-4 py-5  justify-between lg:flex flex-none "  >
+                <div className="flex flex-col gap-3 ">
+                    <Logo />
+                    <h1>The world's largest prediction market.</h1>
+                </div>
 
-                    <div className="flex ">
-                        <div className="flex flex-col text-1xl gap-2 ">
-                            <p className="text-2xl font-bold">Markets</p>
+                <div className=" lg:flex sm:flex gap-12 sm:py-8 py-8">
+                    <div className="flex space-x-16 pb-8">
+                        <div className="flex flex-col gap-2 ">
+                            <p className="text-xl font-bold">Markets</p>
                             <p>Politics </p>
                             <p>Crypto </p>
                             <p>Sports </p>
@@ -22,31 +23,31 @@ const Footer = () => {
                             <p>Science </p>
                             <p>All </p>
                         </div>
-                        <div className="flex flex-col text-1xl gap-2 ml-20">
-                            <p className="text-2xl font-bold">Resources</p>
+                        <div className="flex flex-col gap-2">
+                            <p className="text-xl font-bold">Resources</p>
                             <p>Contact </p>
                             <p>Learn </p>
                             <p>Developers </p>
                             <p>Blog </p>
-
-                        </div>
-                        <div className="flex flex-col text-1xl gap-2 ml-20">
-                            <p className="text-2xl font-bold">Join the community</p>
-                            <SocialLink border={false} />
                         </div>
                     </div>
-                </div>
-
-                <div className=" flex items-center pt-8 justify-between px-4">
-                    <div className="">
-                        <h1>Adventure One QSS Inc. © 2024</h1>
-                    </div>
-                    <div className="flex gap-4">
-                        <p>Privacy Policy</p>
-                        <p>Terms of Service</p>
+                    <div className="flex flex-col gap-2 ">
+                        <p className="text-xl font-bold">Join the community</p>
+                        <SocialLink border={false} />
                     </div>
                 </div>
             </div>
+
+            <div className="sm:flex items-center  py-6 justify-between px-4">
+                <div className="">
+                    <h1>© 2024 Oráculo. All rights reserved</h1>
+                </div>
+                <div className="flex gap-4">
+                    <p>Privacy Policy</p>
+                    <p>Terms of Service</p>
+                </div>
+            </div>
+        </div>
     );
 }
 

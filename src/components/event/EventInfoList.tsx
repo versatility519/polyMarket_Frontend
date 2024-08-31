@@ -36,7 +36,7 @@ const EventInfoList = () => {
     ];
     return (
         <div className="w-full">
-            <div className="flex gap-4 border-b">
+            <div className="flex gap-4 overflow-x-scroll border-b" style={{scrollbarWidth:'none'}}>
                 {data.map((item, index) => (
                     <Button
                         key={index}
