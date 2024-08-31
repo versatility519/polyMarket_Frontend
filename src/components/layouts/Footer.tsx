@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="sm:flex items-center mb-20 pt-8 justify-between px-4">
+            <div className="sm:flex items-center  py-6 justify-between px-4">
                 <div className="">
                     <h1>© 2024 Oráculo. All rights reserved</h1>
                 </div>

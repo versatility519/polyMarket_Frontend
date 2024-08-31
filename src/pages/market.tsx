@@ -77,7 +77,7 @@ const Markets = () => {
                     </div>
                 </div>
                 {/* SubBar */}
-                <div className="z-20 sticky top-[132px] pt-3 bg-bgColor text-textColor mb-4 drop-shadow-sm">
+                <div className="z-20 sticky sm:top-[120px] top-[100px] pt-3 bg-bgColor text-textColor mb-4 drop-shadow-sm">
                     <div className="lg:flex sm:grid-cols-2 grid-cols-2 grid w-full lg:items-center px-3 gap-2">
                         <div className="hover:bg-searchHover lg:order-1 sm:order-3 order-3 p-2 border justify-center items-center gap-2 rounded-md flex cursor-pointer" onClick={() => { }}>
                             <ListFilter size={24} />

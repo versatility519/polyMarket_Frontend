@@ -8,5 +8,4 @@ export interface RankItemProps {
 
 export interface ActivityListItemProps {
     text?:string,
-    
 }
