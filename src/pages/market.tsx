@@ -157,6 +157,7 @@ const Markets = () => {
                                 tid={item.id}
                                 key={index}
                                 title={item.title}
+                                icon={item.icon}
                                 description={item.description}
                                 volume={item.volume}
                                 // active={item.active}

@@ -41,6 +41,7 @@ export interface EventProps {
     description?: string,
     volume?: number,
     image?: string,
+    icon?: string,
     active?: boolean,
     closed?: boolean,
     new?: boolean | undefined,

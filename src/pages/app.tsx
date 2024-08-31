@@ -80,6 +80,7 @@ const App = () => {
                                     tid={item.id}
                                     key={index}
                                     title={item.title}
+                                    image={item.icon}
                                     description={item.description}
                                     volume={item.volume}
                                     // active={item.active}
