@@ -52,8 +52,8 @@ const CommentListItem = () => {
                 />
             </div>
 
-            <div className="flex bg-cardBg border text-textColor items-center text-lg font-semibold gap-2 rounded-md p-4 justify-center">
-                <Shield size={32} />
+            <div className="flex bg-selectBtnBg text-textColor items-center text-lg font-semibold gap-2 rounded-md p-3 justify-center">
+                <Shield size={28} />
                 <p className="text-base font-semibold">Beware of external links, they may be phishing attacks.</p>
             </div>
 
