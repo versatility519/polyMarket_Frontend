@@ -9,7 +9,7 @@ const RelatedListItem: React.FC = () => {
         setConvertBgColor(!convertBgColor);
     }
     return (
-        <div className="md:px-2 sm:px-4 flex gap-4 border-b-2 w-full border-gray-100">
+        <div className="md:px-2 flex gap-4 border-b-2 w-full border-gray-100">
             <div className="w-full">
                 <div className="divide-y divide-gray-200">
                     {customers.map(({ eventName, avatar, yes, no }, index) => (
@@ -18,7 +18,7 @@ const RelatedListItem: React.FC = () => {
                             className="flex hover:bg-selBtnHoverColor items-center w-full justify-between pb-3 pt-3 last:pb-0"
                         >
                             <div className="w-full">
-                                <div className="flex  items-start gap-1 ">
+                                <div className="flex items-start gap-1 ">
                                     <img width={44} className="rounded-md" src={avatar} alt={eventName} />
                                     <div className=" flex w-full justify-between">
                                         <div className="flex text-textColor  text-start">

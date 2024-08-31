@@ -72,7 +72,7 @@ const EventInfo = () => {
   return (
     <div className="bg-bgColor h-screen overflow-hidden-scrollbar overflow-y-auto">
       <TopNavbar />
-      <div className="flex mt-36 justify-center px-2">
+      <div className="flex mt-36 justify-center px-4">
         {/* <div className="md:flex  flex flex-col w-[60rem] gap-4 "> */}
         <div className=" flex lg:w-[80rem] w-full gap-4">
           <div className=" lg:w-2/3 w-full ">
@@ -189,7 +189,7 @@ const EventInfo = () => {
                 {eventInfo?.market.map((item) =>
                   <div className="flex flex-col">
 
-                    <div key={item.id} onClick={() => toggleInfo(item.id as number)} className="  lg:flex  justify-between gap-8 p-2 items-center hover:bg-selBtnHoverColor hover:rounded-md cursor-pointer">
+                    <div key={item.id} onClick={() => toggleInfo(item.id as number)} className="  lg:flex  justify-between gap-8 py-2 items-center hover:bg-selBtnHoverColor hover:rounded-md cursor-pointer">
                       <div className="flex items-center justify-between w-full ">
 
                         <div className="flex  items-center gap-4">

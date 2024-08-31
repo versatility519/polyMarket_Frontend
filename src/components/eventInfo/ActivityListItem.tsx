@@ -10,7 +10,7 @@ const ActivityListItem: React.FC<ActivityListItemProps> = ({ text }) => {
     const [, setMenuNum] = React.useState < number | string > ('Amount');
     const navigate = useNavigate();
     return (
-        <div className="mt-4 gap-4 px-3">
+        <div className="mt-4 gap-4">
             <div className="flex mb-4 items-center justify-between">
                 <p className="flex items-center text-2xl font-medium text-textWhiteColor">{text} Activity</p>
                 {text ?

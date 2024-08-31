@@ -55,13 +55,13 @@ const EventCard: React.FC<EventProps> = ({ tid, volume, title, image, market }) 
                         <div className="flex gap-4 ">
                             <img className="w-[50px] h-[50px] rounded-md" src={image} alt="evetnImage" />
                             {/* <p className="line-clamp-2 cursor-pointer text-gray-700 text-sm font-bold " onClick={() => { navigate(`/event`) }}> */}
-                            <p className="line-clamp-2 cursor-pointer  text-sm font-bold hover:underline " onClick={() => { navigate(`/event/${convertSpacesToHyphens(title as string)}tid=${tid}`) }}>
+                            <p className="line-clamp-2 cursor-pointer  text-sm font-bold hover:underline " onClick={() => { navigate(`/event/${convertSpacesToHyphens(title as string)}?tid=${tid}`) }}>
                                 {title}
                             </p>
                         </div>
                         {market.length == 1 &&
                             <div className=" flex flex-col cursor-default text-center ">
-                                <SemiCircleProgressBar percentage={43} strokeWidth={5} showPercentValue diameter={70} stroke={getStrokeColor(34)} />
+                                <SemiCircleProgressBar percentage={68} strokeWidth={5} showPercentValue diameter={70} stroke={getStrokeColor(34)} />
                                 <p className="text-sm">Chance</p>
                             </div>
                         }
@@ -87,8 +87,8 @@ const EventCard: React.FC<EventProps> = ({ tid, volume, title, image, market }) 
                         :
                         <div className="text-textColor flex flex-col justify-between h-[88px] overflow-y-auto" style={{ scrollbarWidth: 'none' }}>
                             {market.map((item, index) =>
-                                <div key={index} className="flex flex-row items-center justify-between py-0.5">
-                                    <div className="flex cursor-pointer" onClick={() => { }}> {item.groupItemTitle} </div>
+                                <div key={index} className="flex flex-row justify-between py-0.5">
+                                    <p className="flex cursor-pointer " onClick={() => { }}> {item.groupItemTitle} </p>
                                     <div className="flex items-center gap-4">
                                         {item.outcomePrice?.[0]}%
                                         <div className="grid grid-cols-2 w-full gap-1 items-center">
