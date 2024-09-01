@@ -275,20 +275,18 @@ const EventInfo = () => {
         </div >
       </div >
 
-      <div className="px-4 flex sm:flex lg:hidden visible fixed z-50 w-full bottom-[78px]">
+      <div className="px-2 flex sm:flex lg:hidden visible fixed z-50 w-full bottom-[84px]">
         <YesNoBtn />
-        <div className='md:flex lg:hidden flex w-10'>
-          <Button onClick={() => { toggleFooterMore() }} className={`lg:hidden sm:flex w-12 text-md font-semibold text-nowrap rounded-md  py-3 bg-gray-200 p-4  `} icon={<Ellipsis />}></Button>
-          {moreOpen === true && (
-            <div className='absolute right-0 border bottom-12 flex flex-col text-start w-44 bg-white z-20 mb-2 rounded-md px-2' ref={ref}>
-              <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Merge Shares'></Button>
-              <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Split Shares'></Button>
-              <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Remove Liquidity(AMM)'></Button>
-              <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Buy Shares'></Button>
-              <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Sell Shares'></Button>
-            </div>
-          )}
-        </div>
+        <Button onClick={() => { toggleFooterMore() }} className={`lg:hidden sm:flex w-12 text-md font-semibold text-nowrap rounded-md  py-3 bg-bgColor text-textColor px-4  `} icon={<Ellipsis />}></Button>
+        {moreOpen === true && (
+          <div className='absolute right-2 border bottom-12 flex flex-col text-start w-44 bg-cardBg text-textWhiteColor z-20 mb-2 rounded-md px-2' ref={ref}>
+            <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Merge Shares'></Button>
+            <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Split Shares'></Button>
+            <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Remove Liquidity(AMM)'></Button>
+            <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Buy Shares'></Button>
+            <Button className={`w-full text-sm font-semibold text-nowrap rounded-md  py-2 `} text='Sell Shares'></Button>
+          </div>
+        )}
       </div>
 
       <MobileFooter />
