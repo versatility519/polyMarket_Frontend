@@ -51,7 +51,7 @@ const EventCard: React.FC<EventProps> = ({ tid, volume, title, image, market }) 
             <div className="bg-cardBg hover:bg-cardHoverBg w-full text-textColor h-[180px] overflow-hidden rounded-md shadow-[0_2px_12px_1px_rgba(0,0,0,0.1)] px-2  hover:shadow-md">
                 <Betting isOpen={isModalOpen} onClose={closeModal} which={which} img={image} text={title} />
                 <div className="px-1 py-2">
-                    <div className="flex px-2 justify-between items-center">
+                    <div className="flex  justify-between items-center">
                         <div className="flex gap-4 ">
                             <img className="w-[50px] h-[50px] rounded-md" src={image} alt="evetnImage" />
                             {/* <p className="line-clamp-2 cursor-pointer text-gray-700 text-sm font-bold " onClick={() => { navigate(`/event`) }}> */}
@@ -69,7 +69,7 @@ const EventCard: React.FC<EventProps> = ({ tid, volume, title, image, market }) 
                     {market.length == 1
                         ?
                         <div className="flex justify-between h-[88px] items-end gap-2">
-                            <div className="grid grid-cols-2 w-full gap-2 px-1 text-xs">
+                            <div className="grid grid-cols-2 w-full gap-2 text-xs">
                                 <Button
                                     text="Bet Yes"
                                     icon={<ChevronsUp />}

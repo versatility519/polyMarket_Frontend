@@ -5,8 +5,9 @@ import useAuth from "../../hooks/useAuth";
 import SignInModal from "../SignInModal";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
-import { AlignJustify, ChartLine, Grid3X3, House, Radio, Search, Settings, X } from "lucide-react";
+import { AlignJustify, ChartLine, House, Radio, Search, Settings, X } from "lucide-react";
 import SocialLink from "./SocialLink";
+import { MarketsIcon } from "../icons";
 
 const MobileFooter = () => {
     const navigate = useNavigate();
@@ -126,7 +127,7 @@ const MobileFooter = () => {
             {/* Main Footer Buttons */}
             <div className="flex justify-around w-full">
                 <Button icon={<House size={18} />} text="Home" onClick={() => navigate(`/`)} className="flex flex-col p-2 hover:text-textWhiteColor items-center text-gray-500" />
-                <Button icon={<Grid3X3 size={18} />} text="Markets" onClick={() => navigate(`/markets`)} className="flex flex-col p-2 hover:text-textWhiteColor items-center text-gray-500" />
+                <Button icon={<MarketsIcon />} text="Markets" onClick={() => navigate(`/markets`)} className="flex flex-col p-2 hover:text-textWhiteColor items-center text-gray-500" />
                 <Button icon={<Search size={18} />} text="Search" onClick={() => navigate(`/`)} className="flex flex-col p-2 hover:text-textWhiteColor items-center text-gray-500" />
 
                 <Button onClick={() => navigate(`/activity`)} className="flex flex-col p-2 hover:text-textWhiteColor items-center text-gray-500"
