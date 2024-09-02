@@ -102,11 +102,11 @@ const App = () => {
                     </div>
 
                     <div className=" lg:flex w-full gap-8  ">
-                        <div className="w-full shadow-md">
+                        <div className="w-full shadow-md px-3">
                             <ActivityListItem text="Recent" />
                         </div>
 
-                        <div className="w-full  shadow-md px-3">
+                        <div className="w-full shadow-md px-3">
                             <div className="flex items-center justify-between">
                                 <p className="text-textColor flex items-center py-4 text-2xl font-medium">Top Volume This Week</p>
                                 <Button onClick={() => { navigate('/leaderboard') }} text="See all" className="rounded-md items-center text-nowrap px-2 py-1 border font-semibold text-textColor border-gray-500  hover:bg-cardHoverBg" />

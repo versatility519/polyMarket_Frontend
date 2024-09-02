@@ -1,7 +1,8 @@
 import React from "react";
 import useTheme from "../../hooks/useTheme"
 import Button from "../Button/Button";
-import { Activity, Bell, SearchIcon, AlignJustify, Flag, Trophy, Grid3X3 } from "lucide-react";
+import { Activity, Bell, SearchIcon, AlignJustify, Flag, Trophy } from "lucide-react";
+import { MarketsIcon } from "../icons";
 import { content } from "../../contents/landing";
 import SignInModal from "../SignInModal";
 import { dispatch, useSelector } from "../../store";
@@ -104,7 +105,7 @@ const TopNavbar = () => {
               <Button
                 onClick={() => { navigate('/markets') }} text="Markets"
                 className="justify-center flex flex-col cursor-pointer px-2 py-1 rounded-md items-center text-gray-500 hover:text-selBtnHoverTextColor hover:bg-selBtnHoverColor"
-                icon={<Grid3X3 className="text-center" size={20} />}
+                icon={<MarketsIcon className="text-center" size={18} />}
               />
 
               {isMarketOpen && (
