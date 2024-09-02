@@ -17,7 +17,7 @@ const RelatedListItem: React.FC = () => {
                             key={index}
                             className="flex hover:bg-selBtnHoverColor items-center w-full justify-between pb-3 pt-3 last:pb-0"
                         >
-                            <div className="w-full">
+                            <div className="w-full ">
                                 <div className="flex items-start gap-1 ">
                                     <img width={44} className="rounded-md" src={avatar} alt={eventName} />
                                     <div className=" flex w-full justify-between">
