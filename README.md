@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 Hello
   <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="30px">
- , I'm Veteran.
+ , I'm @versatility519.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

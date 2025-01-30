@@ -105,6 +105,7 @@ const SignInModal = ({ isOpen, onClose, title, connect }: ModalProps) => {
                     </div>
 
                     <div className="text-textColor bg-cardBg flex gap-5 items-center w-full px-2 cursor-pointer font-bold py-3 rounded-md shadow-md">
+                        
                         <img src="https://1000logos.net/wp-content/uploads/2022/05/WalletConnect-Logo-500x281.png" width={36} height={48} alt="" className="my-1" /> Wallet Connect
                     </div>
                     <p className="border-b-2  text-textColor text-center text-1xl mt-5"> Privacy Terms</p>
