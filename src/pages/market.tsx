@@ -15,8 +15,6 @@ import EventCard from "../components/event/EventCard";
 // import { event } from "../contents/event";
 import { content } from "../contents/landing";
 
-
-
 const options = [
     { value: 'trading', label: 'Trading', icon: <TrendingUp /> },
     { value: 'liquidity', label: 'Liquidity', icon: <Droplet /> },
