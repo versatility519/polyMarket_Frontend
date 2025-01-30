@@ -6,7 +6,7 @@ const Election = () => {
             <TopNavbar />
             <div className="flex mt-36 justify-center p-4 space-x-4">
                 <p className="text-textColor">
-                    Hi, here is Election Page.
+                    Hi, This page is Election Page.
                 </p>
             </div>
             <MobileFooter />
